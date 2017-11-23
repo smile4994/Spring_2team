@@ -61,6 +61,7 @@
 						<li class=" menu__item"><a class="menu__link" href="gallery.jsp">Gallery</a></li>
 						<li class=" menu__item"><a class="menu__link" href="codes.jsp">Short Codes</a></li>
 						<li class=" menu__item"><a class="menu__link" href="contact.jsp">contact</a></li>
+						<li class=" menu__item"><a class="menu__link" href="jys.jsp">Á¤¿ë¼¼</a></li>
 					  </ul>
 					</div>
 				  </div>
