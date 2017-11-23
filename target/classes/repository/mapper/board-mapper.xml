@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="repository.mapper.BoardMapper">
+	<select id="selectList" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,
+		WRITER, DATE,COUNT
+		FROM PBOARD
+		ORDER BY REF DESC, STEP ASC
+	</select>
+
+	<select id="select" resultMap="boardResultMap">
+		SELECT * FROM PBOARD WHERE
+		BOARD_NUM = #{boardNum}
+	</select>
+
+	<select id="checkSelect" resultType="int">
+		SELECT IFNULL(MIN(STEP),0) FROM PBOARD WHERE REF = #{ref} AND STEP >
+		#{step} and indent <![CDATA[ <= ]]>
+		#{indent}
+	</select>
+
+	<select id="maxStep" resultType="int">
+		select max(STEP)+1 from PBOARD
+		where REF = #{ref}
+	</select>
+
+	<insert id="insert" parameterType="BoardVO" useGeneratedKeys="true"
+		keyProperty="boardNum">
+		INSERT INTO PBOARD(TITLE,CONTENTS,WRITER,DATE)
+		VALUES(#{title}, #{contents}, #{writer}, #{date})
+	</insert>
+
+	<insert id="insertReple" parameterType="BoardVO">
+		insert into
+		PBOARD(title,contents,writer,date,REF,indent,step)
+		values(#{title},#{contents},#{writer}, #{date},
+		#{ref},#{indent}+1,#{step})
+	</insert>
+	
+	<update id="update" parameterType="BoardVO">
+		UPDATE PBOARD SET
+		TITLE=#{title}, CONTENTS=#{contents}, DATE=#{date} WHERE BOARD_NUM = #{boardNum}
+	
+	</update>
+
+	<update id="updateRef" parameterType="int">
+		UPDATE PBOARD SET
+		REF=#{boardNum} where board_num=#{boardNum}
+	</update>
+
+	<update id="updateStep" parameterType="BoardVO">
+		update PBOARD set STEP = STEP + 1 
+		where REF = #{ref} and STEP >= #{step}
+	</update>
+	
+	<update id="updateCount" parameterType="int">
+		UPDATE PBOARD SET COUNT = COUNT+1 WHERE BOARD_NUM = #{boardNum}
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM PBOARD WHERE REF=#{ref}
+	</delete>
+	
+	<delete id="deleteReple">
+		DELETE FROM PBOARD WHERE STEP <![CDATA[ < ]]> ${minStep} and STEP >= ${step}
+	</delete>
+	
+	
+
+	<resultMap type="BoardVO" id="boardResultMap">
+		<result property="boardNum" column="board_num" />
+		<result property="title" column="TITLE" />
+		<result property="contents" column="contents" />
+		<result property="writer" column="writer" />
+		<result property="date" column="date" />
+		<result property="count" column="count" />
+		<result property="ref" column="ref" />
+		<result property="indent" column="indent" />
+		<result property="step" column="step" />
+	</resultMap>
+</mapper>
