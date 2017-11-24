@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
 <title>Insert title here</title>
@@ -22,6 +23,12 @@
 			type="hidden" name="step" value="${board.step}">
 		<table border="1">
 			<tr>
+				<td>카테고리 :</td>
+				<td><input type="text" name="kategorie" size="20"
+					value="${board.kategorie}" readonly="readonly"></td>
+			</tr>
+
+			<tr>
 				<td>글번호 :</td>
 				<td><input type="text" name="boardNum" size="20"
 					value="${board.boardNum}" readonly="readonly"></td>
@@ -41,15 +48,16 @@
 			</tr>
 			<tr>
 				<td>작성일시 :</td>
-				<td>${board.date}</td>
+				<td><fmt:formatDate value="${board.date}" type="both"
+						dateStyle="short" timeStyle="short" /></td>
 			</tr>
 
 
 			<c:if test="${board.boardImg ne 'noImg'}">
 				<tr>
 					<td>이미지 파일 :</td>
-					<td><img width="100" height="70" src="${board.boardImg}">
-					</td>
+					<td><img width="100" height="70" src="${board.boardImg}"
+						alt="이미지형식이 맞지 않습니다"></td>
 				</tr>
 			</c:if>
 
@@ -64,12 +72,13 @@
 		</table>
 	</form>
 
-	<a href="board.do">[목록]</a>
-
-	<c:if test="${sessionScope.loginId == board.writer}">
-		<a href="updateForm.do?boardNum=${board.boardNum}">[수정]</a>
-		<a onclick="del_func()" href="#">[삭제]</a>
-	</c:if>
+	<div id="selectBtn">
+		<a href="board.do">[목록]</a>
+		<c:if test="${sessionScope.loginId == board.writer}">
+			<a href="updateForm.do?boardNum=${board.boardNum}">[수정]</a>
+			<a onclick="del_func()" href="#">[삭제]</a>
+		</c:if>
+	</div>
 
 
 </body>

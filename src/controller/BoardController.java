@@ -23,7 +23,9 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
-	@RequestMapping("/board.do")
+	
+	
+	@RequestMapping(value="/board.do")
 	public ModelAndView board
 	(@RequestParam(defaultValue = "0")String searchType, @RequestParam(defaultValue = "0")String searchWrite) {
 		ModelAndView mv = new ModelAndView();

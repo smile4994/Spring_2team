@@ -21,6 +21,8 @@ public interface BoardMapper {
 	public List<BoardVO> selectTitle(String title);
 	//(2)작성자
 	public List<BoardVO> selectWriter(String writer);
+	//(3)카테고리
+	public List<BoardVO> selectKategorie(String kategorie);
 	
 	
 	

@@ -16,7 +16,14 @@ public class BoardVO {
 	private int step;
 	private String boardImg;
 	private MultipartFile img;
+	private String kategorie;
 	
+	public String getKategorie() {
+		return kategorie;
+	}
+	public void setKategorie(String kategorie) {
+		this.kategorie = kategorie;
+	}
 	public String getBoardImg() {
 		return boardImg;
 	}

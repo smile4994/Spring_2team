@@ -12,6 +12,11 @@
 		<input type="hidden" name="boardImg" value="${board.boardImg}">
 		<table>
 			<tr>
+				<td>카테고리 :</td>
+				<td><input type="text" name="kategorie" size="20"
+					value="${board.kategorie}" readonly="readonly"></td>
+			</tr>
+			<tr>
 				<td>글번호 :</td>
 				<td><input type="text" name="boardNum" size="20"
 					value="${board.boardNum}" readonly="readonly"></td>

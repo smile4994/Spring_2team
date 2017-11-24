@@ -10,7 +10,7 @@
 		var file = f.files;
 		if (file[0].type.indexOf('image') < 0) { // 선택한 파일이 이미지인지 확인
 			alert('이미지 파일만 선택하세요');
-			return;
+			return false;
 		}
 		var reader = new FileReader(); // FileReader 객체 사용
 		reader.onload = function(rst) {
@@ -23,35 +23,37 @@
 		reader.readAsDataURL(file[0]); // 파일을 읽는다
 	}
 
-	function go_submit()
-	{
+	function go_submit() {
 		var str = document.submit.title.value;
-		if(!document.submit.title.value){
+		if (!document.submit.title.value) {
 			alert("제목를 입력하세요.");
 			document.submit.title.focus();
 			return false;
 		}
-		if(!document.submit.contents.value){
+		if (!document.submit.contents.value) {
 			alert("글 내용을 입력하세요.");
 			document.submit.title.focus();
 			return false;
 		}
-		for(var i=0; i<str.length; i++){
-			var a=str.substr(i,1);
-			if(a==" "){
-				alert("제목의 첫글자 공백을 허용하지 않습니다");
-				document.submit.title.focus();
-				return false;
-			}
+		var a = str.charAt(0);
+		if (a == " ") {
+			alert("제목의 첫글자 공백을 허용하지 않습니다");
+			document.submit.title.focus();
+			return false;
 		}
 		return true;
 	}
-	
 </script>
 </head>
 <body>
-	<form name="submit" onsubmit="return go_submit()"
-		action="write.do" method="post" enctype="multipart/form-data">
+	<form name="submit" onsubmit="return go_submit()" action="write.do"
+		method="post" enctype="multipart/form-data">
+		카테고리 : 
+		<select name="kategorie" style="width:100px;height:20px;">
+			<option value="문의" selected="selected">문의</option>
+			<option value="분양">분양</option>
+			<option value="분실">분실</option>
+		</select>
 		<table border="1">
 			<tr>
 				<td>제목 :</td>

@@ -5,22 +5,26 @@
 <html>
 <head>
 <title>게시판 목록</title>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-	$(function(){
-		$('#searchBnt').click(function() {
-			alert("검색버튼눌렀다");
-			var searchType = $('select[name=searchType]').val();
-			var searchWrite = $('input[name=searchWrite]').val();
-			alert(searchType);
-			alert(searchWrite);
-			location.href="board.do?searchType="+searchType+"&searchWrite="+searchWrite;
-		})	
-	})
-
-</script>
+// 	$(function(){
+// 		$('#searchBnt').click(function() {
+// 			alert("검색버튼눌렀다");
+// 			var searchType = $('select[name=searchType]').val();
+// 			var searchWrite = $('input[name=searchWrite]').val();
+// 			alert(searchType);
+// 			alert(searchWrite);
+// 			location.href="board.do?searchType="+searchType+"&searchWrite="+searchWrite;
+// 		})	
+// 	})
+ </script>
+ 
+ 
 </head>
 <body>
+
+<form action="board.do" method="post">
 	<table border="1">
 		<tr>
 			<th>글번호</th>
@@ -30,11 +34,10 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
-
 		<c:forEach items="${boardList}" var="boardList">
 			<tr>
 				<td>${boardList.boardNum}</td>
-				<td>카테고리</td>
+				<td>${boardList.kategorie}</td>
 				<td><a href="read.do?boardNum=${boardList.boardNum}">${boardList.title}</a>
 				</td>
 				<td>${boardList.writer}</td>
@@ -44,13 +47,12 @@
 			</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="6" align="right"><a href="logout.do"><button>[로그아웃]</button></a>
-				<a href="writeForm.do"><button>[글쓰기]</button></a></td>
+			<td colspan="6" align="right"><a href="logout.do">[로그아웃]</a>
+				<a href="writeForm.do">[글쓰기]</a></td>
 		</tr>
 	</table>
 	
 	<br>
-
 	<div id="search">
 		<select name="searchType">
 			<option value="1" selected="selected">제목</option>
@@ -59,8 +61,13 @@
 		</select>
 		
 		<input type="text" name="searchWrite" size="40">
-		<button id="searchBnt">검색</button>
+		<input type="submit" value="검색">
+		
+		<input type="hidden" id="searchType">
+		<input type="hidden" id="searchWrite">
+<!-- 		<button id="searchBnt">검색</button> -->
 	</div>
+</form>
 
 </body>
 </html>

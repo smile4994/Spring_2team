@@ -29,7 +29,7 @@ public class BoardService {
 			return boardList;
 		}else if(searchType.equals("3")){
 //			System.out.println("svBoardList 3번실행");
-			List<BoardVO> boardList = dao.selectList();
+			List<BoardVO> boardList = dao.selectKategorie(searchWrite);
 			return boardList;
 		}else {
 //			System.out.println("svBoardList 0번실행");

@@ -29,6 +29,12 @@ public class BoardDao {
 		return mapper.selectWriter(writer);
 	}
 	
+	public List<BoardVO> selectKategorie(String kategorie){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectKategorie(kategorie);
+	}
+	
+	
 	public int insert(BoardVO board) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.insert(board);
