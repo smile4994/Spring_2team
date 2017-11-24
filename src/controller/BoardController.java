@@ -1,13 +1,18 @@
 package controller;
 
 import java.awt.BorderLayout;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.BoardService;
@@ -19,9 +24,13 @@ public class BoardController {
 	private BoardService service;
 	
 	@RequestMapping("/board.do")
-	public ModelAndView board() {
+	public ModelAndView board
+	(@RequestParam(defaultValue = "0")String searchType, @RequestParam(defaultValue = "0")String searchWrite) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("boardList", service.svBoardList());
+		System.out.println("searchType값 : "+searchType);
+		System.out.println("searchWrite값 : "+searchWrite);
+		
+		mv.addObject("boardList", service.svBoardList(searchType,searchWrite));
 		mv.setViewName("board_list");
 		return mv;
 	}
@@ -31,9 +40,45 @@ public class BoardController {
 		return "write_form";
 	}
 	
+//	@RequestMapping(value="/write.do", method=RequestMethod.POST)
+//	public String write(BoardVO board, HttpSession session) {
+//		String loginId = (String)session.getAttribute("loginId");
+//		if(loginId!=null && loginId.length()>0) {
+//			service.svInsert(board, loginId);
+//			return "write_result";
+//		}else {
+//			return "no_login";
+//		}
+//	}
+	
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
-	public String write(BoardVO board, HttpSession session) {
+	public String write(BoardVO board, HttpSession session, HttpServletRequest req) {
 		String loginId = (String)session.getAttribute("loginId");
+		String uploadPath = req.getServletContext().getRealPath("img");
+		File dir =new File(uploadPath);
+		
+		if(!dir.exists()) {
+			dir.mkdir();
+		}
+		String savedName = new Random().nextInt(100) + board.getImg().getOriginalFilename();
+		File savedFile =new File(uploadPath+ "/" +savedName);
+		
+		try {
+			board.getImg().transferTo(savedFile);
+			System.out.println("---------------");
+			System.out.println("업로드 완료");
+			System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
+			System.out.println("이걸 따라써야한다 : img/"+savedName);
+			System.out.println("---------------");
+			
+			savedName = "img/"+savedName;
+			board.setBoardImg(savedName);
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 		if(loginId!=null && loginId.length()>0) {
 			service.svInsert(board, loginId);
 			return "write_result";
@@ -42,13 +87,14 @@ public class BoardController {
 		}
 	}
 	
+	
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		String loginId = (String)session.getAttribute("loginId");
 		service.svUpdateCount(boardNum, loginId);
 		BoardVO board = service.svSelect(boardNum);
-		
+		System.out.println("read할떄 img 는 " +board.getBoardImg());
 		mv.addObject("board",board);
 		mv.setViewName("read");
 		return mv;

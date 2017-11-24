@@ -8,6 +8,27 @@
 		ORDER BY REF DESC, STEP ASC
 	</select>
 
+	<select id="selectTitle" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,
+		WRITER, DATE,COUNT
+		FROM PBOARD WHERE TITLE LIKE CONCAT('%',#{title},'%')
+		ORDER BY REF DESC, STEP ASC 
+	</select>
+	
+	<select id="selectWriter" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,
+		WRITER, DATE,COUNT
+		FROM PBOARD WHERE WRITER LIKE CONCAT('%',#{writer},'%')
+		ORDER BY REF DESC, STEP ASC 
+	</select>
+	
+	
+
+
+
+
+
+
 	<select id="select" resultMap="boardResultMap">
 		SELECT * FROM PBOARD WHERE
 		BOARD_NUM = #{boardNum}
@@ -26,8 +47,8 @@
 
 	<insert id="insert" parameterType="BoardVO" useGeneratedKeys="true"
 		keyProperty="boardNum">
-		INSERT INTO PBOARD(TITLE,CONTENTS,WRITER,DATE)
-		VALUES(#{title}, #{contents}, #{writer}, #{date})
+		INSERT INTO PBOARD(TITLE,CONTENTS,BOARDIMG,WRITER,DATE)
+		VALUES(#{title}, #{contents}, #{boardImg},#{writer}, #{date})
 	</insert>
 
 	<insert id="insertReple" parameterType="BoardVO">
@@ -71,6 +92,7 @@
 		<result property="boardNum" column="board_num" />
 		<result property="title" column="TITLE" />
 		<result property="contents" column="contents" />
+		<result property="boardImg" column="boardImg" />
 		<result property="writer" column="writer" />
 		<result property="date" column="date" />
 		<result property="count" column="count" />

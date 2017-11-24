@@ -5,10 +5,10 @@
 <head>
 <title>Insert title here</title>
 <script type="text/javascript">
-	function del_func(){
+	function del_func() {
 		var result = confirm('정말 삭제하시겠습니까?');
-		if(result==true){
-			location.href="delete.do?boardNum=${board.boardNum}";
+		if (result == true) {
+			location.href = "delete.do?boardNum=${board.boardNum}";
 			return true;
 		}
 		return false;
@@ -37,6 +37,15 @@
 			<td>작성일시 :</td>
 			<td>${board.date}</td>
 		</tr>
+		
+		<c:if test="${board.boardImg != null}">
+			<tr>
+				<td>이미지 파일 :</td>
+				<td><img width="100" height="70" src="${board.boardImg}">
+				</td>
+			</tr>
+		</c:if>
+
 		<tr>
 			<td>내용 :</td>
 			<td>${board.contents}</td>
@@ -44,8 +53,8 @@
 	</table>
 
 	<a href="board.do">[목록]</a>
-	<a href="repleForm.do?boardNum=${board.boardNum}">[댓글]</a>	
-	
+	<a href="repleForm.do?boardNum=${board.boardNum}">[댓글]</a>
+
 	<c:if test="${sessionScope.loginId == board.writer}">
 		<a href="updateForm.do?boardNum=${board.boardNum}">[수정]</a>
 		<a onclick="del_func()" href="#">[삭제]</a>

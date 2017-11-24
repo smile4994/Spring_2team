@@ -2,6 +2,8 @@ package vo;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BoardVO {
 	private int boardNum;
 	private String title;
@@ -12,6 +14,21 @@ public class BoardVO {
 	private int ref;
 	private int indent;
 	private int step;
+	private String boardImg;
+	private MultipartFile img;
+	
+	public String getBoardImg() {
+		return boardImg;
+	}
+	public void setBoardImg(String boardImg) {
+		this.boardImg = boardImg;
+	}
+	public MultipartFile getImg() {
+		return img;
+	}
+	public void setImg(MultipartFile img) {
+		this.img = img;
+	}
 	public int getBoardNum() {
 		return boardNum;
 	}

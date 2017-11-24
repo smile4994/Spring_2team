@@ -19,6 +19,16 @@ public class BoardDao {
 		return mapper.selectList();
 	}
 	
+	public List<BoardVO> selectTitle(String title){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectTitle(title);
+	}
+	
+	public List<BoardVO> selectWriter(String writer){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectWriter(writer);
+	}
+	
 	public int insert(BoardVO board) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.insert(board);
