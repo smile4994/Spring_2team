@@ -56,7 +56,7 @@
 			<c:if test="${board.boardImg ne 'noImg'}">
 				<tr>
 					<td>이미지 파일 :</td>
-					<td><img width="100" height="70" src="${board.boardImg}"
+					<td><img width="200" height="140" src="${board.boardImg}"
 						alt="이미지형식이 맞지 않습니다"></td>
 				</tr>
 			</c:if>
