@@ -34,6 +34,13 @@
 			<th>작성일</th>
 			<th>조회수</th>
 		</tr>
+
+		<c:if test="${empty boardList}">
+			<tr>
+				<td colspan="6">작성된 게시글이 존재하지 않습니다.</td>
+			</tr>
+		</c:if>
+		
 		<c:forEach items="${boardList}" var="boardList">
 			<tr>
 				<td>${boardList.boardNum}</td>
