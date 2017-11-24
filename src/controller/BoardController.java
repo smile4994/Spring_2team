@@ -40,17 +40,6 @@ public class BoardController {
 		return "write_form";
 	}
 	
-//	@RequestMapping(value="/write.do", method=RequestMethod.POST)
-//	public String write(BoardVO board, HttpSession session) {
-//		String loginId = (String)session.getAttribute("loginId");
-//		if(loginId!=null && loginId.length()>0) {
-//			service.svInsert(board, loginId);
-//			return "write_result";
-//		}else {
-//			return "no_login";
-//		}
-//	}
-	
 	@RequestMapping(value="/write.do", method=RequestMethod.POST)
 	public String write(BoardVO board, HttpSession session, HttpServletRequest req) {
 		String loginId = (String)session.getAttribute("loginId");
@@ -65,13 +54,19 @@ public class BoardController {
 		
 		try {
 			board.getImg().transferTo(savedFile);
-			System.out.println("---------------");
-			System.out.println("업로드 완료");
-			System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-			System.out.println("이걸 따라써야한다 : img/"+savedName);
-			System.out.println("---------------");
+//			System.out.println("---------------");
+//			System.out.println("업로드 완료");
+//			System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
+//			System.out.println("이걸 따라써야한다 : img/"+savedName);
+//			System.out.println("---------------");
 			
 			savedName = "img/"+savedName;
+			
+			System.out.println("write.do에서 파일 오리지널 이름 : "+board.getImg().getOriginalFilename());
+			
+			if(board.getImg().getOriginalFilename().length()<3) {
+				savedName = "noImg";
+			}
 			board.setBoardImg(savedName);
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
@@ -91,19 +86,27 @@ public class BoardController {
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		System.out.println("read.do에서 첫번쨰 넘어오는 boardNum : " +boardNum);
+		
 		String loginId = (String)session.getAttribute("loginId");
 		service.svUpdateCount(boardNum, loginId);
+		
 		BoardVO board = service.svSelect(boardNum);
-		System.out.println("read할떄 img 는 " +board.getBoardImg());
 		mv.addObject("board",board);
+		
 		mv.setViewName("read");
 		return mv;
 	}
 	
-	@RequestMapping("/repleForm.do")
-	public ModelAndView repleForm(int boardNum, HttpSession session) {
+	@RequestMapping(value="/repleForm.do", method=RequestMethod.POST)
+	public ModelAndView repleForm(BoardVO board,HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		BoardVO board = service.svSelect(boardNum);
+		
+		//정말 하기싫은데 이미지 값을 얻어오기위해 사용한다 
+		BoardVO board2 = service.svSelect(board.getBoardNum());
+		board.setBoardImg(board2.getBoardImg());
+		///////////////////////////////////
+		
 		mv.addObject("board",board);
 		mv.setViewName("reple_form");
 		return mv;

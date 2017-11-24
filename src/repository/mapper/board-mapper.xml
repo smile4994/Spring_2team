@@ -51,12 +51,21 @@
 		VALUES(#{title}, #{contents}, #{boardImg},#{writer}, #{date})
 	</insert>
 
+
+
+
+
 	<insert id="insertReple" parameterType="BoardVO">
 		insert into
-		PBOARD(title,contents,writer,date,REF,indent,step)
-		values(#{title},#{contents},#{writer}, #{date},
+		PBOARD(title,contents,boardImg,writer,date,REF,indent,step)
+		values(#{title},#{contents},#{boardImg},#{writer}, #{date},
 		#{ref},#{indent}+1,#{step})
 	</insert>
+	
+	
+	
+	
+	
 	
 	<update id="update" parameterType="BoardVO">
 		UPDATE PBOARD SET

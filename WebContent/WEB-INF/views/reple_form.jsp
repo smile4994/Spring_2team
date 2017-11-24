@@ -9,6 +9,7 @@
 		<input type="hidden" name="ref" value="${board.ref}"> 
 		<input type="hidden" name="indent" value="${board.indent}">
 		<input type="hidden" name="step" value="${board.step}">
+		<input type="hidden" name="boardImg" value="${board.boardImg}">
 		<table>
 			<tr>
 				<td>±Û¹øÈ£ :</td>
