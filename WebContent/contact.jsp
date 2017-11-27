@@ -80,8 +80,9 @@ $(function() {
 	<%@include file="top.jsp"%>
 	<!-- 맵 -->
 
-		        위도:<span id="latitude"></span>
-		        경도:<span id="longitude"></span>
+	위도:
+	<span id="latitude"></span> 경도:
+	<span id="longitude"></span>
 	<!-- banner -->
 	<div class="map">
 		<div class="container">
@@ -109,6 +110,7 @@ $(function() {
 			    } else {
 			        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 			    }
+				 
 				
 				////////////////////
 				// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -127,9 +129,25 @@ $(function() {
 				// 장소 검색 객체를 생성합니다
 				var ps = new daum.maps.services.Places();
 				
+				// 주소-좌표 변환 객체를 생성합니다
+				var geocoder = new daum.maps.services.Geocoder();
+				
 
 				// 키워드로 장소를 검색합니다
-				ps.keywordSearch('동물병원', placesSearchCB); 
+				ps.keywordSearch('역삼 동물병원', placesSearchCB);
+				
+				////////////////////////////////////
+				
+				function searchAddrFromCoords(coords, callback) {
+    			// 좌표로 행정동 주소 정보를 요청합니다
+    				geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
+				}
+				function searchDetailAddrFromCoords(coords, callback) {
+				    // 좌표로 법정동 상세 주소 정보를 요청합니다
+				    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+				}
+				
+				/////////////////////////////////
 
 				// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 				function placesSearchCB (data, status, pagination) {
