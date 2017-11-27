@@ -129,7 +129,7 @@ $(function() {
 				
 
 				// 키워드로 장소를 검색합니다
-				ps.keywordSearch('역삼 동물병원', placesSearchCB); 
+				ps.keywordSearch('동물병원', placesSearchCB); 
 
 				// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 				function placesSearchCB (data, status, pagination) {
