@@ -2,11 +2,33 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="repository.mapper.BoardMapper">
 	<select id="selectList" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE, CONTENTS,
+		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
 		WRITER, DATE,COUNT
 		FROM PBOARD
 		ORDER BY REF DESC, STEP ASC
 	</select>
+
+	<select id="selectTitle" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		WRITER, DATE,COUNT
+		FROM PBOARD WHERE TITLE LIKE CONCAT('%',#{title},'%')
+		ORDER BY REF DESC, STEP ASC 
+	</select>
+	
+	<select id="selectWriter" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		WRITER, DATE,COUNT
+		FROM PBOARD WHERE WRITER LIKE CONCAT('%',#{writer},'%')
+		ORDER BY REF DESC, STEP ASC 
+	</select>
+	
+	<select id="selectKategorie" resultMap="boardResultMap">
+		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		WRITER, DATE,COUNT
+		FROM PBOARD WHERE KATEGORIE LIKE CONCAT('%',#{kategorie},'%')
+		ORDER BY REF DESC, STEP ASC 
+	</select>
+	
 
 	<select id="select" resultMap="boardResultMap">
 		SELECT * FROM PBOARD WHERE
@@ -26,14 +48,14 @@
 
 	<insert id="insert" parameterType="BoardVO" useGeneratedKeys="true"
 		keyProperty="boardNum">
-		INSERT INTO PBOARD(TITLE,CONTENTS,WRITER,DATE)
-		VALUES(#{title}, #{contents}, #{writer}, #{date})
+		INSERT INTO PBOARD(TITLE,CONTENTS,KATEGORIE,BOARDIMG,WRITER,DATE)
+		VALUES(#{title}, #{contents}, #{kategorie},#{boardImg},#{writer}, #{date})
 	</insert>
 
 	<insert id="insertReple" parameterType="BoardVO">
 		insert into
-		PBOARD(title,contents,writer,date,REF,indent,step)
-		values(#{title},#{contents},#{writer}, #{date},
+		PBOARD(title,contents,kategorie,boardImg,writer,date,REF,indent,step)
+		values(#{title},#{contents},#{kategorie},#{boardImg},#{writer}, #{date},
 		#{ref},#{indent}+1,#{step})
 	</insert>
 	
@@ -65,12 +87,12 @@
 		DELETE FROM PBOARD WHERE STEP <![CDATA[ < ]]> ${minStep} and STEP >= ${step}
 	</delete>
 	
-	
-
 	<resultMap type="BoardVO" id="boardResultMap">
 		<result property="boardNum" column="board_num" />
 		<result property="title" column="TITLE" />
 		<result property="contents" column="contents" />
+		<result property="boardImg" column="boardImg" />
+		<result property="kategorie" column="kategorie" />
 		<result property="writer" column="writer" />
 		<result property="date" column="date" />
 		<result property="count" column="count" />

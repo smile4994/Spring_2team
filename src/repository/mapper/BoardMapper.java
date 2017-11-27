@@ -15,6 +15,19 @@ public interface BoardMapper {
 	public int delete(int ref);
 	public int updateCount(int boardNum);
 	
+	
+	//검색 창에 입력시 반영되는 select문
+	//(1)제목
+	public List<BoardVO> selectTitle(String title);
+	//(2)작성자
+	public List<BoardVO> selectWriter(String writer);
+	//(3)카테고리
+	public List<BoardVO> selectKategorie(String kategorie);
+	
+	
+	
+	
+	
 	//댓글을 위한 SQL문 
 	//(1)댓글 / 대댓 인지 확인하기 
 	public int checkSelect(BoardVO board);
