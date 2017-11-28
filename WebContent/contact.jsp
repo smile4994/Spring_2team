@@ -9,12 +9,14 @@
 <meta name="keywords"
 	content="Pets Love Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript">addEventListener("load", function() {
+<script type="application/x-javascript">
+	addEventListener("load", function() {
 		setTimeout(hideURLbar, 0);
 	}, false);
 	function hideURLbar() {
 		window.scrollTo(0, 1);
 	}
+
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -23,20 +25,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script>
-var myCoordLat;
-var myCoordLong;
-$(function() {        
-//     // Geolocation API에 액세스할 수 있는지를 확인
-//     if (navigator.geolocation) {
-//         //위치 정보를 얻기
-//         navigator.geolocation.getCurrentPosition (function(pos) {
-//         	$('#latitude').html(pos.coords.latitude);     // 위도
-//             $('#longitude').html(pos.coords.longitude); // 경도
-//         });
-//     } else {
-//         alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-//     }
-});
+	var myCoordLat;
+	var myCoordLong;
+	$(function() {
+		//     // Geolocation API에 액세스할 수 있는지를 확인
+		//     if (navigator.geolocation) {
+		//         //위치 정보를 얻기
+		//         navigator.geolocation.getCurrentPosition (function(pos) {
+		//         	$('#latitude').html(pos.coords.latitude);     // 위도
+		//             $('#longitude').html(pos.coords.longitude); // 경도
+		//         });
+		//     } else {
+		//         alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+		//     }
+	});
 </script>
 <!-- //js -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -94,97 +96,127 @@ $(function() {
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0c0ed776496ecc4d7ee6e9daa1ea6ea&libraries=services,clusterer,drawing"></script>
 				<script>
-				var myCLat;
-				var myCLong;
-				 // Geolocation API에 액세스할 수 있는지를 확인
-			    if (navigator.geolocation) {
-			        //위치 정보를 얻기
-			        navigator.geolocation.getCurrentPosition (function(pos) {
-			        	myCLat = pos.coords.latitude;
-			        	myCLong = pos.coords.longitude;
-			        	$('#latitude').html(pos.coords.latitude);     // 위도
-			            $('#longitude').html(pos.coords.longitude); // 경도
-			            
-			            myMap();
-			        });
-			    } else {
-			        alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-			    }
-				 
-				
-				////////////////////
-				// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
-				function myMap(){
-				var infowindow = new daum.maps.InfoWindow({zIndex:1});
-				
-				var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-				    mapOption = {
-				        center: new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
-				        level: 2 // 지도의 확대 레벨
-				    };  
+					var myCLat;
+					var myCLong;
+					var addr;
+					// Geolocation API에 액세스할 수 있는지를 확인
+					if (navigator.geolocation) {
+						//위치 정보를 얻기
+						navigator.geolocation.getCurrentPosition(function(pos) {
+							myCLat = pos.coords.latitude;
+							myCLong = pos.coords.longitude;
+							$('#latitude').html(pos.coords.latitude); // 위도
+							$('#longitude').html(pos.coords.longitude); // 경도
 
-				// 지도를 생성합니다    
-				var map = new daum.maps.Map(mapContainer, mapOption); 
+							myMap();
+						});
+					} else {
+						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+					}
 
-				// 장소 검색 객체를 생성합니다
-				var ps = new daum.maps.services.Places();
-				
-				// 주소-좌표 변환 객체를 생성합니다
-				var geocoder = new daum.maps.services.Geocoder();
-				
 
-				// 키워드로 장소를 검색합니다
-				ps.keywordSearch('역삼 동물병원', placesSearchCB);
-				
-				////////////////////////////////////
-				
-				function searchAddrFromCoords(coords, callback) {
-    			// 좌표로 행정동 주소 정보를 요청합니다
-    				geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);         
-				}
-				function searchDetailAddrFromCoords(coords, callback) {
-				    // 좌표로 법정동 상세 주소 정보를 요청합니다
-				    geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-				}
-				
-				/////////////////////////////////
 
-				// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-				function placesSearchCB (data, status, pagination) {
-				    if (status === daum.maps.services.Status.OK) {
+					////////////////////
+					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+					function myMap() {
+						var infowindow = new daum.maps.InfoWindow({
+							zIndex : 1
+						});
 
-				        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-				        // LatLngBounds 객체에 좌표를 추가합니다
-				        var bounds = new daum.maps.LatLngBounds();
+						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+						mapOption = {
+							center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
+							level : 2
+						// 지도의 확대 레벨
+						};
 
-				        for (var i=0; i<data.length; i++) {
-				            displayMarker(data[i]);    
-				            bounds.extend(new daum.maps.LatLng(data[i].y, data[i].x));
-				        }       
+						// 지도를 생성합니다    
+						var map = new daum.maps.Map(mapContainer, mapOption);
 
-				        // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-				        map.setBounds(bounds);
-				    } 
-				}
+						// 장소 검색 객체를 생성합니다
+						var ps = new daum.maps.services.Places();
 
-				// 지도에 마커를 표시하는 함수입니다
-				function displayMarker(place) {
-				    
-				    // 마커를 생성하고 지도에 표시합니다
-				    var marker = new daum.maps.Marker({
-				        map: map,
-				        position: new daum.maps.LatLng(place.y, place.x) 
-				    });
+						// 주소-좌표 변환 객체를 생성합니다
+						var geocoder = new daum.maps.services.Geocoder();
 
-				    // 마커에 클릭이벤트를 등록합니다
-				    daum.maps.event.addListener(marker, 'click', function() {
-				        // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-				        infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
-				        infowindow.open(map, marker);
-				    });
-				}
-				
-				}
+						// 키워드로 장소를 검색합니다
+						alert(addr);
+						ps.keywordSearch('동물병원', placesSearchCB);
+
+						/////////////////////////////////
+
+						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+						function placesSearchCB(data, status, pagination) {
+							if (status === daum.maps.services.Status.OK) {
+
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+								// LatLngBounds 객체에 좌표를 추가합니다
+								var bounds = new daum.maps.LatLngBounds();
+
+								for (var i = 0; i < data.length; i++) {
+									displayMarker(data[i]);
+									bounds.extend(new daum.maps.LatLng(
+											data[i].y, data[i].x));
+								}
+
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+								map.setBounds(bounds);
+							}
+						}
+
+						// 지도에 마커를 표시하는 함수입니다
+						function displayMarker(place) {
+
+							// 마커를 생성하고 지도에 표시합니다
+							var marker = new daum.maps.Marker({
+								map : map,
+								position : new daum.maps.LatLng(place.y,
+										place.x)
+							});
+
+							// 마커에 클릭이벤트를 등록합니다
+							daum.maps.event
+									.addListener(
+											marker,
+											'click',
+											function() {
+												// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+												infowindow
+														.setContent('<div style="padding:5px;font-size:12px;">'
+																+ place.place_name
+																+ '</div>');
+												infowindow.open(map, marker);
+											});
+						}
+						
+						////////////////////////////////////
+
+	 					function searchAddrFromCoords(coords, callback) {
+	 						// 좌표로 행정동 주소 정보를 요청합니다
+	 						geocoder.coord2RegionCode(coords.getLng(), coords
+	 								.getLat(), callback);
+	 					}
+	 					function searchDetailAddrFromCoords(coords, callback) {
+	 						// 좌표로 법정동 상세 주소 정보를 요청합니다
+	 						geocoder.coord2Address(coords.getLng(),
+	 								coords.getLat(), callback);
+	 					}
+
+	 					function displayCenterInfo(result, status) {
+	 						if (status === daum.maps.services.Status.OK) {
+	 							var infoDiv = document.getElementById('centerAddr');
+
+	 							for (var i = 0; i < result.length; i++) {
+	 								// 행정동의 region_type 값은 'H' 이므로
+	 								if (result[i].region_type === 'H') {
+	 									addr = result[i].address_name;
+	 									break;
+	 								}
+	 							}
+	 						}
+	 					}
+
+					}
 				</script>
 			</div>
 
@@ -256,7 +288,7 @@ $(function() {
 				scrollSpeed: 1200,
 				easingType: 'linear' 
 				};
-			*/
+			 */
 			$().UItoTop({
 				easingType : 'easeOutQuart'
 			});
