@@ -20,14 +20,16 @@
 	
 	function replyDel_func(replyNum) {
 		var replyNum = replyNum;
-		alert("에이젝스 DEL replyNum:"+replyNum);
+		var result = "성공";
 		$.ajax({
 			url : 'replyDelete.do',
 			type : 'get',
 			data : 'replyNum=' +replyNum,
 			success : function(data) {
 				replyRead_func();
-				alert("data : " +data);
+				if(data != result){
+					alert("다른사람글은 건드릴수 없어");
+				}
 			},
 			error : function() {
 			}
@@ -67,7 +69,6 @@
  					replyHtml += "작성자 : "+replyList.re_writer+"&nbsp&nbsp&nbsp"; 
  					replyHtml += "<input type='button' id='replyDel' value='삭제' onclick='replyDel_func("+replyList.reply_num+")'> <br>";
  					replyHtml += "내용 : " +replyList.re_contents+"<br>";
- 					replyHtml += "조회수 : " +replyList.re_count+"<br>";
  					replyHtml += "<br>"
      		   });
      		   $('#replyRead').html(replyHtml);
