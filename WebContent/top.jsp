@@ -60,7 +60,7 @@
 						<li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
 						<li class=" menu__item"><a class="menu__link" href="gallery.jsp">Gallery</a></li>
 						<li class=" menu__item"><a class="menu__link" href="codes.jsp">Short Codes</a></li>
-						<li class=" menu__item"><a class="menu__link" href="contact.jsp">양태흠</a></li>
+						<li class=" menu__item"><a class="menu__link" href="map.jsp">양태흠</a></li>
 						<li class=" menu__item"><a class="menu__link" href="jys.jsp">정용세</a></li>
 					  </ul>
 					</div>
