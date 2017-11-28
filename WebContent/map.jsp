@@ -28,18 +28,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 	var myCoordLat;
 	var myCoordLong;
-	$(function() {
-		//     // Geolocation API에 액세스할 수 있는지를 확인
-		//     if (navigator.geolocation) {
-		//         //위치 정보를 얻기
-		//         navigator.geolocation.getCurrentPosition (function(pos) {
-		//         	$('#latitude').html(pos.coords.latitude);     // 위도
-		//             $('#longitude').html(pos.coords.longitude); // 경도
-		//         });
-		//     } else {
-		//         alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-		//     }
-	});
 </script>
 <!-- //js -->
 <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
@@ -93,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</h3>
 			<!-- 다음지도 -->
 					<div class="hAddr">
-						<span class="title">지도중심기준 행정동 주소정보</span><br>
+						<span class="title">주소정보</span><br>
 						<span id="centerAddr"></span>
 					</div>
 					
@@ -145,50 +133,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
 						// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
-						searchAddrFromCoords(map.getCenter(), displayCenterInfo);
-				
+						// 좌표로 행정동 주소 정보를 요청합니다
+						geocoder.coord2RegionCode(map.getCenter().getLng(), map.getCenter().getLat(), displayCenterInfo);
 						/////////////////////////////////
-				
 						// 장소 검색 객체를 생성합니다
 						var ps = new daum.maps.services.Places();
 				
 						// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
 						daum.maps.event.addListener(map, 'idle', function() {
-							searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+							geocoder.coord2RegionCode(map.getCenter().getLng(), map.getCenter().getLat(), displayCenterInfo);
 							
 						});
-				
 						
-				
-						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
-						function placesSearchCB(data, status, pagination) {
-							if (status === daum.maps.services.Status.OK) {
-				
-								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
-								// LatLngBounds 객체에 좌표를 추가합니다
-								var bounds = new daum.maps.LatLngBounds();
-				
-								for (var i = 0; i < data.length; i++) {
-									displayMarker(data[i]);
-									bounds.extend(new daum.maps.LatLng(
-										data[i].y, data[i].x));
-								}
-				
-								// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
-								map.setBounds(bounds);
-							}
-						}
 				
 						// 지도에 마커를 표시하는 함수입니다
 						function displayMarker(place) {
-				
 							// 마커를 생성하고 지도에 표시합니다
 							var marker = new daum.maps.Marker({
 								map : map,
-								position : new daum.maps.LatLng(place.y,
-									place.x)
+								position : new daum.maps.LatLng(place.y, place.x)
 							});
-				
+							
 							// 마커에 클릭이벤트를 등록합니다
 							daum.maps.event
 								.addListener(
@@ -203,21 +168,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										infowindow.open(map, marker);
 									});
 						}
+							
 				
 						////////////////////////////////////
-				
+						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
+						function placesSearchCB(data, status, pagination) {
+							
+							if (status === daum.maps.services.Status.OK) {
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+								// LatLngBounds 객체에 좌표를 추가합니다
+								for (var i = 0; i < data.length; i++) {
+									displayMarker(data[i]);
 
-				
-						function searchAddrFromCoords(coords, callback) {
-							// 좌표로 행정동 주소 정보를 요청합니다
-							geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+								}
+								// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+							}
 						}
-				
-						function searchDetailAddrFromCoords(coords, callback) {
-							// 좌표로 법정동 상세 주소 정보를 요청합니다
-							geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-						}
-				
 						// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
 						function displayCenterInfo(result, status) {
 							if (status === daum.maps.services.Status.OK) {
@@ -236,7 +202,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							find= addr+" "+'동물병원';
 							alert(find);
 							ps.keywordSearch(find, placesSearchCB);
-							
 						}
 				
 					}

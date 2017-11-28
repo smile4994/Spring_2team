@@ -35,6 +35,15 @@ public class BoardController {
 		mv.setViewName("board_list");
 		return mv;
 	}
+	@RequestMapping(value = "/matchingBoard.do")
+	public ModelAndView matchingBoard(@RequestParam(defaultValue = "0") String searchType,
+			@RequestParam(defaultValue = "0") String searchWrite) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
+		mv.setViewName("board_list");
+		return mv;
+	}
 	
 	/////////////////////////
 	@RequestMapping("ajaxRead.do")
