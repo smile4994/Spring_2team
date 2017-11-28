@@ -135,4 +135,20 @@ public class BoardService {
 			return false;
 		}
 	}
+	
+	//(3)리플 삭제
+	public boolean svReplyDelete(int replyNum) {
+		if(dao.deleteReply(replyNum) == 1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	//(4)리플1개의 정보
+	public ReplyVO svReplySelect(int replyNum) {
+		ReplyVO reply = new ReplyVO();
+		reply = dao.selectReply(replyNum);
+		return reply;
+	}
 }
