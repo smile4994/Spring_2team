@@ -17,18 +17,14 @@
 </script>
 <style>
 .table{
-	width:50%;
+	text-align : center;
+	width:70%;
 	height:auto;
 	margin:auto;
-	max-width:500px;
-	border-style:solid;
 	border-bottom-width: 2px;
 	border-color:black;
 }
-tr, td, a{
-	padding-bottom: 8px;
-	padding-top: 8px;
-}
+
 tr:hover{
 	background-color:silver;
 	opacity: 0.8;
@@ -36,10 +32,11 @@ tr:hover{
 </style>
 </head>
 <body>
+<jsp:include page="../../top.jsp"/>
 <form action="board.do" method="post">
 <!--   <section id="tables"> -->
-  <div class="bs-docs-example">
-	<table class="table">
+ <div class="bs-docs-example">
+    <table class="table table-striped">
 	<thead>
 		<tr>
 			<th>글번호</th>
@@ -78,7 +75,7 @@ tr:hover{
 	</div>
 <!-- 	</section> -->
 	
-	<div id="search">
+	<div id="search" align="center">
 		<select name="searchType">
 			<option value="1" selected="selected">제목</option>
 			<option value="2">작성자</option>
@@ -86,12 +83,12 @@ tr:hover{
 		</select>
 		
 		<input type="text" name="searchWrite" size="40">
-		<input type="submit" value="검색">
+		<input type="submit" class="btn btn-default" value="검색">
 		
 		<input type="hidden" id="searchType">
 		<input type="hidden" id="searchWrite">
 	</div>
+	
 </form>
-
 </body>
 </html>
