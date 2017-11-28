@@ -35,6 +35,30 @@ public class BoardController {
 		mv.setViewName("board_list");
 		return mv;
 	}
+	@RequestMapping(value = "/matchingBoard.do")
+	public ModelAndView matchingBoard(@RequestParam(defaultValue = "0") String searchType,
+			@RequestParam(defaultValue = "0") String searchWrite) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
+		mv.setViewName("board_list");
+		return mv;
+	}
+	
+	/////////////////////////
+	@RequestMapping("ajaxRead.do")
+	public void ajaxRead(int boardNum, HttpServletResponse respons) {
+		respons.setContentType("text/html;charset=utf-8");
+		Gson gson = new Gson();
+		try {
+			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/////////////////////////	
+	
+	
 
 	@RequestMapping("/writeForm.do")
 	public String writeForm() {
@@ -154,7 +178,7 @@ public class BoardController {
 	/**************** 여기부터 리플 작업 ************************/
 	@RequestMapping(value = "/replyWrite.do", method = RequestMethod.POST)
 	public void replyWrite(int boardNum, String re_contents, HttpSession session, HttpServletResponse response) {
-		System.out.println("replyWrite.do에서 re_contents : " +re_contents);
+		System.out.println("replyWrite.do에서 re_contents : " + re_contents);
 		String loginId = (String) session.getAttribute("loginId");
 		ReplyVO reply = new ReplyVO();
 		reply.setRe_contents(re_contents);
@@ -174,14 +198,14 @@ public class BoardController {
 
 		String result = "";
 		ReplyVO reply = service.svReplySelect(replyNum);
-		//로그인 세션과 글 작성자가 같다면 삭제 실행
-		if(reply.getRe_writer().equals(loginId)) {
+		// 로그인 세션과 글 작성자가 같다면 삭제 실행
+		if (reply.getRe_writer().equals(loginId)) {
 			service.svReplyDelete(replyNum);
 			result = "성공";
-		}else {
-			result ="실패";
+		} else {
+			result = "실패";
 		}
-		
+
 		try {
 			response.getWriter().write(result);
 		} catch (IOException e) {

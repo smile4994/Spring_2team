@@ -1,18 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+    pageEncoding="EUC-KR"%>
 <html>
 <head>
-<title>게시판 목록</title>
-
+<title>matching_board</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 </script>
- 
 </head>
 <body>
-
 <form action="board.do" method="post">
 	<table border="1">
 		<tr>
@@ -63,6 +58,5 @@
 		<input type="hidden" id="searchWrite">
 	</div>
 </form>
-
 </body>
 </html>

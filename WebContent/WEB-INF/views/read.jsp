@@ -66,10 +66,12 @@
     		success : function(data){
     			var replyHtml = "";
     		    $.each(data, function(key, replyList){ 
- 					replyHtml += "작성자 : "+replyList.re_writer+"&nbsp&nbsp&nbsp"; 
- 					replyHtml += "<input type='button' id='replyDel' value='삭제' onclick='replyDel_func("+replyList.reply_num+")'> <br>";
- 					replyHtml += "내용 : " +replyList.re_contents+"<br>";
- 					replyHtml += "<br>"
+ 					replyHtml += "<div style='width:25%'><b>"+replyList.re_writer+"</b>&nbsp:&nbsp"; 
+ 					replyHtml += replyList.re_contents;
+ 					replyHtml += "<a id='replyDel' onclick='replyDel_func("+replyList.reply_num+")' style='color:grey;'>&times;</a>";
+ 					replyHtml += "<div style='font-size:12px;font-style:monospace; color:grey; margin-top:5px; margin-bottom:3px;'>"+replyList.re_date + "</div><hr>";
+ 					replyHtml += "</div>" 					
+ 					
      		   });
      		   $('#replyRead').html(replyHtml);
   			  },

@@ -26,6 +26,8 @@ public interface BoardMapper {
 	public List<BoardVO> selectKategorie(String kategorie);
 	
 	
+	
+	
 	//답글을 위한 SQL문 
 	//(1)댓글 / 대댓 인지 확인하기 
 	public int checkSelect(BoardVO board);
