@@ -8,18 +8,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-// 	$(function(){
-// 		$('#searchBnt').click(function() {
-// 			alert("검색버튼눌렀다");
-// 			var searchType = $('select[name=searchType]').val();
-// 			var searchWrite = $('input[name=searchWrite]').val();
-// 			alert(searchType);
-// 			alert(searchWrite);
-// 			location.href="board.do?searchType="+searchType+"&searchWrite="+searchWrite;
-// 		})	
-// 	})
- </script>
- 
+</script>
  
 </head>
 <body>
@@ -72,7 +61,6 @@
 		
 		<input type="hidden" id="searchType">
 		<input type="hidden" id="searchWrite">
-<!-- 		<button id="searchBnt">검색</button> -->
 	</div>
 </form>
 
