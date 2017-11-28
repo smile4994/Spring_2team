@@ -10,13 +10,14 @@
 	content="Pets Love Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
+
+
 	addEventListener("load", function() {
 		setTimeout(hideURLbar, 0);
 	}, false);
 	function hideURLbar() {
 		window.scrollTo(0, 1);
 	}
-
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -82,9 +83,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<%@include file="top.jsp"%>
 	<!-- 맵 -->
 
-	위도:
-	<span id="latitude"></span> 경도:
-	<span id="longitude"></span>
+	위도:	<span id="latitude"></span> 
+	경도:	<span id="longitude"></span>
 	<!-- banner -->
 	<div class="map">
 		<div class="container">
@@ -92,9 +92,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				View <span>On Map</span>
 			</h3>
 			<!-- 다음지도 -->
+					<div class="hAddr">
+						<span class="title">지도중심기준 행정동 주소정보</span><br>
+						<span id="centerAddr"></span>
+					</div>
+					
+					
 			<div id="map" style="width: 100%; height: 600;" class="contact-grids">
+
 				<script type="text/javascript"
 					src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f0c0ed776496ecc4d7ee6e9daa1ea6ea&libraries=services,clusterer,drawing"></script>
+
 				<script>
 					var myCLat;
 					var myCLong;
@@ -107,115 +115,127 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							myCLong = pos.coords.longitude;
 							$('#latitude').html(pos.coords.latitude); // 위도
 							$('#longitude').html(pos.coords.longitude); // 경도
-
+				
 							myMap();
 						});
 					} else {
 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 					}
-
-
-
+				
+				
+				
 					////////////////////
 					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 					function myMap() {
 						var infowindow = new daum.maps.InfoWindow({
 							zIndex : 1
 						});
-
+				
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-						mapOption = {
-							center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
-							level : 2
-						// 지도의 확대 레벨
-						};
-
+							mapOption = {
+								center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
+								level : 2
+							// 지도의 확대 레벨
+							};
+				
 						// 지도를 생성합니다    
 						var map = new daum.maps.Map(mapContainer, mapOption);
-
-						// 장소 검색 객체를 생성합니다
-						var ps = new daum.maps.services.Places();
-
+						/////////////////////////////////
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
-
-						// 키워드로 장소를 검색합니다
-						alert(addr);
-						ps.keywordSearch('동물병원', placesSearchCB);
-
+						// 현재 지도 중심좌표로 주소를 검색해서 지도 좌측 상단에 표시합니다
+						searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+				
 						/////////////////////////////////
-
+				
+						// 장소 검색 객체를 생성합니다
+						var ps = new daum.maps.services.Places();
+				
+						// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
+						daum.maps.event.addListener(map, 'idle', function() {
+							searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+						});
+				
+						// 키워드로 장소를 검색합니다
+						var find= addr+'동물병원';
+						alert(find);
+						ps.keywordSearch(find, placesSearchCB);
+				
 						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 						function placesSearchCB(data, status, pagination) {
 							if (status === daum.maps.services.Status.OK) {
-
+				
 								// 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
 								// LatLngBounds 객체에 좌표를 추가합니다
 								var bounds = new daum.maps.LatLngBounds();
-
+				
 								for (var i = 0; i < data.length; i++) {
 									displayMarker(data[i]);
 									bounds.extend(new daum.maps.LatLng(
-											data[i].y, data[i].x));
+										data[i].y, data[i].x));
 								}
-
+				
 								// 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
 								map.setBounds(bounds);
 							}
 						}
-
+				
 						// 지도에 마커를 표시하는 함수입니다
 						function displayMarker(place) {
-
+				
 							// 마커를 생성하고 지도에 표시합니다
 							var marker = new daum.maps.Marker({
 								map : map,
 								position : new daum.maps.LatLng(place.y,
-										place.x)
+									place.x)
 							});
-
+				
 							// 마커에 클릭이벤트를 등록합니다
 							daum.maps.event
-									.addListener(
-											marker,
-											'click',
-											function() {
-												// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
-												infowindow
-														.setContent('<div style="padding:5px;font-size:12px;">'
-																+ place.place_name
-																+ '</div>');
-												infowindow.open(map, marker);
-											});
+								.addListener(
+									marker,
+									'click',
+									function() {
+										// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+										infowindow
+											.setContent('<div style="padding:5px;font-size:12px;">'
+												+ place.place_name
+												+ '</div>');
+										infowindow.open(map, marker);
+									});
 						}
-						
+				
 						////////////////////////////////////
+				
 
-	 					function searchAddrFromCoords(coords, callback) {
-	 						// 좌표로 행정동 주소 정보를 요청합니다
-	 						geocoder.coord2RegionCode(coords.getLng(), coords
-	 								.getLat(), callback);
-	 					}
-	 					function searchDetailAddrFromCoords(coords, callback) {
-	 						// 좌표로 법정동 상세 주소 정보를 요청합니다
-	 						geocoder.coord2Address(coords.getLng(),
-	 								coords.getLat(), callback);
-	 					}
-
-	 					function displayCenterInfo(result, status) {
-	 						if (status === daum.maps.services.Status.OK) {
-	 							var infoDiv = document.getElementById('centerAddr');
-
-	 							for (var i = 0; i < result.length; i++) {
-	 								// 행정동의 region_type 값은 'H' 이므로
-	 								if (result[i].region_type === 'H') {
-	 									addr = result[i].address_name;
-	 									break;
-	 								}
-	 							}
-	 						}
-	 					}
-
+				
+						function searchAddrFromCoords(coords, callback) {
+							// 좌표로 행정동 주소 정보를 요청합니다
+							geocoder.coord2RegionCode(coords.getLng(), coords.getLat(), callback);
+						}
+				
+						function searchDetailAddrFromCoords(coords, callback) {
+							// 좌표로 법정동 상세 주소 정보를 요청합니다
+							geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+						}
+				
+						// 지도 좌측상단에 지도 중심좌표에 대한 주소정보를 표출하는 함수입니다
+						function displayCenterInfo(result, status) {
+							if (status === daum.maps.services.Status.OK) {
+								var infoDiv = document.getElementById('centerAddr');
+				
+								for (var i = 0; i < result.length; i++) {
+									// 행정동의 region_type 값은 'H' 이므로
+									if (result[i].region_type === 'H') {
+										infoDiv.innerHTML = result[i].address_name;
+										addr = result[i].address_name;
+										alert(addr);
+										break;
+									}
+								}
+							}
+						}
+				
 					}
 				</script>
 			</div>
