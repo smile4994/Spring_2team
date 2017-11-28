@@ -5,7 +5,75 @@
 <html>
 <head>
 <title>Insert title here</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
+	$(function() {
+		replyRead_func();
+		
+		$('#repleOk').click(function() {
+			var re_contents = $('#re_contents').val();
+			alert(re_contents);
+
+			var allData = {
+				"boardNum" : $('input[name=boardNum]').val(),
+				"re_contents" : $('#re_contents').val(),
+			};
+
+			$.ajax({
+				type : 'post',
+				url : 'replyWrite.do',
+				data : allData,
+				//  			dataType : 'text',
+				success : function(responseData) {
+					alert("ajax성공");
+					replyRead_func();
+					$('#re_contents').val("");
+				},
+				error : function() {
+					alert("ajax실패");
+				}
+			})
+		})
+	})
+	
+// 	function replyRead_func(){
+// 		var replyHtml = "";
+// 			replyHtml += "<c:forEach items='${replyList}' var='replyList'>";
+// 			replyHtml += "작성자 : "+ '${replyList.re_writer}'+"<br>"; 
+// 			replyHtml += "내용 : " +'${replyList.re_contents}'+"<br>";
+// 			replyHtml += "작성시간 :"+"<fmt:formatDate value='${replyList.re_date}' type='both' dateStyle='short' timeStyle='short'/>"
+// 			replyHtml += "조회수 : " +'${replyList.re_count}'+"<br>";
+// 			replyHtml += "<br>"
+// 			replyHtml += "</c:forEach>";
+// 			$('#replyRead').html(replyHtml);
+// 	}
+	
+	function replyRead_func(){
+		var boardNum = ${board.boardNum};
+		$.ajax({
+ 		 	url : 'replyRead.do',
+   			type : 'get',
+   			data : 'boardNum=' +boardNum,
+   			dataType : 'json',
+    		success : function(data){
+    			alert("AJAX_listReply성공");
+    			var replyHtml = "";
+    		    $.each(data, function(key, replyList){ 
+ 					replyHtml += "작성자 : "+replyList.re_writer+"<br>"; 
+ 					replyHtml += "내용 : " +replyList.re_contents+"<br>";
+ 					replyHtml += "조회수 : " +replyList.re_count+"<br>";
+ 					replyHtml += "<br>"
+     		   });
+     		   $('#replyRead').html(replyHtml);
+  			  },
+   		 	error : function() {
+				alert("AJAX_listReply실패");
+			}
+		});
+	}
+	
+	
 	function del_func() {
 		var result = confirm('정말 삭제하시겠습니까?');
 		if (result == true) {
@@ -56,7 +124,7 @@
 			<c:if test="${board.boardImg ne 'noImg'}">
 				<tr>
 					<td>이미지 파일 :</td>
-					<td><img width="200" height="140" src="${board.boardImg}"
+					<td><img width="100" height="70" src="${board.boardImg}"
 						alt="이미지형식이 맞지 않습니다"></td>
 				</tr>
 			</c:if>
@@ -66,12 +134,12 @@
 				<td>${board.contents}</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><input type="submit" value="[답글]">
-				</td>
+				<td colspan="2" align="right"><input type="submit" name="sbm"
+					value="[답글]"></td>
 			</tr>
 		</table>
 	</form>
-
+	
 	<div id="selectBtn">
 		<a href="board.do">[목록]</a>
 		<c:if test="${sessionScope.loginId == board.writer}">
@@ -79,6 +147,25 @@
 			<a onclick="del_func()" href="#">[삭제]</a>
 		</c:if>
 	</div>
+	<br>
+
+
+
+
+
+	<div id="replyRead">
+		<!-- 			새로운 댓글이 달리는부분 -->
+		<div id="replyForm"></div>
+	</div>
+	<br>
+
+
+	<div id="replyWrite">
+		<textarea id="re_contents" rows="5" cols="50"
+			onclick="if(this.value=='댓글을 입력하세요'){this.value=''}">댓글을 입력하세요</textarea>
+		<input type="button" id="repleOk" value="확인">
+	</div>
+
 
 
 </body>

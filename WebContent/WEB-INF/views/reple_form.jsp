@@ -5,7 +5,7 @@
 <title>댓글 페이지</title>
 </head>
 <body>
-	<form action="replyWrite.do" method="post">
+	<form action="repleWrite.do" method="post">
 		<input type="hidden" name="ref" value="${board.ref}"> 
 		<input type="hidden" name="indent" value="${board.indent}">
 		<input type="hidden" name="step" value="${board.step}">

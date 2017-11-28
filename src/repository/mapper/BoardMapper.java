@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 import vo.BoardVO;
+import vo.ReplyVO;
 
 public interface BoardMapper {
 	public List<BoardVO> selectList();
@@ -25,22 +26,22 @@ public interface BoardMapper {
 	public List<BoardVO> selectKategorie(String kategorie);
 	
 	
-	
-	
-	
-	//댓글을 위한 SQL문 
+	//답글을 위한 SQL문 
 	//(1)댓글 / 대댓 인지 확인하기 
 	public int checkSelect(BoardVO board);
-	
 	//(2)null값일때 max(step)값을 구해준다
 	public int maxStep(int ref);
-	
 	//(3)댓글을 작성한다
 	public int insertReple(BoardVO board);
-	
 	//(4)null값이 아닐때 나머지 step값을 증가시킨다
 	public int updateStep(BoardVO board);
-
 	//(5)댓/대댓글을 지우기위한 delete
 	public int deleteReple(@Param("step")int step, @Param("minStep")int minStep);
+	
+	
+	//리플을 위한 SQL
+	public List<ReplyVO> selectReplyList(int boardNum);
+	public int insertReply(ReplyVO reply);
+	
+	
 }

@@ -1,11 +1,11 @@
 package controller;
 
-import java.awt.BorderLayout;
 import java.io.File;
 import java.io.IOException;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +15,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.gson.Gson;
+
 import service.BoardService;
 import vo.BoardVO;
+import vo.ReplyVO;
 
 @Controller
 public class BoardController {
 	@Autowired
 	private BoardService service;
-	
-	
 	
 	@RequestMapping(value="/board.do")
 	public ModelAndView board
@@ -59,13 +60,10 @@ public class BoardController {
 //			System.out.println("---------------");
 //			System.out.println("업로드 완료");
 //			System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-//			System.out.println("이걸 따라써야한다 : img/"+savedName);
+			System.out.println("이걸 따라써야한다 : img/"+savedName);
 //			System.out.println("---------------");
-			
 			savedName = "img/"+savedName;
-			
 			System.out.println("write.do에서 파일 오리지널 이름 : "+board.getImg().getOriginalFilename());
-			
 			if(board.getImg().getOriginalFilename().length()<3) {
 				savedName = "noImg";
 			}
@@ -93,9 +91,9 @@ public class BoardController {
 		String loginId = (String)session.getAttribute("loginId");
 		service.svUpdateCount(boardNum, loginId);
 		
+		// 글정보
 		BoardVO board = service.svSelect(boardNum);
 		mv.addObject("board",board);
-		
 		mv.setViewName("read");
 		return mv;
 	}
@@ -111,10 +109,11 @@ public class BoardController {
 		
 		mv.addObject("board",board);
 		mv.setViewName("reple_form");
+
 		return mv;
 	}
 	
-	@RequestMapping(value="/replyWrite.do", method=RequestMethod.POST)
+	@RequestMapping(value="/repleWrite.do", method=RequestMethod.POST)
 	public String repleWrite(BoardVO board, HttpSession session) {
 		String loginId = (String)session.getAttribute("loginId");
 		if(service.svInsertReple(board, loginId) >= 0 ){
@@ -156,5 +155,36 @@ public class BoardController {
 		mv.setViewName("delete_result");
 		return mv;
 	}
+	
+	/****************여기부터 리플 작업************************/
+	@RequestMapping(value="/replyWrite.do", method=RequestMethod.POST)
+	public void replyWrite(int boardNum, String re_contents, HttpSession session, HttpServletResponse response) {
+		String loginId = (String)session.getAttribute("loginId");
+		ReplyVO reply = new ReplyVO();
+		reply.setRe_contents(re_contents);
+//		System.out.println("replyWrite.do 에서 boardNum값 : " +boardNum);
+//		System.out.println("replyWrite.do 에서 contents값 : " +re_contents);
+		try {
+			response.getWriter().println(re_contents);
+		} catch (IOException e) {
+			System.out.println("replyWrite.do에서 오류가 떴엉");
+			e.printStackTrace();
+		}
+		service.svReplyInsert(boardNum, reply, loginId);
+	}
+	
+	@RequestMapping("replyRead.do")
+	public void replyRead(int boardNum,HttpServletResponse respons) {
+		System.out.println("replyRead.do로 들어온 boardNum : "+boardNum);
+		Gson gson = new Gson();
+		try {
+			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		mv.addObject("replyList", service.svReplyList(boardNum));
+	}
+	
 	
 }
