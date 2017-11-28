@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import repository.BoardDao;
 import vo.BoardVO;
+import vo.ReplyVO;
 
 @Component
 public class BoardService {
@@ -15,10 +16,6 @@ public class BoardService {
 	private BoardDao dao;
 	
 	public List<BoardVO> svBoardList(String searchType, String searchWrite){
-		
-//		System.out.println("써비스에서 searchType : " +searchType);
-//		System.out.println("써비스에서 searchWrite : " +searchWrite);
-		
 		if(searchType.equals("1")) {
 //			System.out.println("svBoardList 1번실행");
 			List<BoardVO> boardList = dao.selectTitle(searchWrite);
@@ -116,4 +113,26 @@ public class BoardService {
 		}
 	}
 	
+	
+	//여기서부터 리플에 작업
+	
+//	public List<reply>
+	//(1)리플 전체 리스트
+	public List<ReplyVO> svReplyList(int boardNum){
+		List<ReplyVO> replyList = dao.selectReplyList(boardNum);
+		return replyList;
+	}
+	
+	
+	//(2)리플 삽입
+	public boolean svReplyInsert(int boardNum,ReplyVO reply, String loginId) {
+		reply.setRe_date(new Date());
+		reply.setRe_writer(loginId);
+		reply.setRe_ref(boardNum);
+		if(dao.insertReply(reply) == 1) {
+			return true;
+		}else {
+			return false;
+		}
+	}
 }

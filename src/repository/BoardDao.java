@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import repository.mapper.BoardMapper;
 import vo.BoardVO;
+import vo.ReplyVO;
 
 @Component
 public class BoardDao {
@@ -90,4 +91,19 @@ public class BoardDao {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.updateCount(boardNum);
 	}
+	
+	
+	
+	//여기부터 리플에 대한 작업
+	public List<ReplyVO> selectReplyList(int boardNum){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectReplyList(boardNum);
+	}
+	
+	public int insertReply(ReplyVO reply) {
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.insertReply(reply);
+		
+	}
+	
 }

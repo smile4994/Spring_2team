@@ -2,33 +2,41 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="repository.mapper.BoardMapper">
 	<select id="selectList" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		SELECT BOARD_NUM, TITLE,
+		CONTENTS,KATEGORIE,
 		WRITER, DATE,COUNT
 		FROM PBOARD
-		ORDER BY REF DESC, STEP ASC
+		ORDER BY REF DESC,
+		STEP ASC
 	</select>
 
 	<select id="selectTitle" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		SELECT BOARD_NUM, TITLE,
+		CONTENTS,KATEGORIE,
 		WRITER, DATE,COUNT
-		FROM PBOARD WHERE TITLE LIKE CONCAT('%',#{title},'%')
-		ORDER BY REF DESC, STEP ASC 
+		FROM PBOARD WHERE TITLE LIKE
+		CONCAT('%',#{title},'%')
+		ORDER BY REF DESC, STEP ASC
 	</select>
-	
+
 	<select id="selectWriter" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		SELECT BOARD_NUM, TITLE,
+		CONTENTS,KATEGORIE,
 		WRITER, DATE,COUNT
-		FROM PBOARD WHERE WRITER LIKE CONCAT('%',#{writer},'%')
-		ORDER BY REF DESC, STEP ASC 
+		FROM PBOARD WHERE WRITER LIKE
+		CONCAT('%',#{writer},'%')
+		ORDER BY REF DESC, STEP ASC
 	</select>
-	
+
 	<select id="selectKategorie" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE, CONTENTS,KATEGORIE,
+		SELECT BOARD_NUM, TITLE,
+		CONTENTS,KATEGORIE,
 		WRITER, DATE,COUNT
-		FROM PBOARD WHERE KATEGORIE LIKE CONCAT('%',#{kategorie},'%')
-		ORDER BY REF DESC, STEP ASC 
+		FROM PBOARD WHERE KATEGORIE LIKE
+		CONCAT('%',#{kategorie},'%')
+		ORDER BY REF DESC, STEP ASC
 	</select>
-	
+
 
 	<select id="select" resultMap="boardResultMap">
 		SELECT * FROM PBOARD WHERE
@@ -48,21 +56,25 @@
 
 	<insert id="insert" parameterType="BoardVO" useGeneratedKeys="true"
 		keyProperty="boardNum">
-		INSERT INTO PBOARD(TITLE,CONTENTS,KATEGORIE,BOARDIMG,WRITER,DATE)
-		VALUES(#{title}, #{contents}, #{kategorie},#{boardImg},#{writer}, #{date})
+		INSERT INTO
+		PBOARD(TITLE,CONTENTS,KATEGORIE,BOARDIMG,WRITER,DATE)
+		VALUES(#{title},
+		#{contents}, #{kategorie},#{boardImg},#{writer}, #{date})
 	</insert>
 
 	<insert id="insertReple" parameterType="BoardVO">
 		insert into
 		PBOARD(title,contents,kategorie,boardImg,writer,date,REF,indent,step)
-		values(#{title},#{contents},#{kategorie},#{boardImg},#{writer}, #{date},
+		values(#{title},#{contents},#{kategorie},#{boardImg},#{writer},
+		#{date},
 		#{ref},#{indent}+1,#{step})
 	</insert>
-	
+
 	<update id="update" parameterType="BoardVO">
 		UPDATE PBOARD SET
-		TITLE=#{title}, CONTENTS=#{contents}, DATE=#{date} WHERE BOARD_NUM = #{boardNum}
-	
+		TITLE=#{title}, CONTENTS=#{contents}, DATE=#{date} WHERE BOARD_NUM =
+		#{boardNum}
+
 	</update>
 
 	<update id="updateRef" parameterType="int">
@@ -71,22 +83,26 @@
 	</update>
 
 	<update id="updateStep" parameterType="BoardVO">
-		update PBOARD set STEP = STEP + 1 
+		update PBOARD set STEP =
+		STEP + 1
 		where REF = #{ref} and STEP >= #{step}
 	</update>
-	
+
 	<update id="updateCount" parameterType="int">
-		UPDATE PBOARD SET COUNT = COUNT+1 WHERE BOARD_NUM = #{boardNum}
+		UPDATE PBOARD SET COUNT =
+		COUNT+1 WHERE BOARD_NUM = #{boardNum}
 	</update>
-	
+
 	<delete id="delete" parameterType="int">
-		DELETE FROM PBOARD WHERE REF=#{ref}
+		DELETE FROM PBOARD WHERE
+		REF=#{ref}
 	</delete>
-	
+
 	<delete id="deleteReple">
-		DELETE FROM PBOARD WHERE STEP <![CDATA[ < ]]> ${minStep} and STEP >= ${step}
+		DELETE FROM PBOARD WHERE STEP <![CDATA[ < ]]>
+		${minStep} and STEP >= ${step}
 	</delete>
-	
+
 	<resultMap type="BoardVO" id="boardResultMap">
 		<result property="boardNum" column="board_num" />
 		<result property="title" column="TITLE" />
@@ -100,4 +116,30 @@
 		<result property="indent" column="indent" />
 		<result property="step" column="step" />
 	</resultMap>
+
+
+	<!-- 여기서 부터는 리플작업 -->
+	<select id="selectReplyList" resultMap="replyResultMap">
+		SELECT *
+		FROM REPLY
+		WHERE RE_REF = #{re_ref}
+	</select>
+
+	<insert id="insertReply" parameterType="ReplyVO" useGeneratedKeys="true"
+		keyProperty="boardNum">
+		INSERT INTO
+		REPLY(re_writer,re_ref,re_contents,re_date,re_count)
+		VALUES(#{re_writer},#{re_ref}, #{re_contents},#{re_date},#{re_count})
+	</insert>
+
+	<!-- 리플에대한 ResultMap -->
+	<resultMap type="ReplyVO" id="replyResultMap">
+		<result property="reply_num" column="reply_num" />
+		<result property="re_writer" column="re_writer" />
+		<result property="re_ref" column="re_ref" />
+		<result property="re_contents" column="re_contents" />
+		<result property="re_date" column="re_date" />
+		<result property="re_count" column="re_count" />
+	</resultMap>
+
 </mapper>
