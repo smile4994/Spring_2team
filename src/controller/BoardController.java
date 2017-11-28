@@ -25,46 +25,44 @@ import vo.ReplyVO;
 public class BoardController {
 	@Autowired
 	private BoardService service;
-	
-	@RequestMapping(value="/board.do")
-	public ModelAndView board
-	(@RequestParam(defaultValue = "0")String searchType, @RequestParam(defaultValue = "0")String searchWrite) {
+
+	@RequestMapping(value = "/board.do")
+	public ModelAndView board(@RequestParam(defaultValue = "0") String searchType,
+			@RequestParam(defaultValue = "0") String searchWrite) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("searchType값 : "+searchType);
-		System.out.println("searchWrite값 : "+searchWrite);
-		
-		mv.addObject("boardList", service.svBoardList(searchType,searchWrite));
+
+		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
 		mv.setViewName("board_list");
 		return mv;
 	}
-	
+
 	@RequestMapping("/writeForm.do")
 	public String writeForm() {
 		return "write_form";
 	}
-	
-	@RequestMapping(value="/write.do", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
 	public String write(BoardVO board, HttpSession session, HttpServletRequest req) {
-		String loginId = (String)session.getAttribute("loginId");
+		String loginId = (String) session.getAttribute("loginId");
 		String uploadPath = req.getServletContext().getRealPath("img");
-		File dir =new File(uploadPath);
-		
-		if(!dir.exists()) {
+		File dir = new File(uploadPath);
+
+		if (!dir.exists()) {
 			dir.mkdir();
 		}
 		String savedName = new Random().nextInt(100) + board.getImg().getOriginalFilename();
-		File savedFile =new File(uploadPath+ "/" +savedName);
-		
+		File savedFile = new File(uploadPath + "/" + savedName);
+
 		try {
 			board.getImg().transferTo(savedFile);
-//			System.out.println("---------------");
-//			System.out.println("업로드 완료");
-//			System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-			System.out.println("이걸 따라써야한다 : img/"+savedName);
-//			System.out.println("---------------");
-			savedName = "img/"+savedName;
-			System.out.println("write.do에서 파일 오리지널 이름 : "+board.getImg().getOriginalFilename());
-			if(board.getImg().getOriginalFilename().length()<3) {
+			// System.out.println("---------------");
+			// System.out.println("업로드 완료");
+			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
+			System.out.println("이걸 따라써야한다 : img/" + savedName);
+			// System.out.println("---------------");
+			savedName = "img/" + savedName;
+			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
+			if (board.getImg().getOriginalFilename().length() < 3) {
 				savedName = "noImg";
 			}
 			board.setBoardImg(savedName);
@@ -73,56 +71,53 @@ public class BoardController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		if(loginId!=null && loginId.length()>0) {
+
+		if (loginId != null && loginId.length() > 0) {
 			service.svInsert(board, loginId);
 			return "write_result";
-		}else {
+		} else {
 			return "no_login";
 		}
 	}
-	
-	
+
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		System.out.println("read.do에서 첫번쨰 넘어오는 boardNum : " +boardNum);
-		
-		String loginId = (String)session.getAttribute("loginId");
+		String loginId = (String) session.getAttribute("loginId");
 		service.svUpdateCount(boardNum, loginId);
-		
+
 		// 글정보
 		BoardVO board = service.svSelect(boardNum);
-		mv.addObject("board",board);
+		mv.addObject("board", board);
 		mv.setViewName("read");
 		return mv;
 	}
-	
-	@RequestMapping(value="/repleForm.do", method=RequestMethod.POST)
-	public ModelAndView repleForm(BoardVO board,HttpSession session) {
+
+	@RequestMapping(value = "/repleForm.do", method = RequestMethod.POST)
+	public ModelAndView repleForm(BoardVO board, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		
-		//정말 하기싫은데 이미지 값을 얻어오기위해 사용한다 
+
+		// 정말 하기싫은데 이미지 값을 얻어오기위해 사용한다
 		BoardVO board2 = service.svSelect(board.getBoardNum());
 		board.setBoardImg(board2.getBoardImg());
 		///////////////////////////////////
-		
-		mv.addObject("board",board);
+
+		mv.addObject("board", board);
 		mv.setViewName("reple_form");
 
 		return mv;
 	}
-	
-	@RequestMapping(value="/repleWrite.do", method=RequestMethod.POST)
+
+	@RequestMapping(value = "/repleWrite.do", method = RequestMethod.POST)
 	public String repleWrite(BoardVO board, HttpSession session) {
-		String loginId = (String)session.getAttribute("loginId");
-		if(service.svInsertReple(board, loginId) >= 0 ){
+		String loginId = (String) session.getAttribute("loginId");
+		if (service.svInsertReple(board, loginId) >= 0) {
 			return "reple_success";
-		}else {
+		} else {
 			return "reple_fail";
 		}
 	}
-	
+
 	@RequestMapping("/updateForm.do")
 	public ModelAndView update(int boardNum) {
 		ModelAndView mv = new ModelAndView();
@@ -131,60 +126,78 @@ public class BoardController {
 		mv.setViewName("update_form");
 		return mv;
 	}
-	
+
 	@RequestMapping("/updateWrite.do")
 	public ModelAndView updateWrite(BoardVO board) {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardNum", board.getBoardNum());
-		if(service.svUpdate(board)) {
+		if (service.svUpdate(board)) {
 			mv.setViewName("update_success");
 			return mv;
-		}else {
+		} else {
 			mv.setViewName("update_fail");
 			return mv;
 		}
 	}
-	
+
 	@RequestMapping("/delete.do")
 	public ModelAndView delete(int boardNum) {
 		ModelAndView mv = new ModelAndView();
 		BoardVO board = service.svSelect(boardNum);
 		int result = service.svDelete(board);
-		
+
 		mv.addObject("result", result);
 		mv.setViewName("delete_result");
 		return mv;
 	}
-	
-	/****************여기부터 리플 작업************************/
-	@RequestMapping(value="/replyWrite.do", method=RequestMethod.POST)
+
+	/**************** 여기부터 리플 작업 ************************/
+	@RequestMapping(value = "/replyWrite.do", method = RequestMethod.POST)
 	public void replyWrite(int boardNum, String re_contents, HttpSession session, HttpServletResponse response) {
-		String loginId = (String)session.getAttribute("loginId");
+		System.out.println("replyWrite.do에서 re_contents : " +re_contents);
+		String loginId = (String) session.getAttribute("loginId");
 		ReplyVO reply = new ReplyVO();
 		reply.setRe_contents(re_contents);
-//		System.out.println("replyWrite.do 에서 boardNum값 : " +boardNum);
-//		System.out.println("replyWrite.do 에서 contents값 : " +re_contents);
 		try {
-			response.getWriter().println(re_contents);
+			response.getWriter().write(0);
 		} catch (IOException e) {
-			System.out.println("replyWrite.do에서 오류가 떴엉");
 			e.printStackTrace();
 		}
 		service.svReplyInsert(boardNum, reply, loginId);
 	}
-	
+
+	@RequestMapping("/replyDelete.do")
+	public void replyDelete(int replyNum, HttpSession session, HttpServletResponse response) {
+		response.setContentType("text/html;charset=utf-8");
+		System.out.println("replyDelete.do 로 들어온 replyNum : " + replyNum);
+		String loginId = (String) session.getAttribute("loginId");
+
+		String result = "";
+		ReplyVO reply = service.svReplySelect(replyNum);
+		//로그인 세션과 글 작성자가 같다면 삭제 실행
+		if(reply.getRe_writer().equals(loginId)) {
+			service.svReplyDelete(replyNum);
+			result = "성공";
+		}else {
+			result ="실패";
+		}
+		
+		try {
+			response.getWriter().write(result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@RequestMapping("replyRead.do")
-	public void replyRead(int boardNum,HttpServletResponse respons) {
-		System.out.println("replyRead.do로 들어온 boardNum : "+boardNum);
+	public void replyRead(int boardNum, HttpServletResponse respons) {
+		respons.setContentType("text/html;charset=utf-8");
 		Gson gson = new Gson();
 		try {
 			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		mv.addObject("replyList", service.svReplyList(boardNum));
 	}
-	
-	
+
 }

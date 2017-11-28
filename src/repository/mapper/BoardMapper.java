@@ -41,7 +41,9 @@ public interface BoardMapper {
 	
 	//리플을 위한 SQL
 	public List<ReplyVO> selectReplyList(int boardNum);
+	public ReplyVO selectReply(int replyNum);
 	public int insertReply(ReplyVO reply);
+	public int deleteReply(int replyNum);
 	
 	
 }

@@ -100,10 +100,19 @@ public class BoardDao {
 		return mapper.selectReplyList(boardNum);
 	}
 	
+	public ReplyVO selectReply(int replyNum) {
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectReply(replyNum);
+	}
+	
 	public int insertReply(ReplyVO reply) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.insertReply(reply);
-		
+	}
+	
+	public int deleteReply(int replyNum) {
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.deleteReply(replyNum);
 	}
 	
 }

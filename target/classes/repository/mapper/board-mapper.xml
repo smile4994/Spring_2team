@@ -124,6 +124,10 @@
 		FROM REPLY
 		WHERE RE_REF = #{re_ref}
 	</select>
+	
+	<select id="selectReply" resultMap="replyResultMap">
+		SELECT * FROM REPLY WHERE REPLY_NUM = #{replyNum}
+	</select>
 
 	<insert id="insertReply" parameterType="ReplyVO" useGeneratedKeys="true"
 		keyProperty="boardNum">
@@ -131,6 +135,10 @@
 		REPLY(re_writer,re_ref,re_contents,re_date,re_count)
 		VALUES(#{re_writer},#{re_ref}, #{re_contents},#{re_date},#{re_count})
 	</insert>
+	
+	<delete id="deleteReply" parameterType="int">	
+		DELETE FROM REPLY WHERE REPLY_NUM = #{replyNum}
+	</delete>
 
 	<!-- 리플에대한 ResultMap -->
 	<resultMap type="ReplyVO" id="replyResultMap">

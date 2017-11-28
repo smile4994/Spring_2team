@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
@@ -10,44 +10,49 @@
 <script type="text/javascript">
 	$(function() {
 		replyRead_func();
-		
-		$('#repleOk').click(function() {
-			var re_contents = $('#re_contents').val();
-			alert(re_contents);
-
-			var allData = {
-				"boardNum" : $('input[name=boardNum]').val(),
-				"re_contents" : $('#re_contents').val(),
-			};
-
-			$.ajax({
-				type : 'post',
-				url : 'replyWrite.do',
-				data : allData,
-				//  			dataType : 'text',
-				success : function(responseData) {
-					alert("ajax성공");
-					replyRead_func();
-					$('#re_contents').val("");
-				},
-				error : function() {
-					alert("ajax실패");
-				}
-			})
+		$('#replyOk').click(function() {
+			replyWrite_func();
+		})
+		$('#replyDel').click(function() {
+			alert("replyDel누름");
 		})
 	})
 	
-// 	function replyRead_func(){
-// 		var replyHtml = "";
-// 			replyHtml += "<c:forEach items='${replyList}' var='replyList'>";
-// 			replyHtml += "작성자 : "+ '${replyList.re_writer}'+"<br>"; 
-// 			replyHtml += "내용 : " +'${replyList.re_contents}'+"<br>";
-// 			replyHtml += "작성시간 :"+"<fmt:formatDate value='${replyList.re_date}' type='both' dateStyle='short' timeStyle='short'/>"
-// 			replyHtml += "조회수 : " +'${replyList.re_count}'+"<br>";
-// 			replyHtml += "<br>"
-// 			replyHtml += "</c:forEach>";
-// 			$('#replyRead').html(replyHtml);
-// 	}
+	function replyDel_func(replyNum) {
+		var replyNum = replyNum;
+		alert("에이젝스 DEL replyNum:"+replyNum);
+		$.ajax({
+			url : 'replyDelete.do',
+			type : 'get',
+			data : 'replyNum=' +replyNum,
+			success : function(data) {
+				replyRead_func();
+				alert("data : " +data);
+			},
+			error : function() {
+			}
+		})
+	}
+	
+	function replyWrite_func(){
+		var re_contents = $('#re_contents').val();
+		var allData = {
+			"boardNum" : $('input[name=boardNum]').val(),
+			"re_contents" : $('#re_contents').val()
+		};
+		$.ajax({
+			type : 'post',
+			url : 'replyWrite.do',
+			data : allData,
+			success : function(responseData) {
+				replyRead_func();
+				$('#re_contents').val("");
+			},
+			error : function() {
+				alert("ajax실패");
+			}
+		})
+	}
 	
 	function replyRead_func(){
 		var boardNum = ${board.boardNum};
@@ -57,10 +62,10 @@
    			data : 'boardNum=' +boardNum,
    			dataType : 'json',
     		success : function(data){
-    			alert("AJAX_listReply성공");
     			var replyHtml = "";
     		    $.each(data, function(key, replyList){ 
- 					replyHtml += "작성자 : "+replyList.re_writer+"<br>"; 
+ 					replyHtml += "작성자 : "+replyList.re_writer+"&nbsp&nbsp&nbsp"; 
+ 					replyHtml += "<input type='button' id='replyDel' value='삭제' onclick='replyDel_func("+replyList.reply_num+")'> <br>";
  					replyHtml += "내용 : " +replyList.re_contents+"<br>";
  					replyHtml += "조회수 : " +replyList.re_count+"<br>";
  					replyHtml += "<br>"
@@ -128,7 +133,6 @@
 						alt="이미지형식이 맞지 않습니다"></td>
 				</tr>
 			</c:if>
-
 			<tr>
 				<td>내용 :</td>
 				<td>${board.contents}</td>
@@ -148,25 +152,16 @@
 		</c:if>
 	</div>
 	<br>
-
-
-
-
-
+	
+<!-- 	리플이 달리는부분 -->
 	<div id="replyRead">
-		<!-- 			새로운 댓글이 달리는부분 -->
-		<div id="replyForm"></div>
 	</div>
-	<br>
-
 
 	<div id="replyWrite">
 		<textarea id="re_contents" rows="5" cols="50"
 			onclick="if(this.value=='댓글을 입력하세요'){this.value=''}">댓글을 입력하세요</textarea>
-		<input type="button" id="repleOk" value="확인">
+		<input type="button" id="replyOk" value="확인">
 	</div>
-
-
 
 </body>
 </html>
