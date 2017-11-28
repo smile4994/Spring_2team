@@ -107,6 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var myCLat;
 					var myCLong;
 					var addr;
+					var find;
 					// Geolocation API에 액세스할 수 있는지를 확인
 					if (navigator.geolocation) {
 						//위치 정보를 얻기
@@ -154,12 +155,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						// 중심 좌표나 확대 수준이 변경됐을 때 지도 중심 좌표에 대한 주소 정보를 표시하도록 이벤트를 등록합니다
 						daum.maps.event.addListener(map, 'idle', function() {
 							searchAddrFromCoords(map.getCenter(), displayCenterInfo);
+							
 						});
 				
-						// 키워드로 장소를 검색합니다
-						var find= addr+'동물병원';
-						alert(find);
-						ps.keywordSearch(find, placesSearchCB);
+						
 				
 						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
 						function placesSearchCB(data, status, pagination) {
@@ -229,11 +228,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									if (result[i].region_type === 'H') {
 										infoDiv.innerHTML = result[i].address_name;
 										addr = result[i].address_name;
-										alert(addr);
 										break;
 									}
 								}
 							}
+							// 키워드로 장소를 검색합니다
+							find= addr+" "+'동물병원';
+							alert(find);
+							ps.keywordSearch(find, placesSearchCB);
+							
 						}
 				
 					}
