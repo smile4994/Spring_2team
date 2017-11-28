@@ -5,6 +5,20 @@
 <html>
 <head>
 <title>Insert title here</title>
+
+<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/style.css?ver=1" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<!-- //js -->
+<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+<!-- fonts -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'><!-- //fonts -->
+<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
+
+
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -97,7 +111,8 @@
 		<input type="hidden" name="ref" value="${board.ref}"> <input
 			type="hidden" name="indent" value="${board.indent}"> <input
 			type="hidden" name="step" value="${board.step}">
-		<table border="1">
+		<div class="bs-docs-example">
+			<table class="table">
 			<tr>
 				<td>카테고리 :</td>
 				<td><input type="text" name="kategorie" size="20"
@@ -145,6 +160,7 @@
 					value="[답글]"></td>
 			</tr>
 		</table>
+		</div>
 	</form>
 	
 	<div id="selectBtn">
