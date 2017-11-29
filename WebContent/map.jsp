@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/css">
 	.container{
 		max-width: 100%;
-		width: autot;
+		width: auto;
 		height: auto;
 	}
 </script>

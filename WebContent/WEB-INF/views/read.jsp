@@ -11,8 +11,18 @@
 	$(function() {
 		replyRead_func();
 		$('#replyOk').click(function() {
-			replyWrite_func();
+			
+				var str = $('#re_contents').val();
+				var a = str.charAt(0);
+				if (a == " ") {
+					alert("댓글의 첫글자 공백을 허용하지 않습니다");
+					return false;
+				}
+				replyWrite_func();
+				return true;
 		})
+		
+		
 		$('#replyDel').click(function() {
 			alert("replyDel누름");
 		})
