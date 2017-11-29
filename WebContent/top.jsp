@@ -73,8 +73,6 @@
 					<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
 					<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
 					<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-					<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-					<li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
 				</ul>	
 			</div>
 			<div class="clearfix"></div>

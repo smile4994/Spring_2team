@@ -342,20 +342,20 @@ a.menu__link {
     border: 1px solid #fff;
 }
 .top_nav_right ul li a.fb{
-    background: url(../images/social.png) no-repeat -48px -7px;
+    background: url(../images/social3.png) no-repeat -48px -7px;
 }
 .top_nav_right ul li a.twit{
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
  /*-- agileits --*/
 .top_nav_right ul li a.goog{
-    background: url(../images/social.png) no-repeat -88px -7px;
+    background: url(../images/social3.png) no-repeat -88px -7px;
 }
 .top_nav_right ul li a.pin{
-    background: url(../images/social.png) no-repeat -130px -7px;
+    background: url(../images/social3.png) no-repeat -130px -7px;
 }
 .top_nav_right ul li a.drib{
-    background: url(../images/social.png) no-repeat -171px -7px;
+    background: url(../images/social3.png) no-repeat -171px -7px;
 }
 /*-- Slider Part starts Here --*/
 #slider3,#slider4  {
@@ -1560,16 +1560,16 @@ p.copy-right a:hover{
     display: inline-block;
 }
 .description ul li a.fb {
-    background: url(../images/social.png) no-repeat -48px -7px ;
+    background: url(../images/social3.png) no-repeat -48px -7px ;
 }
 .description ul li a.twit {
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
 .description ul li a.goog {
-    background: url(../images/social.png) no-repeat -88px -7px;
+    background: url(../images/social3.png) no-repeat -88px -7px;
 }
 .description ul li a.pin {
-    background: url(../images/social.png) no-repeat -130px -7px;
+    background: url(../images/social3.png) no-repeat -130px -7px;
 }
 .team-bot{
 	margin-top:80px;
@@ -2928,22 +2928,22 @@ figure.effect-apollo:hover p {
 		height: 30px;
 	}
 	.top_nav_right ul li a.fb {
-		background: url(../images/social.png) no-repeat -49px -8px;
+		background: url(../images/social3.png) no-repeat -49px -8px;
 	}
 	.top_nav_right ul li {
 		height: 30px;
 	}
 	.top_nav_right ul li a.twit {
-		background: url(../images/social.png) no-repeat -8px -8px;
+		background: url(../images/social3.png) no-repeat -8px -8px;
 	}
 	.top_nav_right ul li a.goog {
-		background: url(../images/social.png) no-repeat -89px -8px;
+		background: url(../images/social3.png) no-repeat -89px -8px;
 	}
 	.top_nav_right ul li a.pin {
-		background: url(../images/social.png) no-repeat -131px -8px;
+		background: url(../images/social3.png) no-repeat -131px -8px;
 	}
 	.top_nav_right ul li a.drib {
-		background: url(../images/social.png) no-repeat -172px -8px;
+		background: url(../images/social3.png) no-repeat -172px -8px;
 	}
 	.search input[type="search"] {
 		width: 80%;
