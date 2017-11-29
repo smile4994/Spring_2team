@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	
-	<div class="ban-top ">
+	<div class="ban-top">
 		<div class="container">
 			<div class="ban-top-con">
 			<div class="top_nav_left">
