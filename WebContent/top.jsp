@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	
-	<div class="ban-top ">
+	<div class="ban-top">
 		<div class="container">
 			<div class="ban-top-con">
 			<div class="top_nav_left">
@@ -71,10 +71,14 @@
 			<div class="top_nav_right">
 				<ul>
 					<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-					<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
+					<li class="hvr-rectangle-out">
+<!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
+					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
+					</a>
+					</li>
 					<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-					<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-					<li class="hvr-rectangle-out"><a class="drib" href="#"></a></li>
+					<li class="hvr-rectangle-out"><a class="join" href="#"></a></li>
+					<li class="hvr-rectangle-out"><a class="login" href="#"></a></li>
 				</ul>	
 			</div>
 			<div class="clearfix"></div>

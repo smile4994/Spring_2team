@@ -78,18 +78,20 @@ public class BoardController {
 		File savedFile = new File(uploadPath + "/" + savedName);
 
 		try {
-			board.getImg().transferTo(savedFile);
-			// System.out.println("---------------");
-			// System.out.println("업로드 완료");
-			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-			System.out.println("이걸 따라써야한다 : img/" + savedName);
-			// System.out.println("---------------");
-			savedName = "img/" + savedName;
-			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
-			if (board.getImg().getOriginalFilename().length() < 3) {
-				savedName = "noImg";
-			}
-			board.setBoardImg(savedName);
+//			board.getImg().transferTo(savedFile);
+//			// System.out.println("---------------");
+//			// System.out.println("업로드 완료");
+//			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
+//			System.out.println("이걸 따라써야한다 : img/" + savedName);
+//			// System.out.println("---------------");
+//			savedName = "img/" + savedName;
+//			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
+//			if (board.getImg().getOriginalFilename().length() < 3) {
+//				savedName = "noImg";
+//			}
+//			board.setBoardImg(savedName);
+			
+			
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

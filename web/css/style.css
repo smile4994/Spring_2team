@@ -345,7 +345,7 @@ a.menu__link {
     background: url(../images/social.png) no-repeat -48px -7px;
 }
 .top_nav_right ul li a.twit{
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
  /*-- agileits --*/
 .top_nav_right ul li a.goog{
@@ -1563,7 +1563,7 @@ p.copy-right a:hover{
     background: url(../images/social.png) no-repeat -48px -7px ;
 }
 .description ul li a.twit {
-    background: url(../images/social.png) no-repeat -7px -7px;
+    background: url(../images/social3.png) no-repeat -7px -7px;
 }
 .description ul li a.goog {
     background: url(../images/social.png) no-repeat -88px -7px;
@@ -2934,7 +2934,7 @@ figure.effect-apollo:hover p {
 		height: 30px;
 	}
 	.top_nav_right ul li a.twit {
-		background: url(../images/social.png) no-repeat -8px -8px;
+		background: url(../images/social3.png) no-repeat -8px -8px;
 	}
 	.top_nav_right ul li a.goog {
 		background: url(../images/social.png) no-repeat -89px -8px;

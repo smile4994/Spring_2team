@@ -15,25 +15,53 @@ public class BoardDao {
 	@Autowired
 	private SqlSessionTemplate session;
 	
-	public List<BoardVO> selectList(){
+//	public List<BoardVO> selectList(){
+//		BoardMapper mapper = session.getMapper(BoardMapper.class);
+//		return mapper.selectList();
+//	}
+	
+	//페이징 처리 
+	public List<BoardVO> selectList(int startRow, int count){
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.selectList();
+		return mapper.selectList(startRow, count);
 	}
 	
-	public List<BoardVO> selectTitle(String title){
+	public int selectCount() {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.selectTitle(title);
+		return mapper.selectTotalCount();
 	}
 	
-	public List<BoardVO> selectWriter(String writer){
+	public int selectTitleCount(String title) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.selectWriter(writer);
+		return mapper.selectTitleCount(title);
 	}
 	
-	public List<BoardVO> selectKategorie(String kategorie){
+	public int selectWriterCount(String writer) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.selectKategorie(kategorie);
+		return mapper.selectWriterCount(writer);
 	}
+	
+	public int selectKategorieCount(String kategorie) {
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectKategorieCount(kategorie);
+	}
+	///////////////////////////////////////////////////
+	//검색 마다 변하는 select
+	public List<BoardVO> selectTitle(int startRow, int count,String title){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectTitle(startRow, count,title);
+	}
+	
+	public List<BoardVO> selectWriter(int startRow, int count,String writer){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectWriter(startRow, count,writer);
+	}
+	
+	public List<BoardVO> selectKategorie(int startRow, int count,String kategorie){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectKategorie(startRow, count,kategorie);
+	}
+	///////////////////////////////////////////////////////
 	
 	
 	public int insert(BoardVO board) {
@@ -113,6 +141,11 @@ public class BoardDao {
 	public int deleteReply(int replyNum) {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.deleteReply(replyNum);
+	}
+	
+	public int deleteAllReply(int ref) {
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.deleteAllReply(ref);
 	}
 	
 }

@@ -8,7 +8,7 @@ import vo.BoardVO;
 import vo.ReplyVO;
 
 public interface BoardMapper {
-	public List<BoardVO> selectList();
+//	public List<BoardVO> selectList();
 	public BoardVO select(int boardNum);
 	public int insert(BoardVO board);
 	public int update(BoardVO board);
@@ -16,18 +16,22 @@ public interface BoardMapper {
 	public int delete(int ref);
 	public int updateCount(int boardNum);
 	
+	//페이징 처리를 위한 작업
+	public List<BoardVO> selectList(@Param("startRow")int startRow, @Param("count")int count);
+	public int selectTotalCount();
+	public int selectTitleCount(String title);
+	public int selectWriterCount(String writer);
+	public int selectKategorieCount(String kategorie);
 	
 	//검색 창에 입력시 반영되는 select문
 	//(1)제목
-	public List<BoardVO> selectTitle(String title);
+	public List<BoardVO> selectTitle(@Param("startRow")int startRow, @Param("count")int count,@Param("title")String title);
 	//(2)작성자
-	public List<BoardVO> selectWriter(String writer);
+	public List<BoardVO> selectWriter(@Param("startRow")int startRow, @Param("count")int count,@Param("writer")String writer);
 	//(3)카테고리
-	public List<BoardVO> selectKategorie(String kategorie);
+	public List<BoardVO> selectKategorie(@Param("startRow")int startRow, @Param("count")int count,@Param("kategorie")String kategorie);
 	
-	
-	
-	
+
 	//답글을 위한 SQL문 
 	//(1)댓글 / 대댓 인지 확인하기 
 	public int checkSelect(BoardVO board);
@@ -46,6 +50,7 @@ public interface BoardMapper {
 	public ReplyVO selectReply(int replyNum);
 	public int insertReply(ReplyVO reply);
 	public int deleteReply(int replyNum);
+	public int deleteAllReply(int ref);
 	
 	
 }
