@@ -19,8 +19,9 @@
     session.setAttribute("state", state);
  %>
   <a href="<%=apiURL%>"><img height="50" src="http://static.nid.naver.com/oauth/small_g_in.PNG"/></a>
-  
-  
+  <br>
+  페이스북 로그인<br>
+  구글로그인<br>
   
   </body>
 </html>

@@ -70,13 +70,15 @@
 			</div>
 			<div class="top_nav_right">
 				<ul>
+					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
 					<li class="hvr-rectangle-out">
 <!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
 					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
 					</a>
+					<li class="hvr-rectangle-out"><a class="goog" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
 					</li>
 					<li class="hvr-rectangle-out"><a class="join" href="joinForm.do"></a></li>
-					<li class="hvr-rectangle-out"><a class="login" href="#"></a></li>
+					<li class="hvr-rectangle-out"><a class="login" href="loginForm.do"></a></li>
 				</ul>	
 			</div>
 			<div class="clearfix"></div>
