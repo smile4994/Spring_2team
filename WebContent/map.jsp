@@ -132,12 +132,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						// 지도를 생성합니다    
 						var map = new daum.maps.Map(mapContainer, mapOption);
 						/////////////////////////////////
-					    var clusterer = new daum.maps.MarkerClusterer({
-					        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
-					        averageCenter: true, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-					        minLevel: 10, // 클러스터 할 최소 지도 레벨
-					        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
-					    });
+// 					    var clusterer = new daum.maps.MarkerClusterer({
+// 					        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+// 					        averageCenter: false, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+// 					        gridSize: 60,
+// 					        minLevel: 4, // 클러스터 할 최소 지도 레벨
+// 					        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+// 					    });
 						/////////////////////////////////
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
@@ -181,8 +182,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																+ '</div>');
 												infowindow.open(map, marker);
 											});
-							clusterer.addMarkers(markers);
-						}
+// 							clusterer.addMarkers(markers);
+						}	
 						
 						 daum.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
 
