@@ -3,24 +3,47 @@
 <html>
 <head>
 <title>글쓰기 작업</title>
+<style type="text/css">
+	.img_box {
+		width: 100px;
+		margin-top : 50px;
+	}
+	.img_box img{
+		max-width: 100px;
+	}
+</style>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-	function fileInfo(f) {
-		var file = f.files;
-		if (file[0].type.indexOf('image') < 0) { // 선택한 파일이 이미지인지 확인
-			alert('이미지 파일만 선택하세요');
-			return false;
-		}
-		var reader = new FileReader(); // FileReader 객체 사용
-		reader.onload = function(rst) {
-			$('#img_box')
-					.html(
-							'<img style="width: 100px; height: 100px;" src="' + rst.target.result + '">'); // append 메소드를 사용해서 이미지 추가
-			// 이미지는 base64 문자열로 추가
-			// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음
-		}
-		reader.readAsDataURL(file[0]); // 파일을 읽는다
+	
+	var sel_files = [];
+	$(document).ready(function(){
+		$("#img").on("change", handleImgsFilesSelect);
+	});
+	function handleImgsFilesSelect(e) {
+		var file = e.files;
+		var fileArr = Array.prototype.slice.call(files);
+		filesArr.forEach(function(f){
+			if (!f.type.match("image.*")) { // 선택한 파일이 이미지인지 확인
+				alert('이미지 파일만 선택하세요');
+				return;
+			}
+			
+			sel_file.push(f);
+			
+			var reader = new FileReader(); // FileReader 객체 사용
+			reader.onload = function(rst) {
+				var img_html = "<img src=\"" + rst.target.result + "\"/>";
+				$(".img_box").append(img_html);
+// 				$('#img_box')
+// 						.html(
+// 								'<img style="width: 100px; height: 100px;" src="'
+// 								+ rst.target.result + '">'); // append 메소드를 사용해서 이미지 추가
+				// 이미지는 base64 문자열로 추가
+				// 이 방법을 응용하면 선택한 이미지를 미리보기 할 수 있음
+			}
+			reader.readAsDataURL(f); // 파일을 읽는다
+		});
 	}
 
 	function go_submit() {
@@ -61,12 +84,12 @@
 			</tr>
 			<tr>
 				<td>파일첨부 :</td>
-				<td><input type="file" onchange="fileInfo(this)" name="img" />
+				<td><input type="file" id="img" multiple="multiple"/>
 				</td>
 			</tr>
 
 			<tr>
-				<td colspan="2"><div id="img_box"></div></td>
+				<td colspan="2"><div class="img_box"></div></td>
 			<tr>
 			<tr>
 				<td>내용 :</td>

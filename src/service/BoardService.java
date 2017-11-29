@@ -1,10 +1,16 @@
 package service;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import repository.BoardDao;
 import vo.BoardPageVO;
@@ -76,7 +82,18 @@ public class BoardService {
 		// 모든 데이터 BoardPageVO 객체에 담아서 리턴
 		return new BoardPageVO(boardList, currentPage, startPage, endPage, totalPage);
 	}
-
+	
+	// 파일 업로드 관련
+//	public void write(String originalfileName, String saveFileName, long fileSize) {
+//		HashMap<String, Object> hm = new HashMap<>();
+//	    hm.put("originalfileName", originalfileName);
+//	    hm.put("saveFileName", saveFileName);
+//	    hm.put("fileSize", fileSize);
+//	     
+//	    dao.write(hm);
+//
+//
+//	}
 	/////////////////////////////////////////////////////////////////////////////
 
 //	public List<BoardVO> svBoardList(String searchType, String searchWrite) {
