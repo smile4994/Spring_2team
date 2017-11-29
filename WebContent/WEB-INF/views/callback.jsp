@@ -14,7 +14,7 @@
     String clientSecret = "9p87FbP_Rd";//애플리케이션 클라이언트 시크릿값";
     String code = request.getParameter("code");
     String state = request.getParameter("state");
-    String redirectURI = URLEncoder.encode("http://127.0.0.1:8888/Spring_2team/callback.do", "UTF-8");
+    String redirectURI = URLEncoder.encode("http://localhost:8888/Spring_2team/callback.do", "UTF-8");
     String apiURL;
     apiURL = "https://nid.naver.com/oauth2.0/token?grant_type=authorization_code&";
     apiURL += "client_id=" + clientId;
@@ -31,7 +31,7 @@
       con.setRequestMethod("GET");
       int responseCode = con.getResponseCode();
       BufferedReader br;
-      System.out.print("responseCode="+responseCode);
+      System.out.println("responseCode="+responseCode);
       if(responseCode==200) { // 정상 호출
         br = new BufferedReader(new InputStreamReader(con.getInputStream()));
       } else {  // 에러 발생
