@@ -184,5 +184,13 @@
 		<result property="re_date" column="re_date" />
 		<result property="re_count" column="re_count" />
 	</resultMap>
+	
+<!-- 	파일 업로드 관련 -->
+<!-- 	<insert id="write" parameterType="HashMap"> -->
+<!-- 		INSERT INTO -->
+<!-- 		FILE(FILE_NUM, ORIGINAL_NAME, FILE_NAME, FILE_SIZE, -->
+<!-- 		BOARD_NUM) VALUES (file_seq.nextval, #{originalfileName}, #{saveFileName}, -->
+<!-- 		#{fileSize}, bbs_seq.currval) -->
+<!-- 	</insert> -->
 
 </mapper>
