@@ -21,6 +21,7 @@
             <mvc:mapping path="/*.do"/>
             <mvc:exclude-mapping path="/loginForm.do"/>
             <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="/naverlogin.do"/>
             <mvc:exclude-mapping path="/loginCheck.do"/>
              <mvc:exclude-mapping path="/board.do"/>
             <bean class="interceptor.LoginCheckInterceptor"/>
