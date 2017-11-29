@@ -5,13 +5,6 @@
 <html>
 <head>
 <title>Insert title here</title>
-
-<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/style.css?ver=1" rel="stylesheet" type="text/css" media="all" />
-<link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-<link href='//fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'><!-- //fonts -->
-<link href="css/animate.css" rel="stylesheet" type="text/css" media="all">
-
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
@@ -78,7 +71,6 @@
  					replyHtml += "<a id='replyDel' onclick='replyDel_func("+replyList.reply_num+")' style='color:grey;'>&times;</a>";
  					replyHtml += "<div style='font-size:12px;font-style:monospace; color:grey; margin-top:5px; margin-bottom:3px;'>"+replyList.re_date + "</div><hr>";
  					replyHtml += "</div>" 					
- 					
      		   });
      		   $('#replyRead').html(replyHtml);
   			  },
@@ -98,58 +90,39 @@
 		return false;
 	}
 </script>
-
-<style type="text/css">
-.table{
-	text-align : center;
-	width:50%;
-	height:auto;
-	margin:auto;
-	border-style:solid;
-	border-bottom-width: 2px;
-	border-color:black;
-	border: 1;
-}
-tr:hover{
-	background-color:silver;
-	opacity: 0.8;
-}
-</style>
 </head>
 <body>
-<jsp:include page="../../top.jsp"/>
 	<form action="repleForm.do" method="post">
 		<input type="hidden" name="ref" value="${board.ref}"> <input
 			type="hidden" name="indent" value="${board.indent}"> <input
 			type="hidden" name="step" value="${board.step}">
-		<div class="bs-docs-example">
-			<table class="table table-striped">
+		<table border="1">
 			<tr>
-				<td>카테고리</td>
+				<td>카테고리 :</td>
 				<td><input type="text" name="kategorie" size="20"
 					value="${board.kategorie}" readonly="readonly"></td>
 			</tr>
 
 			<tr>
-				<td>글번호</td>
+				<td>글번호 :</td>
 				<td><input type="text" name="boardNum" size="20"
 					value="${board.boardNum}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>제목</td>
+				<td>제목 :</td>
 				<td><input type="text" name="title" size="20"
 					value="${board.title}" readonly="readonly"></td>
 			</tr>
 			<tr>
-				<td>작성자</td>
+				<td>작성자 :</td>
 				<td>${board.writer}</td>
 			</tr>
 			<tr>
-				<td>조회수</td>
+				<td>조회수 :</td>
 				<td>${board.count}</td>
 			</tr>
 			<tr>
-				<td>작성일시</td>
+				<td>작성일시 :</td>
 				<td><fmt:formatDate value="${board.date}" type="both"
 						dateStyle="short" timeStyle="short" /></td>
 			</tr>
@@ -158,17 +131,8 @@ tr:hover{
 			<c:if test="${board.boardImg ne 'noImg'}">
 				<tr>
 					<td>이미지 파일 :</td>
-					<td align="center">
-					<a href="#image-7">
-					<figure class="effect-apollo">
-					<img width="420" height="120" src="${board.boardImg}"
-						alt="image7">
-						<div class="gal-info">							
-								<p>이미지가 보여집니다</p>
-						</div>
-					</figure>
-					</a>
-					</td>
+					<td><img width="100" height="70" src="${board.boardImg}"
+						alt="이미지형식이 맞지 않습니다"></td>
 				</tr>
 			</c:if>
 			<tr>
@@ -176,14 +140,13 @@ tr:hover{
 				<td>${board.contents}</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right"><input type="submit" name="sbm" class="btn btn-default" 
+				<td colspan="2" align="right"><input type="submit" name="sbm"
 					value="[답글]"></td>
 			</tr>
 		</table>
-		</div>
 	</form>
 	
-	<div id="selectBtn" align="center">
+	<div id="selectBtn">
 		<a href="board.do">[목록]</a>
 		<c:if test="${sessionScope.loginId == board.writer}">
 			<a href="updateForm.do?boardNum=${board.boardNum}">[수정]</a>
@@ -193,13 +156,13 @@ tr:hover{
 	<br>
 	
 <!-- 	리플이 달리는부분 -->
-	<div id="replyRead" align="center">
+	<div id="replyRead">
 	</div>
 
-	<div id="replyWrite" align="center">
+	<div id="replyWrite">
 		<textarea id="re_contents" rows="5" cols="50"
 			onclick="if(this.value=='댓글을 입력하세요'){this.value=''}">댓글을 입력하세요</textarea>
-		<input type="button" id="replyOk" class="btn btn-default"  value="확인">
+		<input type="button" id="replyOk" value="확인">
 	</div>
 
 </body>
