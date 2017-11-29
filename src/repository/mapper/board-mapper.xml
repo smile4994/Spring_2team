@@ -1,15 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="repository.mapper.BoardMapper">
+<!-- 	<select id="selectList" resultMap="boardResultMap"> -->
+<!-- 		SELECT BOARD_NUM, TITLE, -->
+<!-- 		CONTENTS,KATEGORIE, -->
+<!-- 		WRITER, DATE,COUNT -->
+<!-- 		FROM PBOARD -->
+<!-- 		ORDER BY REF DESC, -->
+<!-- 		STEP ASC -->
+<!-- 	</select> -->
+	
 	<select id="selectList" resultMap="boardResultMap">
-		SELECT BOARD_NUM, TITLE,
-		CONTENTS,KATEGORIE,
-		WRITER, DATE,COUNT
+		SELECT
+		BOARD_NUM, TITLE, CONTENTS,KATEGORIE,WRITER, DATE,COUNT
 		FROM PBOARD
-		ORDER BY REF DESC,
-		STEP ASC
+		ORDER BY REF DESC, STEP ASC
+		LIMIT #{startRow},#{count}
 	</select>
-
+	
+	<select id="selectTotalCount" resultType="int">
+		SELECT COUNT(*) FROM PBOARD
+	</select>
+	
+	<select id="selectTitleCount" resultType="int">
+		SELECT COUNT(*) FROM PBOARD WHERE TITLE LIKE CONCAT('%',#{title},'%')
+	</select>
+	
+	<select id="selectWriterCount" resultType="int">
+		SELECT COUNT(*) FROM PBOARD WHERE WRITER LIKE CONCAT('%',#{writer},'%')
+	</select>
+	
+	<select id="selectKategorieCount" resultType="int">
+		SELECT COUNT(*) FROM PBOARD WHERE KATEGORIE LIKE CONCAT('%',#{kategorie},'%')
+	</select>
+	
+	
 	<select id="selectTitle" resultMap="boardResultMap">
 		SELECT BOARD_NUM, TITLE,
 		CONTENTS,KATEGORIE,
@@ -17,6 +42,7 @@
 		FROM PBOARD WHERE TITLE LIKE
 		CONCAT('%',#{title},'%')
 		ORDER BY REF DESC, STEP ASC
+		LIMIT #{startRow},#{count}
 	</select>
 
 	<select id="selectWriter" resultMap="boardResultMap">
@@ -26,6 +52,7 @@
 		FROM PBOARD WHERE WRITER LIKE
 		CONCAT('%',#{writer},'%')
 		ORDER BY REF DESC, STEP ASC
+		LIMIT #{startRow},#{count}
 	</select>
 
 	<select id="selectKategorie" resultMap="boardResultMap">
@@ -35,6 +62,7 @@
 		FROM PBOARD WHERE KATEGORIE LIKE
 		CONCAT('%',#{kategorie},'%')
 		ORDER BY REF DESC, STEP ASC
+		LIMIT #{startRow},#{count}
 	</select>
 
 
@@ -122,22 +150,29 @@
 	<select id="selectReplyList" resultMap="replyResultMap">
 		SELECT *
 		FROM REPLY
-		WHERE RE_REF = #{re_ref}
-	</select>
-	
-	<select id="selectReply" resultMap="replyResultMap">
-		SELECT * FROM REPLY WHERE REPLY_NUM = #{replyNum}
+		WHERE
+		RE_REF = #{re_ref}
 	</select>
 
-	<insert id="insertReply" parameterType="ReplyVO" useGeneratedKeys="true"
-		keyProperty="boardNum">
+	<select id="selectReply" resultMap="replyResultMap">
+		SELECT * FROM REPLY WHERE
+		REPLY_NUM = #{replyNum}
+	</select>
+
+	<insert id="insertReply" parameterType="ReplyVO"
+		useGeneratedKeys="true" keyProperty="boardNum">
 		INSERT INTO
 		REPLY(re_writer,re_ref,re_contents,re_date,re_count)
 		VALUES(#{re_writer},#{re_ref}, #{re_contents},#{re_date},#{re_count})
 	</insert>
-	
-	<delete id="deleteReply" parameterType="int">	
+
+	<delete id="deleteReply" parameterType="int">
 		DELETE FROM REPLY WHERE REPLY_NUM = #{replyNum}
+	</delete>
+
+	<delete id="deleteAllReply" parameterType="int">
+		DELETE FROM REPLY
+		WHERE RE_REF = #{ref}
 	</delete>
 
 	<!-- 리플에대한 ResultMap -->

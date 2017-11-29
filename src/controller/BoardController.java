@@ -27,20 +27,14 @@ public class BoardController {
 	private BoardService service;
 
 	@RequestMapping(value = "/board.do")
-	public ModelAndView board(@RequestParam(defaultValue = "0") String searchType,
+	public ModelAndView board(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue = "0") String searchType,
 			@RequestParam(defaultValue = "0") String searchWrite) {
 		ModelAndView mv = new ModelAndView();
 
-		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
-		mv.setViewName("board_list");
-		return mv;
-	}
-	@RequestMapping(value = "/matchingBoard.do")
-	public ModelAndView matchingBoard(@RequestParam(defaultValue = "0") String searchType,
-			@RequestParam(defaultValue = "0") String searchWrite) {
-		ModelAndView mv = new ModelAndView();
-
-		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
+		mv.addObject("boardPage", service.makeBoardPage(searchType,searchWrite,page));
+		
+//		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
+		
 		mv.setViewName("board_list");
 		return mv;
 	}
@@ -168,6 +162,10 @@ public class BoardController {
 	public ModelAndView delete(int boardNum) {
 		ModelAndView mv = new ModelAndView();
 		BoardVO board = service.svSelect(boardNum);
+		
+		//원글이 지워지면 댓글들 전체 삭제 
+		System.out.println("delete.do에 들어오는 boardnum : " +boardNum);
+		service.svReplyAllDelete(boardNum);
 		int result = service.svDelete(board);
 
 		mv.addObject("result", result);
@@ -205,7 +203,6 @@ public class BoardController {
 		} else {
 			result = "실패";
 		}
-
 		try {
 			response.getWriter().write(result);
 		} catch (IOException e) {
