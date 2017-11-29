@@ -27,14 +27,20 @@ public class BoardController {
 	private BoardService service;
 
 	@RequestMapping(value = "/board.do")
-	public ModelAndView board(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue = "0") String searchType,
+	public ModelAndView board(@RequestParam(defaultValue = "0") String searchType,
 			@RequestParam(defaultValue = "0") String searchWrite) {
 		ModelAndView mv = new ModelAndView();
 
-		mv.addObject("boardPage", service.makeBoardPage(searchType,searchWrite,page));
-		
-//		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
-		
+		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
+		mv.setViewName("board_list");
+		return mv;
+	}
+	@RequestMapping(value = "/matchingBoard.do")
+	public ModelAndView matchingBoard(@RequestParam(defaultValue = "0") String searchType,
+			@RequestParam(defaultValue = "0") String searchWrite) {
+		ModelAndView mv = new ModelAndView();
+
+		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
 		mv.setViewName("board_list");
 		return mv;
 	}
@@ -72,18 +78,20 @@ public class BoardController {
 		File savedFile = new File(uploadPath + "/" + savedName);
 
 		try {
-			board.getImg().transferTo(savedFile);
-			// System.out.println("---------------");
-			// System.out.println("업로드 완료");
-			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-			System.out.println("이걸 따라써야한다 : img/" + savedName);
-			// System.out.println("---------------");
-			savedName = "img/" + savedName;
-			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
-			if (board.getImg().getOriginalFilename().length() < 3) {
-				savedName = "noImg";
-			}
-			board.setBoardImg(savedName);
+//			board.getImg().transferTo(savedFile);
+//			// System.out.println("---------------");
+//			// System.out.println("업로드 완료");
+//			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
+//			System.out.println("이걸 따라써야한다 : img/" + savedName);
+//			// System.out.println("---------------");
+//			savedName = "img/" + savedName;
+//			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
+//			if (board.getImg().getOriginalFilename().length() < 3) {
+//				savedName = "noImg";
+//			}
+//			board.setBoardImg(savedName);
+			
+			
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -162,10 +170,6 @@ public class BoardController {
 	public ModelAndView delete(int boardNum) {
 		ModelAndView mv = new ModelAndView();
 		BoardVO board = service.svSelect(boardNum);
-		
-		//원글이 지워지면 댓글들 전체 삭제 
-		System.out.println("delete.do에 들어오는 boardnum : " +boardNum);
-		service.svReplyAllDelete(boardNum);
 		int result = service.svDelete(board);
 
 		mv.addObject("result", result);
@@ -203,6 +207,7 @@ public class BoardController {
 		} else {
 			result = "실패";
 		}
+
 		try {
 			response.getWriter().write(result);
 		} catch (IOException e) {
