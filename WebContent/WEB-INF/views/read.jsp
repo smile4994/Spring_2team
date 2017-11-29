@@ -158,20 +158,16 @@ tr:hover{
 			<c:if test="${board.boardImg ne 'noImg'}">
 				<tr>
 					<td>이미지 파일 :</td>
-					<td>
-					<li class="grid">
+					<td align="center">
 					<a href="#image-7">
 					<figure class="effect-apollo">
-					<img src="${board.boardImg}"
+					<img width="420" height="120" src="${board.boardImg}"
 						alt="image7">
 						<div class="gal-info">							
-								<h3>Pets Love</h3>
 								<p>이미지가 보여집니다</p>
 						</div>
-						<a href="gallery.jsp" class="lb-close">Close</a>
 					</figure>
 					</a>
-					</li>
 					</td>
 				</tr>
 			</c:if>
