@@ -2,7 +2,9 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -84,6 +88,10 @@ public class BoardController {
 				savedName = "noImg";
 			}
 			board.setBoardImg(savedName);
+<<<<<<< HEAD
+
+=======
+>>>>>>> 752249b20df14879e5a4c2eacc49b3cd341a2b6e
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -97,6 +105,55 @@ public class BoardController {
 			return "no_login";
 		}
 	}
+//	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
+//	public ModelAndView write(BoardVO board, HttpSession session, HttpServletRequest req,
+//			MultipartHttpServletRequest mhsq) {
+//		ModelAndView mv = new ModelAndView();
+//		session = req.getSession();
+//		String loginId = (String) session.getAttribute("loginId");
+//		String uploadPath = req.getServletContext().getRealPath("img");
+//		service.svInsert(board, loginId);
+//
+//		File dir = new File(uploadPath);
+//		if (!dir.exists()) {
+//			dir.mkdir();
+//		}
+//		
+//		List<MultipartFile> mf = mhsq.getFiles("img");
+//        if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
+//             
+//        } else {
+//            for (int i = 0; i < mf.size(); i++) {
+//                // 파일 중복명 처리
+//                String genId = UUID.randomUUID().toString();
+//                // 본래 파일명
+//                String originalfileName = mf.get(i).getOriginalFilename();
+//                 
+//                String saveFileName = genId + "." + originalfileName;
+//                // 저장되는 파일 이름
+// 
+//                String savePath = uploadPath + saveFileName; // 저장 될 파일 경로
+// 
+//                long fileSize = mf.get(i).getSize(); // 파일 사이즈
+// 
+//                try {
+//					mf.get(i).transferTo(new File(savePath));
+//				} catch (IllegalStateException e) {
+//					e.printStackTrace();
+//					System.out.println("저장안됨1");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//					System.out.println("저장안됨2");
+//				} // 파일 저장
+// 
+//                service.write(originalfileName, saveFileName, fileSize);
+//            }
+//        }
+//
+//		mv.setViewName("lead");
+//		return mv;
+//	}
+	
 
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {
