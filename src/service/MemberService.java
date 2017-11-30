@@ -27,5 +27,7 @@ public class MemberService {
 			return false;
 		}
 	}
-
+	public MemberVO getMemberInfo(String loginId) {
+		return dao.selectMember(loginId);
+	}
 }

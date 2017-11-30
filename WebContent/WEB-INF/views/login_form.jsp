@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			<div class="input-group input-group-lg">
 				<span class="input-group-addon" id="sizing-addon1">PW</span>
-				<input type="text" class="form-control" placeholder="User password"
+				<input type="password" class="form-control" placeholder="User password"
 					name="pw" aria-describedby="sizing-addon1">
 			</div>
 

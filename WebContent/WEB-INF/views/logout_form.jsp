@@ -6,7 +6,7 @@
 <script type="text/javascript">
 	window.onload = function(){
 		alert('로그아웃 되었습니다.');
-		location.href="${pageContext.request.contextPath}/";
+		location.href="main.do";
 	}
 </script>
 </head>

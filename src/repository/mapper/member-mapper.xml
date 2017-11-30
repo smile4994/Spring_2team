@@ -2,16 +2,23 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="repository.mapper.MemberMapper">
 	<insert id="insert" parameterType="MemberVO">
-		INSERT INTO MEMBER(ID,PW,NAME,PHONE,ADDRESS,EMAIL,MEMBER_SRC) 
+		INSERT INTO
+		MEMBER(ID,PW,NAME,PHONE,ADDRESS,EMAIL,MEMBER_SRC)
 		VALUES(#{id},#{pw},#{name},#{phone},#{address},#{email},#{memberSrc})
 	</insert>
-	
+
 	<select id="selectLogin" resultType="int">
-		SELECT COUNT(ID) FROM MEMBER WHERE ID=#{id} AND PW=#{pw}
+		SELECT COUNT(ID) FROM MEMBER
+		WHERE ID=#{id} AND PW=#{pw}
+	</select>
+
+	<select id="selectMember" resultMap="resultMemberVO">
+		SELECT * FROM MEMBER
+		WHERE ID=#{id}
 	</select>
 
 	<resultMap type="MemberVO" id="resultMemberVO">
-	<result property="memberSrc" column="MEMBER_SRC"/>
-	<result property="memberNum" column="MEMBER_NUM"/>
+		<result property="memberSrc" column="MEMBER_SRC" />
+		<result property="memberNum" column="MEMBER_NUM" />
 	</resultMap>
 </mapper>

@@ -166,7 +166,7 @@ function check(){
 				회원
 				<span> 가입</span>
 			</h3>
-			<form id="joinForm" action="join.do" method="post">
+			<form id="joinForm" action="join.do" method="post" enctype="multipart/form-data">
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">ID</span>
 					<input type="text" class="form-control" placeholder="User id"

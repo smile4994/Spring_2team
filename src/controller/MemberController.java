@@ -58,12 +58,14 @@ public class MemberController {
 	public ModelAndView join(MemberVO member) {
 		ModelAndView mv = new ModelAndView();
 		
-		String uploadPath = "c:images";
+		String uploadPath = "C:\\images";
 		File dir = new File(uploadPath);
 		if (dir.exists() == false) {
 			dir.mkdir();
 		}
-		String savedName = new Random().nextInt(1000) + member.getMemImg().getOriginalFilename();
+		String extensionStr = member.getMemImg().getOriginalFilename();
+		String extension = extensionStr.substring(extensionStr.length()-4,extensionStr.length());
+		String savedName = new Random().nextInt(1000000) + extension;
 		String memSrc = uploadPath+"/"+savedName;
 		File savedFile = new File(memSrc);
 		System.out.println("memSrc : "+memSrc);
@@ -98,6 +100,19 @@ public class MemberController {
 //		return "login_check";
 //	}
 	
+	@RequestMapping("/myPage.do")
+	public ModelAndView myPage(HttpSession session) {
+		String loginId = (String)session.getAttribute("loginId");
+		ModelAndView mv = new ModelAndView();
+		if(loginId != null && loginId.length()>0) {
+			MemberVO member = service.getMemberInfo(loginId);
+			mv.addObject("memberInfo",member);
+			mv.setViewName("my_page");
+		}else {
+			mv.setViewName("no_login");
+		}
+		return mv;
+	}
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public ModelAndView login(String id, String pw, HttpSession session) {
