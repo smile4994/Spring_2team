@@ -11,8 +11,12 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -57,28 +61,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="news-left">
 		<div class="container">
 			<h3 class="title ">로그인</h3>
+			<form method="post" action="login.do">
 			<div class="input-group input-group-lg">
-				<span class="input-group-addon" id="sizing-addon1">ID</span> <input
-					type="text" class="form-control" placeholder="User id"
-					aria-describedby="sizing-addon1">
+			
+				<span class="input-group-addon" id="sizing-addon1">ID</span>
+				<input type="text" class="form-control" placeholder="User id"
+					name="id" aria-describedby="sizing-addon1">
 			</div>
 
 			<div class="input-group input-group-lg">
-				<span class="input-group-addon" id="sizing-addon1">PW</span> <input
-					type="text" class="form-control" placeholder="User password"
-					aria-describedby="sizing-addon1">
+				<span class="input-group-addon" id="sizing-addon1">PW</span>
+				<input type="text" class="form-control" placeholder="User password"
+					name="pw" aria-describedby="sizing-addon1">
 			</div>
 
 			<div class="row">
 				<div class="col-lg-6 in-gp-tb">
 					<div class="input-group">
-						<button class="btn btn-default" type="button">로그인</button>
-						<button class="btn btn-default" type="button">뒤로가기</button>
+						<button class="btn btn-default" type="submit">로그인</button>
+						<a href="javascript:history.back()"><button
+								class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
 					</div>
 					<!-- /input-group -->
 				</div>
 				<!-- /.col-lg-6 -->
 			</div>
+			</form>
 			<!-- /.row -->
 		</div>
 	</div>
@@ -86,7 +94,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div class="contact-form">
 		<div class="container">
 			<h3 class="title">
-				Contact <span>Us</span>
+				Contact
+				<span>Us</span>
 			</h3>
 
 			<div class="col-md-6 contact-right ">
@@ -116,11 +125,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					printing, and type setting industries "</p>
 				<ul class="contact-list">
 					<li><span class="glyphicon glyphicon-map-marker"
-						aria-hidden="true"></span>756 global Place, New York.</li>
+							aria-hidden="true"></span>756 global Place, New York.</li>
 					<li><span class="glyphicon glyphicon-envelope"
-						aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
+							aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
 					<li><span class="glyphicon glyphicon-earphone"
-						aria-hidden="true"></span>+123 2222 222</li>
+							aria-hidden="true"></span>+123 2222 222</li>
 				</ul>
 				<ul class="icons-list footer-bottom">
 					<li><a href="#" class="use1"><span>Facebook</span></a></li>
@@ -155,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<a href="#" id="toTop" style="display: block;"> <span
-		id="toTopHover" style="opacity: 1;"> </span></a>
+			id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //smooth scrolling -->
 
 </body>
