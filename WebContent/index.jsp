@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head></head>
 <title>Pets Love a animals and Pets Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
 <body>
-<%response.sendRedirect("main.do"); %>
+<%response.sendRedirect("main.do"); %> 
 </body>
 </html>
 
