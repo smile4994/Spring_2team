@@ -71,8 +71,12 @@
 			</div>
 			<div class="top_nav_right">
 				<ul>
+<<<<<<< HEAD
+					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaoGetCode.do','window','width=350,height=400,left=0,top=0')"></a></li>
+=======
 				<c:if test="${empty sessionScope.loginId}">
 					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaologin.do','window','width=350,height=400,left=0,top=0')"></a></li>
+>>>>>>> 3da048b76d55f0059d721530f4cd119374952ac2
 					<li class="hvr-rectangle-out">
 <!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
 					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
