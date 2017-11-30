@@ -97,6 +97,55 @@ public class BoardController {
 			return "no_login";
 		}
 	}
+//	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
+//	public ModelAndView write(BoardVO board, HttpSession session, HttpServletRequest req,
+//			MultipartHttpServletRequest mhsq) {	
+//		ModelAndView mv = new ModelAndView();
+//		session = req.getSession();
+//		String loginId = (String) session.getAttribute("loginId");
+//		String uploadPath = req.getServletContext().getRealPath("img");
+//		service.svInsert(board, loginId);
+//
+//		File dir = new File(uploadPath);
+//		if (!dir.exists()) {
+//			dir.mkdir();
+//		}
+//		
+//		List<MultipartFile> mf = mhsq.getFiles("img");
+//        if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
+//             
+//        } else {
+//            for (int i = 0; i < mf.size(); i++) {
+//                // 파일 중복명 처리
+//                String genId = UUID.randomUUID().toString();
+//                // 본래 파일명
+//                String originalfileName = mf.get(i).getOriginalFilename();
+//                 
+//                String saveFileName = genId + "." + originalfileName;
+//                // 저장되는 파일 이름
+// 
+//                String savePath = uploadPath + saveFileName; // 저장 될 파일 경로
+// 
+//                long fileSize = mf.get(i).getSize(); // 파일 사이즈
+// 
+//                try {
+//					mf.get(i).transferTo(new File(savePath));
+//				} catch (IllegalStateException e) {
+//					e.printStackTrace();
+//					System.out.println("저장안됨1");
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//					System.out.println("저장안됨2");
+//				} // 파일 저장
+// 
+//                service.write(originalfileName, saveFileName, fileSize);
+//            }
+//        }
+//
+//		mv.setViewName("lead");
+//		return mv;
+//	}
+	
 
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {

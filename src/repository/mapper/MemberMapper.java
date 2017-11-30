@@ -6,6 +6,7 @@ import vo.MemberVO;
 
 public interface MemberMapper {
 	public int insert(MemberVO member);
-	public int selectLogin(@Param("id")String id, @Param("password")String password);
+	public MemberVO selectMember(String id);
+	public int selectLogin(@Param("id")String id, @Param("pw")String password);
 
 }

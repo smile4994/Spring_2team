@@ -21,4 +21,9 @@ public class MemberDao {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
 		return mapper.selectLogin(id, password);
 	}
+	
+	public MemberVO selectMember(String id) {
+		MemberMapper mapper = session.getMapper(MemberMapper.class);
+		return mapper.selectMember(id);
+	}
 }
