@@ -9,8 +9,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class LoginController {
 	@RequestMapping(value="/naverlogin.do" , method = {RequestMethod.GET, RequestMethod.POST})
     public ModelAndView naverLogin() {
-        String message = "Simple Login Page";
+        String message = "Naver Login Page";
         return new ModelAndView("naverlogin", "message", message);
+    }
+	
+	@RequestMapping(value="/kakaologin.do" , method = {RequestMethod.GET, RequestMethod.POST})
+    public ModelAndView kakaoLogin() {
+        String message = "Kakao Login Page";
+        return new ModelAndView("kakaologin", "message", message);
     }
  
 	@RequestMapping(value="/callback.do" , method = {RequestMethod.GET, RequestMethod.POST})

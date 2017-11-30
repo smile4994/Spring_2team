@@ -8,7 +8,7 @@
   </head>
   <body>
   <%
-    String clientId = "w2FT39K9kBh90mcA5rvc";//애플리케이션 클라이언트 아이디값";
+    String clientId = "imaZqKd8rxrRiim0xW_O";//애플리케이션 클라이언트 아이디값";
     String redirectURI = URLEncoder.encode("http://localhost:8888/Spring_2team/callback.do", "UTF-8");
     SecureRandom random = new SecureRandom();
     String state = new BigInteger(130, random).toString();

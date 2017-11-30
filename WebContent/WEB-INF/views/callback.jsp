@@ -10,8 +10,8 @@
   </head>
   <body>
   <%
-    String clientId = "w2FT39K9kBh90mcA5rvc";//애플리케이션 클라이언트 아이디값";
-    String clientSecret = "9p87FbP_Rd";//애플리케이션 클라이언트 시크릿값";
+    String clientId = "imaZqKd8rxrRiim0xW_O";//애플리케이션 클라이언트 아이디값";
+    String clientSecret = "LSUvTQueja";//애플리케이션 클라이언트 시크릿값";
     String code = request.getParameter("code");
     String state = request.getParameter("state");
     String redirectURI = URLEncoder.encode("http://localhost:8888/Spring_2team/callback.do", "UTF-8");
