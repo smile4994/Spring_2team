@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <title>top</title>
@@ -73,7 +73,6 @@
 				<ul>
 				<c:if test="${empty sessionScope.loginId}">
 					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaologin.do','window','width=350,height=400,left=0,top=0')"></a></li>
-					<li class="hvr-rectangle-out">
 <!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
 					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
 					</a>
