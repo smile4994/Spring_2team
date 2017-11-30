@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="repository.mapper.MessageMapper">
+
+	<insert id="sendMessage" parameterType="MessageVO">
+		INSERT INTO
+		MESSAGE(CONTENT, SENDER, RECEIVER, WRITE_DATE)
+		VALUES(#{content},#{sender},#{receiver},#{writeDate})
+	</insert>
+
+	<select id="selectMessage" resultMap="messageResultMap">
+		SELECT * FROM MESSAGE WHERE RECEIVER=#{loginId}
+	</select>
+	
+	<select id="selectOnlyMessage" resultMap="messageResultMap">
+		SELECT * FROM MESSAGE WHERE RECEIVER=#{loginId} AND MESSAGE_NUM=#{messageNum}
+	</select>
+
+	<delete id="deleteMessage" parameterType="int">
+		DELETE FROM MESSAGE
+		WHERE MESSAGE_NUM=#{messageNum}
+	</delete>
+	
+	<resultMap type="MessageVO" id="messageResultMap">
+		<result property="messageNum" column="MESSAGE_NUM" />
+		<result property="writeDate" column="WRITE_DATE" />
+	</resultMap>
+</mapper>

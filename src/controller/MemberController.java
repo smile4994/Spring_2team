@@ -2,6 +2,7 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import service.MemberService;
 import vo.MemberVO;
+import vo.MessageVO;
 
 @Controller
 public class MemberController {
@@ -139,5 +141,14 @@ public class MemberController {
 		session.invalidate();
 		return "logout_form";
 	}
-
+	
+	@RequestMapping(value="/deleteMember.do", method=RequestMethod.POST)
+	public ModelAndView deleteMember(int memberNum, HttpSession session) {
+		ModelAndView mv = new ModelAndView("main");
+		String loginId =(String)session.getAttribute("loginId");
+		if(service.deleteMember(memberNum,loginId)==1) {
+			mv.addObject("message","È¸¿ø Å»Åð ¿Ï·á");
+		}
+		return mv;
+	}
 }
