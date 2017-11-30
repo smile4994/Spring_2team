@@ -6,6 +6,8 @@ public class FileVO {
 	private String file_name;
 	private int file_size;
 	private int board_num;
+	
+	
 	public int getFile_num() {
 		return file_num;
 	}
@@ -36,6 +38,4 @@ public class FileVO {
 	public void setBoard_num(int board_num) {
 		this.board_num = board_num;
 	}
-	
-	
 }
