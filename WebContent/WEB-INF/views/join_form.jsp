@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>회원가입</title>
@@ -129,9 +130,15 @@ function check(){
 		$('input[name="pwChk"]').val('특수문자는 사용할 수 없습니다');
 	    return false;
 	}
+	if(pw != pw2){
+		$('input[name="pwChk"]').val('비밀번호가 다릅니다.');
+		return false;
+	}
+	
 	var phone = $('input[name="phone"]').val();
 	var email = $('input[name="email"]').val();
 	var name = $('input[name="name"]').val();
+	var profile = $('input[name="memImg"]').val();
 	//address는 컨트롤러로 객체에 담아 넘길때 사용
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
@@ -144,8 +151,8 @@ function check(){
 		$('input[name="pwChk"]').val('아이디나 패스워드는 12자리 이하');
 		return false;
 	}
-	//빈 값 확인 작업
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == ''){
+	//빈 값 확인 작업[프로필은 없을 시 default값]
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == '' || profile == '' || profile ==null){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{

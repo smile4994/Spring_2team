@@ -99,7 +99,7 @@ public class BoardController {
 	}
 //	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
 //	public ModelAndView write(BoardVO board, HttpSession session, HttpServletRequest req,
-//			MultipartHttpServletRequest mhsq) {
+//			MultipartHttpServletRequest mhsq) {	
 //		ModelAndView mv = new ModelAndView();
 //		session = req.getSession();
 //		String loginId = (String) session.getAttribute("loginId");

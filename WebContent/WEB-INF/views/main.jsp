@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!--
 Author: W3layouts
 Author URL: http://w3layouts.com
@@ -53,11 +53,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 window.onload = function(){	
 	var message ='${message}';
-	if(message == ''){
-		return false;
-	}else{
+	if(message != null && message != ''){
 		alert(message);
-		return;
+	}else{
+		return false;
 	}
 }
 </script>

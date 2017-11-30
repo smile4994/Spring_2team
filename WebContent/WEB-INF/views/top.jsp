@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <title>top</title>
@@ -70,7 +71,12 @@
 			</div>
 			<div class="top_nav_right">
 				<ul>
+<<<<<<< HEAD
 					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaoGetCode.do','window','width=350,height=400,left=0,top=0')"></a></li>
+=======
+				<c:if test="${empty sessionScope.loginId}">
+					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaologin.do','window','width=350,height=400,left=0,top=0')"></a></li>
+>>>>>>> 3da048b76d55f0059d721530f4cd119374952ac2
 					<li class="hvr-rectangle-out">
 <!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
 					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
@@ -78,6 +84,11 @@
 					<li class="hvr-rectangle-out"><a class="goog" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
 					<li class="hvr-rectangle-out"><a class="join" href="joinForm.do"></a></li>
 					<li class="hvr-rectangle-out"><a class="login" href="loginForm.do"></a></li>
+					</c:if>
+					<c:if test="${not empty sessionScope.loginId}">
+					<li class="hvr-rectangle-out"><a class="join" href="myPage.do"></a></li>
+					<li class="hvr-rectangle-out"><a class="login" href="logout.do"></a></li>
+					</c:if>
 				</ul>	
 			</div>
 			<div class="clearfix"></div>
