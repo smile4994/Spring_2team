@@ -24,6 +24,30 @@ public class MemberController {
 	public String main() {
 		return "main";
 	}
+	@RequestMapping("/about.do")
+	public String about() {
+		return "about";
+	}
+	@RequestMapping("/gallery.do")
+	public String gallery() {
+		return "gallery";
+	}
+	@RequestMapping("/codes.do")
+	public String codes() {
+		return "codes";
+	}
+	@RequestMapping("/jys.do")
+	public String jys() {
+		return "jys";
+	}
+	@RequestMapping("/matching.do")
+	public String matching() {
+		return "matching";
+	}
+	@RequestMapping("/map.do")
+	public String map() {
+		return "map";
+	}
 	
 	@RequestMapping("/joinForm.do")
 	public String joinForm() {
@@ -69,10 +93,10 @@ public class MemberController {
 		return "login_form";
 	}
 	
-	@RequestMapping("/loginCheck.do")
-	public String loginCheck() {
-		return "login_check";
-	}
+//	@RequestMapping("/loginCheck.do")
+//	public String loginCheck() {
+//		return "login_check";
+//	}
 	
 	
 	@RequestMapping(value="/login.do", method=RequestMethod.POST)
