@@ -96,7 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</li>
 				<li>
 					<div class="ban-info">
-						<h3>We love to walk and play with your awesome dogs!</h3>
+						<h3>We love to walk and play with your awesome pets!</h3>
 						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur</p>
 						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
 					</div>		
