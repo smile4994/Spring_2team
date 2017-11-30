@@ -20,6 +20,11 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	
+	@RequestMapping("/main.do")
+	public String main() {
+		return "main";
+	}
+	
 	@RequestMapping("/joinForm.do")
 	public String joinForm() {
 		return "join_form";
@@ -55,7 +60,7 @@ public class MemberController {
 		}else {
 			mv.addObject("message","회원가입 실패");
 		}
-		mv.setViewName("index");
+		mv.setViewName("main");
 		return mv;
 	}
 	
@@ -78,7 +83,7 @@ public class MemberController {
 		}else {
 			mv.addObject("message","로그인 실패");
 		}
-		mv.setViewName("index");
+		mv.setViewName("main");
 		return mv;
 	}
 	
