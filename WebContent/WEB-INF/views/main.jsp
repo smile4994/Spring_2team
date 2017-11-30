@@ -53,11 +53,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript">
 window.onload = function(){	
 	var message ='${message}';
-	if(message == ''){
-		return false;
-	}else{
+	if(message != null && message != ''){
 		alert(message);
-		return;
+	}else{
+		return false;
 	}
 }
 </script>
