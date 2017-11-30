@@ -11,7 +11,7 @@
 				<div class="grid__item color-1 wow zoomIn" data-wow-duration="2s"
 					data-wow-delay="0.5s">
 					<h1>
-						<a href="index.jsp"><i></i><span class="link link--kukuri"
+						<a href="main.do"><i></i><span class="link link--kukuri"
 							data-letters="Pets Love">Pets Love</span></a>
 					</h1>
 				</div>
@@ -57,12 +57,12 @@
 					<div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
 					  <ul class="nav navbar-nav menu__list">
 						<li class="active menu__item menu__item--current"><a class="menu__link" href="main.do">Home <span class="sr-only">(current)</span></a></li>
-						<li class=" menu__item"><a class="menu__link" href="about.jsp">About</a></li>
-						<li class=" menu__item"><a class="menu__link" href="gallery.jsp">Gallery</a></li>
-						<li class=" menu__item"><a class="menu__link" href="codes.jsp">Short Codes</a></li>
-						<li class=" menu__item"><a class="menu__link" href="map.jsp">양태흠</a></li>
-						<li class=" menu__item"><a class="menu__link" href="jys.jsp">정용세</a></li>
-						<li class=" menu__item"><a class="menu__link" href="matching.jsp">Matching</a></li>
+						<li class=" menu__item"><a class="menu__link" href="about.do">About</a></li>
+						<li class=" menu__item"><a class="menu__link" href="gallery.do">Gallery</a></li>
+						<li class=" menu__item"><a class="menu__link" href="codes.do">Short Codes</a></li>
+						<li class=" menu__item"><a class="menu__link" href="map.do">양태흠</a></li>
+						<li class=" menu__item"><a class="menu__link" href="jys.do">정용세</a></li>
+						<li class=" menu__item"><a class="menu__link" href="matching.do">Matching</a></li>
 					  </ul>
 					</div>
 				  </div>
@@ -76,7 +76,6 @@
 					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
 					</a>
 					<li class="hvr-rectangle-out"><a class="goog" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
-					</li>
 					<li class="hvr-rectangle-out"><a class="join" href="joinForm.do"></a></li>
 					<li class="hvr-rectangle-out"><a class="login" href="loginForm.do"></a></li>
 				</ul>	
