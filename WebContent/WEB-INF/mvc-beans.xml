@@ -27,6 +27,7 @@
 			<mvc:exclude-mapping path="/join.do" />
 			<mvc:exclude-mapping path="/callback.do" />
 			<mvc:exclude-mapping path="/board.do" />
+			<mvc:exclude-mapping path="/main.do" />
 			<bean class="interceptor.LoginCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
