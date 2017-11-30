@@ -24,8 +24,10 @@
 			<mvc:exclude-mapping path="/naverlogin.do" />
 			<mvc:exclude-mapping path="/loginCheck.do" />
 			<mvc:exclude-mapping path="/joinForm.do" />
+			<mvc:exclude-mapping path="/join.do" />
 			<mvc:exclude-mapping path="/callback.do" />
 			<mvc:exclude-mapping path="/board.do" />
+			<mvc:exclude-mapping path="/main.do" />
 			<bean class="interceptor.LoginCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>

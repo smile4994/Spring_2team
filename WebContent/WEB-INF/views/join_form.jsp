@@ -10,30 +10,8 @@
 	content="Pets Love Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
-
-
-
-
-
-
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -69,9 +47,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript">
 	function fileInfo(f) {
+		//이미지 파일 업로드 전 미리보기 작업
 		var file = f.files;
 		if (file[0].type.indexOf('image') < 0) { // 선택한 파일이 이미지인지 확인
 			alert('이미지 파일만 선택하세요');
+			$('input[name="memImg"]').val('');
+			$('#img_box').html('');
 			return false;
 		}
 		var reader = new FileReader(); // FileReader 객체 사용
@@ -87,12 +68,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript">
 function pwCheck(event){
-	var pw1 = $('input[name="pw1"]').val();
+	//비밀번호 일치 검사
+	var pw = $('input[name="pw"]').val();
 	var pw2 = $('input[name="pw2"]').val();
-	console.log(pw1 +"/"+pw2);
+	console.log(pw +"/"+pw2);
 	console.log(event.keyCode);
 
-	if(pw1 != pw2){
+	if(pw != pw2){
 		$('input[name="pwChk"]').css('color','red');
 		$('input[name="pwChk"]').val('비밀번호가 일치하지 않습니다.');
 	}else{
@@ -102,6 +84,7 @@ function pwCheck(event){
 }
 
 function onlyNumber(event){
+	//휴대폰번호에 숫자만 입력 가능하게
 	var keyID = (event.which) ? event.which : event.keyCode;
 	console.log(keyID +"/"+event.keyCode);
 	if ((keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39){
@@ -115,31 +98,33 @@ function onlyNumber(event){
 	}
 }
 function check(){
-
-	var str = $('input[name="id"]').val();
-	var pw1 = $('input[name="pw1"]').val();
+	//Form Submit을 진행하기 위한 함수
+	//값이 비어있거나, ID나 PW에 특수문자나 공백이 있을때 return false;
+	var emailAddress =$("#emailAddress option:selected").val();
+	var id = $('input[name="id"]').val();
+	var pw = $('input[name="pw"]').val();
 	var pw2 = $('input[name="pw2"]').val();
 
-	if( str == '' || str == null || pw1 == '' || pw1 == null || pw2=='' || pw2==null){
+	if( id == '' || id == null || pw == '' || pw == null || pw2=='' || pw2==null){
 		$('input[name="pwChk"]').css('color','red');
 		$('input[name="pwChk"]').val('값을 입력해주세요');
 	    return false;
 	}
 	var blank_pattern = /^\s+|\s+$/g;
-	if(str.replace(blank_pattern,'') == ""||pw1.replace(blank_pattern,'') == ""||pw2.replace(blank_pattern,'') == ""){
+	if(id.replace(blank_pattern,'') == ""||pw.replace(blank_pattern,'') == ""||pw2.replace(blank_pattern,'') == ""){
 		$('input[name="pwChk"]').css('color','red');
 		$('input[name="pwChk"]').val('공백만 입력되었습니다');
 	    return false;
 	}
 	var blank_pattern = /[\s]/g;
-	if(blank_pattern.test(str) == true || blank_pattern.test(pw1) == true || blank_pattern.test(pw2) == true){
+	if(blank_pattern.test(id) == true || blank_pattern.test(pw) == true || blank_pattern.test(pw2) == true){
 		$('input[name="pwChk"]').css('color','red');
 		$('input[name="pwChk"]').val('공백은 사용할 수 없습니다');
 	    return false;
 	}
 	var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
 
-	if(special_pattern.test(str) == true || special_pattern.test(pw1) == true || special_pattern.test(pw2) == true){
+	if(special_pattern.test(id) == true || special_pattern.test(pw) == true || special_pattern.test(pw2) == true){
 		$('input[name="pwChk"]').css('color','red');
 		$('input[name="pwChk"]').val('특수문자는 사용할 수 없습니다');
 	    return false;
@@ -147,14 +132,25 @@ function check(){
 	var phone = $('input[name="phone"]').val();
 	var email = $('input[name="email"]').val();
 	var name = $('input[name="name"]').val();
+	//address는 컨트롤러로 객체에 담아 넘길때 사용
+	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
+	var address = $('input[name="address"]').val();
 	var address1 = $('input[name="address1"]').val();
 	var address2 = $('input[name="address2"]').val();
-	var address3 = $('input[name="address3"]').val();
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address1==null || address1=='' || address2 == null || address2=='' || address3 == null || address3 == ''){
-		alert('빈 값을 채우세요');
+	//이메일과 주소 합치는 작업
+		email = email + "@" + emailAddress;
+	//아이디 비밀번호 자릿수 검사
+	if(id.length > 12 || pw.length>12 || pw2.length>12){
+		$('input[name="pwChk"]').val('아이디나 패스워드는 12자리 이하');
+		return false;
+	}
+	//빈 값 확인 작업
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == ''){
+		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{
-		//성공시 form submit;
+		$('input[name="pwChk"]').val('회원가입 진행');
+		$('#joinForm').submit();
 	}
 	
 }
@@ -163,14 +159,14 @@ function check(){
 </head>
 <body>
 
-	<%@include file="../../top.jsp"%>
+	<%@include file="top.jsp"%>
 	<div class="news-left">
 		<div class="container">
 			<h3 class="title ">
 				회원
 				<span> 가입</span>
 			</h3>
-			<form>
+			<form id="joinForm" action="join.do" method="post">
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">ID</span>
 					<input type="text" class="form-control" placeholder="User id"
@@ -179,7 +175,7 @@ function check(){
 
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">PW</span>
-					<input type="password" class="form-control" name="pw1"
+					<input type="password" class="form-control" name="pw"
 						onkeyup="pwCheck(event);" placeholder="User password1"
 						aria-describedby="sizing-addon1">
 				</div>
@@ -212,7 +208,7 @@ function check(){
 						name="email" aria-describedby="basic-addon1">
 
 					<span class="input-group-addon" id="basic-addon2">
-						@<select>
+						@<select id="emailAddress">
 							<option>naver.com</option>
 							<option>google.com</option>
 							<option>daum.net</option>
@@ -288,14 +284,14 @@ function check(){
 					<br>
 				</span>
 				<input type="text" id="sample4_roadAddress" class="form-control"
-					name="address2" placeholder="도로명주소">
-				<input type="text" name="address3" id="sample4_jibunAddress"
-					class="form-control" placeholder="지번주소">
+					name="address" placeholder="도로명주소">
+				<input type="text" id="sample4_jibunAddress"
+					name="address2" class="form-control" placeholder="지번주소">
 				<br>
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">프로필</span>
 					<input type="file" onchange="fileInfo(this)" class="form-control"
-						name="file" placeholder="User profile"
+						name="memImg" placeholder="User profile"
 						aria-describedby="sizing-addon1">
 					<div id="img_box"></div>
 				</div>
@@ -304,7 +300,7 @@ function check(){
 				<div class="col-lg-6 in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" id="join" type="button">회원가입</button>
-						<button class="btn btn-default" id="cancel" type="button">취소</button>
+						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
 					</div>
 					<!-- /input-group -->
 				</div>
