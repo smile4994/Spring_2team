@@ -88,10 +88,7 @@ public class BoardController {
 				savedName = "noImg";
 			}
 			board.setBoardImg(savedName);
-<<<<<<< HEAD
 
-=======
->>>>>>> 752249b20df14879e5a4c2eacc49b3cd341a2b6e
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

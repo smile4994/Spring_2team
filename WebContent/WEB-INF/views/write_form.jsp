@@ -12,24 +12,23 @@
 		max-width: 100px;
 	}
 </style>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 	
 	var sel_files = [];
 	$(document).ready(function(){
-		$("#img").on("change", handleImgsFilesSelect);
+		$("#img").on("change", handleImgsFilesSelect); // img가 변할때 handleImgsFilesSelect 실행
 	});
 	function handleImgsFilesSelect(e) {
 		var file = e.files;
-		var fileArr = Array.prototype.slice.call(files);
-		filesArr.forEach(function(f){
+		var fileArr = Array.prototype.slice.call(file);
+		fileArr.forEach(function(f){
 			if (!f.type.match("image.*")) { // 선택한 파일이 이미지인지 확인
 				alert('이미지 파일만 선택하세요');
 				return;
 			}
 			
-			sel_file.push(f);
+			sel_files.push(f);
 			
 			var reader = new FileReader(); // FileReader 객체 사용
 			reader.onload = function(rst) {
