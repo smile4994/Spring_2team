@@ -155,10 +155,12 @@ public class MemberController {
 	public ModelAndView updateMember(MemberVO member, HttpSession session) {
 		System.out.println("update시 넘어온 member 값");
 		System.out.println(member);
+		
+		
 		ModelAndView mv = new ModelAndView("main");
 		String loginId =(String)session.getAttribute("loginId");
 		if(service.updateMember(member,loginId)==1) {
-			mv.addObject("message","회원 탈퇴 완료");
+			mv.addObject("message","정보 수정 완료");
 		}
 		return mv;
 	}

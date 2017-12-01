@@ -142,8 +142,6 @@ function check(){
 	//address는 컨트롤러로 객체에 담아 넘길때 사용
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
-	var address1 = $('input[name="address1"]').val();
-	var address2 = $('input[name="address2"]').val();
 	//이메일과 주소 합치는 작업
 		email = email + "@" + emailAddress;
 	//아이디 비밀번호 자릿수 검사
@@ -152,12 +150,12 @@ function check(){
 		return false;
 	}
 	//빈 값 확인 작업[프로필은 없을 시 default값]
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == '' || profile == '' || profile ==null){
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || profile == '' || profile ==null){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{
 		$('input[name="pwChk"]').val('회원수정 진행');
-		$('#joinForm').submit();
+		$('#updateForm').submit();
 	}
 	
 }
@@ -173,7 +171,7 @@ function check(){
 				마이
 				<span>페이지</span>
 			</h3>
-			<form id="updateForm" action="update.do" method="post" enctype="multipart/form-data">
+			<form id="updateForm" action="updateMember.do" method="post" enctype="multipart/form-data">
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">회원 번호</span>
 					<input type="text" class="form-control" name="id" value="${memberInfo.memberNum}" readonly="readonly">
@@ -303,7 +301,7 @@ function check(){
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
-						<a href="#"><button class="btn btn-default" type="button">쪽지함</button></a>
+						<a href="messageList"><button class="btn btn-default" type="button">쪽지함</button></a>
 					</div>
 					<!-- /input-group -->
 				</div>
