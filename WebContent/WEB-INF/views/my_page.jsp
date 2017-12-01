@@ -150,7 +150,7 @@ function check(){
 		return false;
 	}
 	//빈 값 확인 작업[프로필은 없을 시 default값]
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || profile == '' || profile ==null){
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address==''){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{
@@ -159,6 +159,24 @@ function check(){
 	}
 	
 }
+</script>
+
+<script type="text/javascript">
+function deleteMember(){
+	var input = confirm('탈퇴하시겠습니까?');
+	if(input == true){
+		var input2 = confirm('정말로 탈퇴하시겠습니까?');
+		if(input2 == true){
+			var input3 = confirm('탈퇴를 원하시면 "취소" 를 눌러주세요');
+			if(input3 == false){
+				location.href="deleteMember.do";
+			}
+		}
+	}
+	return false;
+	
+}
+
 </script>
 <!-- start-smoth-scrolling -->
 </head>
@@ -174,7 +192,7 @@ function check(){
 			<form id="updateForm" action="updateMember.do" method="post" enctype="multipart/form-data">
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">회원 번호</span>
-					<input type="text" class="form-control" name="id" value="${memberInfo.memberNum}" readonly="readonly">
+					<input type="text" class="form-control" name="memberNum" value="${memberInfo.memberNum}" readonly="readonly">
 				</div>
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">ID</span>
@@ -301,7 +319,8 @@ function check(){
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
-						<a href="messageList"><button class="btn btn-default" type="button">쪽지함</button></a>
+						<a href="messageList.do"><button class="btn btn-default" type="button">쪽지함</button></a>
+						<button class="btn btn-default" ONCLICK="deleteMember();"type="button">회퇴원탈</button>
 					</div>
 					<!-- /input-group -->
 				</div>

@@ -18,7 +18,7 @@
 	</select>
 	
 	<update id="updateMember">
-		UPDATE MEMBER SET PW=#{pw},PHONE=#{phone},EMAIL=#{email},ADDRESS=#{address}
+		UPDATE MEMBER SET PW=#{pw},PHONE=#{phone},EMAIL=#{email},ADDRESS=#{address},MEMBER_SRC=#{memberSrc}
 		WHERE MEMBER_NUM=#{memberNum} AND ID=#{id}
 	</update>
 	
