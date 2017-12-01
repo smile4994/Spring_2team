@@ -132,8 +132,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 
-	<%@include file="top.jsp"%>
-
 
 	<div class="news-left">
 		<div class="container">
