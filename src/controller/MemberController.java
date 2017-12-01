@@ -144,11 +144,11 @@ public class MemberController {
 		return "logout_form";
 	}
 	
-	@RequestMapping(value="/deleteMember.do", method=RequestMethod.POST)
-	public ModelAndView deleteMember(int memberNum, HttpSession session) {
+	@RequestMapping("deleteMember.do")
+	public ModelAndView deleteMember(HttpSession session) {
 		ModelAndView mv = new ModelAndView("main");
 		String loginId =(String)session.getAttribute("loginId");
-		if(service.deleteMember(memberNum,loginId)==1) {
+		if(service.deleteMember(loginId)==1) {
 			mv.addObject("message","È¸¿ø Å»Åð ¿Ï·á");
 		}
 		return mv;
