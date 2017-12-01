@@ -76,7 +76,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 
 
-	<%@include file="top.jsp"%>
 	<!-- ¸Ê -->
 
 	<!-- 	À§µµ:	<span id="latitude"></span>  -->
