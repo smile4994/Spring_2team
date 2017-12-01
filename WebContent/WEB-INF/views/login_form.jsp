@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>로그인</title>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,18 +19,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
-	
-	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
-
-
 
 
 
@@ -70,6 +61,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 </script>
 <!-- start-smoth-scrolling -->
+
+
 </head>
 <body>
 
@@ -92,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 
 				<div class="row">
-					<div class="col-lg-6 in-gp-tb">
+					<div class="in-gp-tb">
 						<div class="input-group">
 							<button class="btn btn-default" type="submit">로그인</button>
 							<a href="javascript:history.back()"><button
@@ -106,21 +99,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 			</form>
-			<form action="kakaoGetCode.do" method="get">
+
+			<div class="input-group input-group-lg">
+				<!-- 			<form action="kakaoGetCode.do" method="get"> -->
+				<!-- 				<div class="row"> -->
+				<!-- 					<div class="in-gp-tb"> -->
+				<!-- 						<input type="image" src="images/kakaologin.png" border="0"> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+
 				<div class="row">
-					<div class="col-lg-6 in-gp-tb">
-						<input type="image" src="images/kakaologin.png" border="0">
+					<div class="in-gp-tb">
+
+						<a id="kakao-login-btn"></a> <br> <br>
 					</div>
 				</div>
-			</form>
+				<script type='text/javascript'>
+					//<![CDATA[
+					// 사용할 앱의 JavaScript 키를 설정해 주세요.
+					Kakao.init('d0f5fa88e6b7ee53b6d1dfc04e5efaef');
+					// 카카오 로그인 버튼을 생성합니다.
+					Kakao.Auth.createLoginButton({
+						container : '#kakao-login-btn',
+						success : function(authObj) {
+							// 로그인 성공시, API를 호출합니다.
+							Kakao.API.request({
+								url : '/v1/user/me',
+								success : function(res) {
 			
-			<form action="naverstart.do" method="get">
-				<div class="row">
-					<div class="col-lg-6 in-gp-tb">
-						<input type="image" src="images/naverlogin.png" border="0">
+									alert(res.properties.nickname + '님 환영합니다.')
+									alert(JSON.stringify(res));
+									location.href='main.do';
+								},
+								fail : function(error) {
+									alert(JSON.stringify(error));
+								}
+							});
+						},
+						fail : function(err) {
+							alert(JSON.stringify(err));
+						}
+					});
+					//]]>
+				</script>
+
+
+
+				<!-- 			</form> -->
+
+				<form action="naverstart.do" method="get">
+					<div class="row">
+						<div class="in-gp-tb">
+							<input type="image" src="images/naverlogin.png" border="0">
+						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 		<!-- /.row -->
 	</div>
