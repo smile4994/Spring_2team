@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>동물병원</title>
@@ -12,12 +12,18 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
+	
 	addEventListener("load", function() {
 		setTimeout(hideURLbar, 0);
 	}, false);
 	function hideURLbar() {
 		window.scrollTo(0, 1);
 	}
+
+
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -63,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		width: auto;
 		height: auto;
 	}
-</script> 
+</script>
 
 
 </head>
@@ -98,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var myCLong;
 					var addr;
 					var find;
-					var markers=[];
+					var markers = [];
 
 					// Geolocation API에 액세스할 수 있는지를 확인
 					if (navigator.geolocation) {
@@ -127,31 +133,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							level : 2
 						// 지도의 확대 레벨
 						};
-						
-
 
 						// 지도를 생성합니다    
 						var map = new daum.maps.Map(mapContainer, mapOption);
-						////////////////////////////
-						
+
 						// 일반 지도와 스카이뷰로 지도 타입을 전환할 수 있는 지도타입 컨트롤을 생성합니다
 						var mapTypeControl = new daum.maps.MapTypeControl();
 
 						// 지도에 컨트롤을 추가해야 지도위에 표시됩니다
 						// daum.maps.ControlPosition은 컨트롤이 표시될 위치를 정의하는데 TOPRIGHT는 오른쪽 위를 의미합니다
-						map.addControl(mapTypeControl, daum.maps.ControlPosition.TOPRIGHT);
+						map.addControl(mapTypeControl,
+								daum.maps.ControlPosition.TOPRIGHT);
 
 						// 지도 확대 축소를 제어할 수 있는  줌 컨트롤을 생성합니다
 						var zoomControl = new daum.maps.ZoomControl();
-						map.addControl(zoomControl, daum.maps.ControlPosition.RIGHT)
+						map.addControl(zoomControl,
+								daum.maps.ControlPosition.RIGHT)
 						/////////////////////////////////
-// 					    var clusterer = new daum.maps.MarkerClusterer({
-// 					        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
-// 					        averageCenter: false, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
-// 					        gridSize: 60,
-// 					        minLevel: 4, // 클러스터 할 최소 지도 레벨
-// 					        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
-// 					    });
+						// 					    var clusterer = new daum.maps.MarkerClusterer({
+						// 					        map: map, // 마커들을 클러스터로 관리하고 표시할 지도 객체
+						// 					        averageCenter: false, // 클러스터에 포함된 마커들의 평균 위치를 클러스터 마커 위치로 설정
+						// 					        gridSize: 60,
+						// 					        minLevel: 4, // 클러스터 할 최소 지도 레벨
+						// 					        disableClickZoom: true // 클러스터 마커를 클릭했을 때 지도가 확대되지 않도록 설정한다
+						// 					    });
 						/////////////////////////////////
 						// 주소-좌표 변환 객체를 생성합니다
 						var geocoder = new daum.maps.services.Geocoder();
@@ -195,17 +200,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																+ '</div>');
 												infowindow.open(map, marker);
 											});
-// 							clusterer.addMarkers(markers);
-						}	
-						
-						 daum.maps.event.addListener(clusterer, 'clusterclick', function(cluster) {
+							// 							clusterer.addMarkers(markers);
+							////////////////////////////
+							var imageSrc = 'http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
+							imageSize = new daum.maps.Size(45, 55); // 마커이미지의 크기입니다
+							imageOption = {
+								offset : new daum.maps.Point(27, 69)
+							}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
-						        // 현재 지도 레벨에서 1레벨 확대한 레벨
-						        var level = map.getLevel()-1;
+							// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+							var markerImage = new daum.maps.MarkerImage(
+									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
+									myCLat, myCLong); // 마커가 표시될 위치입니다
 
-						        // 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
-						        map.setLevel(level, {anchor: cluster.getCenter()});
-						    });
+							// 마커를 생성합니다
+							var nowMarker = new daum.maps.Marker({
+								position : markerPosition,
+								image : markerImage
+							// 마커이미지 설정 
+							});
+
+							daum.maps.event
+									.addListener(
+											nowMarker,
+											'click',
+											function() {
+												// 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+												infowindow
+														.setContent('<div style="font-size:12px;">'
+																+ '현재 위치'
+																+ '</div>');
+												infowindow.open(map, nowMarker);
+											});
+
+							// 마커가 지도 위에 표시되도록 설정합니다
+							nowMarker.setMap(map);
+
+						}
+
+						daum.maps.event.addListener(clusterer, 'clusterclick',
+								function(cluster) {
+
+									// 현재 지도 레벨에서 1레벨 확대한 레벨
+									var level = map.getLevel() - 1;
+
+									// 지도를 클릭된 클러스터의 마커의 위치를 기준으로 확대합니다
+									map.setLevel(level, {
+										anchor : cluster.getCenter()
+									});
+								});
 
 						////////////////////////////////////
 						// 키워드 검색 완료 시 호출되는 콜백함수 입니다
