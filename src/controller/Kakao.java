@@ -16,6 +16,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Kakao {
 	private static final String RestApiKey = "143f11601de1d062d2049ad4904cbb34";
+	
+	
+	private static final String AdminKey = "c7acf4385ef2354d2cd4a4691644e00a";
 
 	private static final String Redirect_URL = "http://localhost:8888/Spring_2team/kakaologin.do";
 
@@ -110,7 +113,7 @@ public class Kakao {
 		
 		URL url;
 		try {
-			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token);
+			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
 			urlconn = (HttpURLConnection) url.openConnection();
 			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			urlconn.setDoOutput(true);
