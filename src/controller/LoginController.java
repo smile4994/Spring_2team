@@ -72,8 +72,8 @@ public class LoginController {
 		System.out.println("thumbnailURL :"+(String)getAllListMap.get("thumbnailURL"));
 		System.out.println("countryISO :"+(String)getAllListMap.get("countryISO"));
 		
-		System.out.println("id : "+(String)getAllListMap.get("id"));
+		System.out.println("id : "+(String)getAllListMap.get("client_id"));
 		System.out.println("email : "+(String)getAllListMap.get("kaccount_email"));
-		return "kakaologin";
+		return "main";
 	}
 }
