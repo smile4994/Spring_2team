@@ -9,9 +9,14 @@ public class ReplyVO {
 	private Date re_date;
 	private int re_count;
 	private String re_writer;
+	private String re_src;
 	
-	
-	
+	public String getRe_src() {
+		return re_src;
+	}
+	public void setRe_src(String re_src) {
+		this.re_src = re_src;
+	}
 	public String getRe_writer() {
 		return re_writer;
 	}

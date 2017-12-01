@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.Gson;
 
 import service.BoardService;
+import service.MemberService;
 import vo.BoardVO;
 import vo.ReplyVO;
 
@@ -25,6 +26,8 @@ import vo.ReplyVO;
 public class BoardController {
 	@Autowired
 	private BoardService service;
+	
+	
 
 	@RequestMapping(value = "/board.do")
 	public ModelAndView board(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue = "0") String searchType,
@@ -32,28 +35,10 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 
 		mv.addObject("boardPage", service.makeBoardPage(searchType,searchWrite,page));
-		
-//		mv.addObject("boardList", service.svBoardList(searchType, searchWrite));
-		
 		mv.setViewName("board_list");
 		return mv;
 	}
 	
-	/////////////////////////
-	@RequestMapping("ajaxRead.do")
-	public void ajaxRead(int boardNum, HttpServletResponse respons) {
-		respons.setContentType("text/html;charset=utf-8");
-		Gson gson = new Gson();
-		try {
-			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	/////////////////////////	
-	
-	
-
 	@RequestMapping("/writeForm.do")
 	public String writeForm() {
 		return "write_form";
@@ -97,55 +82,6 @@ public class BoardController {
 			return "no_login";
 		}
 	}
-//	@RequestMapping(value = "/write.do", method = RequestMethod.POST)
-//	public ModelAndView write(BoardVO board, HttpSession session, HttpServletRequest req,
-//			MultipartHttpServletRequest mhsq) {	
-//		ModelAndView mv = new ModelAndView();
-//		session = req.getSession();
-//		String loginId = (String) session.getAttribute("loginId");
-//		String uploadPath = req.getServletContext().getRealPath("img");
-//		service.svInsert(board, loginId);
-//
-//		File dir = new File(uploadPath);
-//		if (!dir.exists()) {
-//			dir.mkdir();
-//		}
-//		
-//		List<MultipartFile> mf = mhsq.getFiles("img");
-//        if (mf.size() == 1 && mf.get(0).getOriginalFilename().equals("")) {
-//             
-//        } else {
-//            for (int i = 0; i < mf.size(); i++) {
-//                // 파일 중복명 처리
-//                String genId = UUID.randomUUID().toString();
-//                // 본래 파일명
-//                String originalfileName = mf.get(i).getOriginalFilename();
-//                 
-//                String saveFileName = genId + "." + originalfileName;
-//                // 저장되는 파일 이름
-// 
-//                String savePath = uploadPath + saveFileName; // 저장 될 파일 경로
-// 
-//                long fileSize = mf.get(i).getSize(); // 파일 사이즈
-// 
-//                try {
-//					mf.get(i).transferTo(new File(savePath));
-//				} catch (IllegalStateException e) {
-//					e.printStackTrace();
-//					System.out.println("저장안됨1");
-//				} catch (IOException e) {
-//					e.printStackTrace();
-//					System.out.println("저장안됨2");
-//				} // 파일 저장
-// 
-//                service.write(originalfileName, saveFileName, fileSize);
-//            }
-//        }
-//
-//		mv.setViewName("lead");
-//		return mv;
-//	}
-	
 
 	@RequestMapping("/read.do")
 	public ModelAndView read(int boardNum, HttpSession session) {
@@ -221,13 +157,15 @@ public class BoardController {
 		mv.setViewName("delete_result");
 		return mv;
 	}
-
+	
 	/**************** 여기부터 리플 작업 ************************/
 	@RequestMapping(value = "/replyWrite.do", method = RequestMethod.POST)
 	public void replyWrite(int boardNum, String re_contents, HttpSession session, HttpServletResponse response) {
 		System.out.println("replyWrite.do에서 re_contents : " + re_contents);
 		String loginId = (String) session.getAttribute("loginId");
 		ReplyVO reply = new ReplyVO();
+		
+		
 		reply.setRe_contents(re_contents);
 		try {
 			response.getWriter().write(0);
@@ -269,5 +207,18 @@ public class BoardController {
 			e.printStackTrace();
 		}
 	}
+	
+	/************이거언제쓰지? 지워도 될듯 ?**************/
+	@RequestMapping("ajaxRead.do")
+	public void ajaxRead(int boardNum, HttpServletResponse respons) {
+		respons.setContentType("text/html;charset=utf-8");
+		Gson gson = new Gson();
+		try {
+			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	/*********************************************/	
 
 }

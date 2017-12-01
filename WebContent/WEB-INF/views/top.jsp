@@ -62,7 +62,7 @@
 						<li class=" menu__item"><a class="menu__link" href="gallery.do">Gallery</a></li>
 						<li class=" menu__item"><a class="menu__link" href="codes.do">Short Codes</a></li>
 						<li class=" menu__item"><a class="menu__link" href="map.do">양태흠</a></li>
-						<li class=" menu__item"><a class="menu__link" href="jys.do">정용세</a></li>
+						<li class=" menu__item"><a class="menu__link" href="board.do">게시판</a></li>
 						<li class=" menu__item"><a class="menu__link" href="matching.do">Matching</a></li>
 						<li class=" menu__item">&nbsp;&nbsp;</li>
 						<li class=" menu__item">&nbsp;&nbsp;</li>
