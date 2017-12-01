@@ -16,7 +16,15 @@
 		SELECT * FROM MEMBER
 		WHERE ID=#{id}
 	</select>
-
+	
+	<update id="updateMember">
+		UPDATE MEMBER SET PW=#{pw},PHONE=#{phone},EMAIL=#{email},ADDRESS=#{address}
+		WHERE MEMBER_NUM=#{memberNum} AND ID=#{id}
+	</update>
+	
+	<delete id="deleteMember">
+		DELETE FROM MEMBER WHERE MEMBER_NUM=#{memberNum}
+	</delete>
 	<resultMap type="MemberVO" id="resultMemberVO">
 		<result property="memberSrc" column="MEMBER_SRC" />
 		<result property="memberNum" column="MEMBER_NUM" />
