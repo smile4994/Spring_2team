@@ -305,7 +305,8 @@ function check(){
 					<div id="img_box"></div>
 				</div>
 			</form>
-			<div class="row">
+<!-- 			<div class="row"> -->
+<hr>
 				<div class="col-lg-6 in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" id="join" type="button">회원가입</button>
@@ -314,7 +315,7 @@ function check(){
 					<!-- /input-group -->
 				</div>
 				<!-- /.col-lg-6 -->
-			</div>
+<!-- 			</div> -->
 			<!-- /.row -->
 		</div>
 	</div>
