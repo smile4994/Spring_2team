@@ -138,7 +138,8 @@ function check(){
 	var phone = $('input[name="phone"]').val();
 	var email = $('input[name="email"]').val();
 	var name = $('input[name="name"]').val();
-	var profile = $('input[name="memImg"]').val();
+	//profile빈값은 controller에서 값이 없을때 default.jpg를 넣기때문에 생략
+// 	var profile = $('input[name="memImg"]').val();
 	//address는 컨트롤러로 객체에 담아 넘길때 사용
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
@@ -153,7 +154,7 @@ function check(){
 		return false;
 	}
 	//빈 값 확인 작업[프로필은 없을 시 default값]
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || profile == '' || profile ==null){
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1==''){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{

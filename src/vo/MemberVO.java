@@ -70,7 +70,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberNum=" + memberNum + ", id=" + id + ", pw=" + pw + ", email=" + email + ", phone="
-				+ phone + ", name=" + name + ", address=" + address + ", memberSrc=" + memberSrc + "]";
+				+ phone + ", name=" + name + ", address=" + address + ", memberSrc=" + memberSrc + ", memberImg : "+memImg+"]";
 	}
 	public MemberVO(int memberNum, String id, String pw, String email, String phone, String name, String address,
 			String memberSrc) {
