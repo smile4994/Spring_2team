@@ -38,10 +38,10 @@ public class MemberService {
 		}
 		return 0;
 	}
-	public int deleteMember(int memberNum,String loginId) {
+	public int deleteMember(String loginId) {
 		MemberVO member = dao.selectMember(loginId);
-		if(member.getMemberNum() == memberNum) {
-			return dao.deleteMember(memberNum);
+		if(member.getId().equals(loginId)) {
+			return dao.deleteMember(member.getMemberNum());
 		}else {
 			return 0;
 		}

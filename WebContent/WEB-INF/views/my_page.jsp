@@ -18,7 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom.css?ver=2" rel="stylesheet" type="text/css" media="all" />
 
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -189,7 +189,7 @@ function deleteMember(){
 				마이
 				<span>페이지</span>
 			</h3>
-			<form id="updateForm" action="updateMember.do" method="post" enctype="multipart/form-data">
+			<form id="updateForm" action="updateMember.do" method="post" enctype="multipart/form-data" class="inputForm">
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">회원 번호</span>
 					<input type="text" class="form-control" name="memberNum" value="${memberInfo.memberNum}" readonly="readonly">
@@ -233,12 +233,15 @@ function deleteMember(){
 					<input type="text" class="form-control" placeholder="User email"
 						name="email" aria-describedby="basic-addon1"  value="${memberInfo.email}">
 				</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon" id="sizing-addon1">주소</span>
 				<input type="text" id="sample4_postcode" class="form-control"
 					name="address1" placeholder="우편번호">
+					</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon">
 					<input type="button" onclick="sample4_execDaumPostcode()"
-						value="우편번호 찾기">
+						value="주소찾기">
 					<span id="guide" style="color: #999"></span>
 					<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 					<script>
@@ -298,14 +301,12 @@ function deleteMember(){
 				}).open();
 	}
 </script>
-
-					<br>
 				</span>
 				<input type="text" id="sample4_roadAddress" class="form-control"
 					name="address" placeholder="도로명주소" value="${memberInfo.address}">
 				<input type="text" id="sample4_jibunAddress"
 					name="address2" class="form-control" placeholder="지번주소">
-				<br>
+</div>
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">프로필</span>
 					<input type="file" onchange="fileInfo(this)" class="form-control"
