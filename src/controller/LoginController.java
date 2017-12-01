@@ -54,6 +54,7 @@ public class LoginController {
 		
 		Map<String, String> map = kakao.JsonStringMap(data);
 		System.out.println("map :"+map);
+
 		System.out.println("access_token :"+map.get("access_token"));
 		System.out.println("refresh_token :"+map.get("refresh_token"));
 		System.out.println("scope :"+map.get("scope"));
@@ -70,6 +71,9 @@ public class LoginController {
 		System.out.println("profileImageURL :"+(String)getAllListMap.get("profileImageURL"));
 		System.out.println("thumbnailURL :"+(String)getAllListMap.get("thumbnailURL"));
 		System.out.println("countryISO :"+(String)getAllListMap.get("countryISO"));
+		
+		System.out.println("id : "+(String)getAllListMap.get("id"));
+		System.out.println("email : "+(String)getAllListMap.get("kaccount_email"));
 		return "kakaologin";
 	}
 }
