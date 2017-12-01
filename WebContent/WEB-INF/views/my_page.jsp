@@ -101,7 +101,6 @@ function onlyNumber(event){
 function check(){
 	//Form Submit을 진행하기 위한 함수
 	//값이 비어있거나, ID나 PW에 특수문자나 공백이 있을때 return false;
-	var emailAddress =$("#emailAddress option:selected").val();
 	var id = $('input[name="id"]').val();
 	var pw = $('input[name="pw"]').val();
 	var pw2 = $('input[name="pw2"]').val();
@@ -142,8 +141,6 @@ function check(){
 	//address는 컨트롤러로 객체에 담아 넘길때 사용
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
-	//이메일과 주소 합치는 작업
-		email = email + "@" + emailAddress;
 	//아이디 비밀번호 자릿수 검사
 	if(id.length > 12 || pw.length>12 || pw2.length>12){
 		$('input[name="pwChk"]').val('아이디나 패스워드는 12자리 이하');
@@ -170,6 +167,8 @@ function deleteMember(){
 			var input3 = confirm('탈퇴를 원하시면 "취소" 를 눌러주세요');
 			if(input3 == false){
 				location.href="deleteMember.do";
+			}else{
+				alert('ㅋㅋㅋㅋ');
 			}
 		}
 	}
@@ -316,7 +315,7 @@ function deleteMember(){
 				</div>
 			</form>
 			<div class="row">
-				<div class="col-lg-6 in-gp-tb">
+				<div class="in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" type="button">뒤로가기</button></a>

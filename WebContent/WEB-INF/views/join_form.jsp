@@ -101,7 +101,6 @@ function onlyNumber(event){
 function check(){
 	//Form Submit을 진행하기 위한 함수
 	//값이 비어있거나, ID나 PW에 특수문자나 공백이 있을때 return false;
-	var emailAddress =$("#emailAddress option:selected").val();
 	var id = $('input[name="id"]').val();
 	var pw = $('input[name="pw"]').val();
 	var pw2 = $('input[name="pw2"]').val();
@@ -146,8 +145,6 @@ function check(){
 	var address1 = $('input[name="address1"]').val();
 	//address2(지번 주소)가 없는 경우도 있어서 생략
 // 	var address2 = $('input[name="address2"]').val();
-	//이메일과 주소 합치는 작업
-		email = email + "@" + emailAddress;
 	//아이디 비밀번호 자릿수 검사
 	if(id.length > 12 || pw.length>12 || pw2.length>12){
 		$('input[name="pwChk"]').val('아이디나 패스워드는 12자리 이하');
@@ -215,21 +212,17 @@ function check(){
 					<span class="input-group-addon" id="sizing-addon1">E-MAIL</span>
 					<input type="text" class="form-control" placeholder="User email"
 						name="email" aria-describedby="basic-addon1">
-
-					<span class="input-group-addon" id="basic-addon2">
-						@<select id="emailAddress">
-							<option>naver.com</option>
-							<option>google.com</option>
-							<option>daum.net</option>
-						</select>
-					</span>
 				</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon" id="sizing-addon1">주소</span>
 				<input type="text" id="sample4_postcode" class="form-control"
 					name="address1" placeholder="우편번호">
+					</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon">
 					<input type="button" onclick="sample4_execDaumPostcode()"
-						value="우편번호 찾기">
+						value="주소찾기"></span>
+						
 					<span id="guide" style="color: #999"></span>
 					<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 					<script>
@@ -289,14 +282,11 @@ function check(){
 				}).open();
 	}
 </script>
-
-					<br>
-				</span>
 				<input type="text" id="sample4_roadAddress" class="form-control"
-					name="address" placeholder="도로명주소">
+					name="address" placeholder="도로명주소" value="${memberInfo.address}"><br>
 				<input type="text" id="sample4_jibunAddress"
 					name="address2" class="form-control" placeholder="지번주소">
-				<br>
+</div>
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">프로필</span>
 					<input type="file" onchange="fileInfo(this)" class="form-control"
@@ -306,8 +296,7 @@ function check(){
 				</div>
 			</form>
 <!-- 			<div class="row"> -->
-<hr>
-				<div class="col-lg-6 in-gp-tb">
+				<div class="in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" id="join" type="button">회원가입</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
