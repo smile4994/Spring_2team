@@ -1,21 +1,6 @@
 @charset "EUC-KR";
 
-.top_nav_right ul li a.naver {
-	background: url(../images/social3.png) no-repeat -7px -7px;
-}
-
-.top_nav_right ul li a.join {
-	background: url(../images/social3.png) no-repeat -130px -7px;
-}
-
-.top_nav_right ul li a.login {
-	background: url(../images/social3.png) no-repeat -171px -7px;
-}
-
-.top_nav_right ul li a.fb {
-	background: url(../images/social3.png) no-repeat -49px -8px;
-}
-
-.top_nav_right ul li a.goog {
-	background: url(../images/social3.png) no-repeat -89px -8px;
+.top_nav_right {
+    float: right;
+    width: 21%;
 }

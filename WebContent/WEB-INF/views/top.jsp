@@ -64,22 +64,21 @@
 						<li class=" menu__item"><a class="menu__link" href="map.do">양태흠</a></li>
 						<li class=" menu__item"><a class="menu__link" href="jys.do">정용세</a></li>
 						<li class=" menu__item"><a class="menu__link" href="matching.do">Matching</a></li>
+						<li class=" menu__item">&nbsp;&nbsp;</li>
+						<li class=" menu__item">&nbsp;&nbsp;</li>
+						<c:if test="${empty sessionScope.loginId}">
+							<li class=" menu__item"><a class="menu__link" href="loginForm.do">로그인</a></li>
+							<li class=" menu__item"><a class="menu__link" href="joinForm.do">회원가입</a></li>
+						</c:if>
+						<c:if test="${not empty sessionScope.loginId}">
+						<li class=" menu__item"><a class="menu__link" href="logout.do">로그아웃</a></li>
+						<li class=" menu__item"><a class="menu__link" href="myPage.do">마이페이지</a></li>
+						</c:if>
 					  </ul>
 					</div>
 				  </div>
 				</nav>	
 			</div>
-			<div class="top_nav_right">
-				<ul>
-				<c:if test="${empty sessionScope.loginId}">
-					<li class=" menu__item"><a class="menu__link" href="loginForm.do">로그인</a></li>
-					<li class=" menu__item"><a class="menu__link" href="joinForm.do">회원가입</a></li>
-				</c:if>
-				<c:if test="${not empty sessionScope.loginId}">
-					<li class=" menu__item"><a class="menu__link" href="logout.do">로그아웃</a></li>
-					<li class=" menu__item"><a class="menu__link" href="myPage.do">마이페이지</a></li>
-				</c:if>
-					
 						<!-- 원래 SNS로그인 및 회원가입 아이콘 코드
 						<c:if test="${empty sessionScope.loginId}">
 							<li class="hvr-rectangle-out"><a class="fb" href="#"
@@ -101,8 +100,6 @@
 							<li class="hvr-rectangle-out"><a class="login"
 								href="logout.do"></a></li>
 						</c:if> -->
-					</ul>	
-			</div>
 			<div class="clearfix"></div>
 			</div>
 		</div>
