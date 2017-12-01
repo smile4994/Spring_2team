@@ -18,7 +18,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/custom.css?ver=2" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom.css?ver=4" rel="stylesheet" type="text/css" media="all" />
 
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
@@ -241,7 +241,8 @@ function deleteMember(){
 				<div class="input-group input-group-lg">
 				<span class="input-group-addon">
 					<input type="button" onclick="sample4_execDaumPostcode()"
-						value="주소찾기">
+						value="주소찾기"></span>
+						
 					<span id="guide" style="color: #999"></span>
 					<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 					<script>
@@ -301,9 +302,8 @@ function deleteMember(){
 				}).open();
 	}
 </script>
-				</span>
 				<input type="text" id="sample4_roadAddress" class="form-control"
-					name="address" placeholder="도로명주소" value="${memberInfo.address}">
+					name="address" placeholder="도로명주소" value="${memberInfo.address}"><br>
 				<input type="text" id="sample4_jibunAddress"
 					name="address2" class="form-control" placeholder="지번주소">
 </div>
@@ -319,7 +319,7 @@ function deleteMember(){
 				<div class="col-lg-6 in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
-						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
+						<a href="javascript:history.back()"><button class="btn btn-default" type="button">뒤로가기</button></a>
 						<a href="messageList.do"><button class="btn btn-default" type="button">쪽지함</button></a>
 						<button class="btn btn-default" ONCLICK="deleteMember();"type="button">회퇴원탈</button>
 					</div>

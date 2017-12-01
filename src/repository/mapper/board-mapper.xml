@@ -162,8 +162,8 @@
 	<insert id="insertReply" parameterType="ReplyVO"
 		useGeneratedKeys="true" keyProperty="boardNum">
 		INSERT INTO
-		REPLY(re_writer,re_ref,re_contents,re_date,re_count)
-		VALUES(#{re_writer},#{re_ref}, #{re_contents},#{re_date},#{re_count})
+		REPLY(re_writer,re_ref,re_contents,re_date,re_count,re_src)
+		VALUES(#{re_writer},#{re_ref}, #{re_contents},#{re_date},#{re_count},#{re_src})
 	</insert>
 
 	<delete id="deleteReply" parameterType="int">
@@ -183,14 +183,7 @@
 		<result property="re_contents" column="re_contents" />
 		<result property="re_date" column="re_date" />
 		<result property="re_count" column="re_count" />
+		<result property="re_src" column="re_src" />
 	</resultMap>
-	
-<!-- 	파일 업로드 관련 -->
-<!-- 	<insert id="write" parameterType="HashMap"> -->
-<!-- 		INSERT INTO -->
-<!-- 		FILE(FILE_NUM, ORIGINAL_NAME, FILE_NAME, FILE_SIZE, -->
-<!-- 		BOARD_NUM) VALUES (file_seq.nextval, #{originalfileName}, #{saveFileName}, -->
-<!-- 		#{fileSize}, bbs_seq.currval) -->
-<!-- 	</insert> -->
 
 </mapper>

@@ -1,6 +1,5 @@
 package repository.mapper;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -16,7 +15,6 @@ public interface BoardMapper {
 	public int updateRef(int boardNum);
 	public int delete(int ref);
 	public int updateCount(int boardNum);
-
 	
 	//페이징 처리를 위한 작업
 	public List<BoardVO> selectList(@Param("startRow")int startRow, @Param("count")int count);
@@ -53,9 +51,6 @@ public interface BoardMapper {
 	public int insertReply(ReplyVO reply);
 	public int deleteReply(int replyNum);
 	public int deleteAllReply(int ref);
-	public int write(HashMap hm);
-	//파일 업로드
-	
 	
 	
 }

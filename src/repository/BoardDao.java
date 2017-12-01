@@ -1,6 +1,5 @@
 package repository;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -148,11 +147,5 @@ public class BoardDao {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.deleteAllReply(ref);
 	}
-	
-	// 파일 업로드 관련 작업
-	public int write(HashMap hm) {
-		BoardMapper mapper = session.getMapper(BoardMapper.class);
-		return mapper.write(hm);
-	}	
 	
 }

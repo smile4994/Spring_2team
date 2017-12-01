@@ -35,6 +35,7 @@
 			url : 'replyDelete.do',
 			type : 'get',
 			data : 'replyNum=' +replyNum,
+			cache: false,
 			success : function(data) {
 				replyRead_func();
 				if(data != result){
@@ -56,6 +57,7 @@
 			type : 'post',
 			url : 'replyWrite.do',
 			data : allData,
+			cache: false,
 			success : function(responseData) {
 				replyRead_func();
 				$('#re_contents').val("");
@@ -73,10 +75,12 @@
    			type : 'get',
    			data : 'boardNum=' +boardNum,
    			dataType : 'json',
+   			cache: false,
     		success : function(data){
     			var replyHtml = "";
     		    $.each(data, function(key, replyList){ 
- 					replyHtml += "<div style='width:25%'><b>"+replyList.re_writer+"</b>&nbsp:&nbsp"; 
+    		    	replyHtml += "<div style='width:25%'><b><img style='width: 50px; height: 50px;' src='"+replyList.re_src+"'></b>&nbsp";
+ 					replyHtml += "<b>"+replyList.re_writer+"</b>&nbsp:&nbsp"; 
  					replyHtml += replyList.re_contents;
  					replyHtml += "<a id='replyDel' onclick='replyDel_func("+replyList.reply_num+")' style='color:grey;'>&times;</a>";
  					replyHtml += "<div style='font-size:12px;font-style:monospace; color:grey; margin-top:5px; margin-bottom:3px;'>"+replyList.re_date + "</div><hr>";
