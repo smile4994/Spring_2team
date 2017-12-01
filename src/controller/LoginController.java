@@ -49,14 +49,13 @@ public class LoginController {
 //		System.out.println("data : " + data);
 		
 		Map<String, String> map = kakao.JsonStringMap(data);
+		
 //		System.out.println("map :"+map);
-
 //		System.out.println("access_token :"+map.get("access_token"));
 //		System.out.println("refresh_token :"+map.get("refresh_token"));
 //		System.out.println("scope :"+map.get("scope"));
 //		System.out.println("token_type :"+map.get("token_type"));
 //		System.out.println("expires_in :"+map.get("expires_in"));
-		
 		
 		String list = kakao.getAllList((String)map.get("access_token"));
 		System.out.println("list :"+list);
