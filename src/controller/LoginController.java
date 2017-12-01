@@ -36,44 +36,38 @@ public class LoginController {
 	@RequestMapping(value="/kakaoGetCode.do", method=RequestMethod.GET)
 	public String kakao() throws Exception{
 		Kakao kakao = new Kakao();
-		System.out.println("kakao.getCode() : " + kakao.getCode());
+//		System.out.println("kakao.getCode() : " + kakao.getCode());
 		
 		return "redirect:"+kakao.getCode();
 	}
 	
 	@RequestMapping(value="/kakaologin.do", method=RequestMethod.GET)
 	public String kakaoLogin(@RequestParam("code") String code) throws Exception {
-		System.out.println("code : " + code);
-		
-		
-		
-//		kakao.getAccessToken(code);
+//		System.out.println("code : " + code);
 		
 		String data = (String)kakao.getHtml((kakao.getAccessToken(code)));
-		System.out.println("data : " + data);
+//		System.out.println("data : " + data);
 		
 		Map<String, String> map = kakao.JsonStringMap(data);
-		System.out.println("map :"+map);
+//		System.out.println("map :"+map);
 
-		System.out.println("access_token :"+map.get("access_token"));
-		System.out.println("refresh_token :"+map.get("refresh_token"));
-		System.out.println("scope :"+map.get("scope"));
-		System.out.println("token_type :"+map.get("token_type"));
-		System.out.println("expires_in :"+map.get("expires_in"));
+//		System.out.println("access_token :"+map.get("access_token"));
+//		System.out.println("refresh_token :"+map.get("refresh_token"));
+//		System.out.println("scope :"+map.get("scope"));
+//		System.out.println("token_type :"+map.get("token_type"));
+//		System.out.println("expires_in :"+map.get("expires_in"));
 		
 		
 		String list = kakao.getAllList((String)map.get("access_token"));
 		System.out.println("list :"+list);
 		
 		Map<String, String> getAllListMap = kakao.JsonStringMap(list);
-		System.out.println("getAllListMap :"+getAllListMap);
+//		System.out.println("getAllListMap :"+getAllListMap);
 		System.out.println("nickName :"+(String)getAllListMap.get("nickName"));
 		System.out.println("profileImageURL :"+(String)getAllListMap.get("profileImageURL"));
 		System.out.println("thumbnailURL :"+(String)getAllListMap.get("thumbnailURL"));
-		System.out.println("countryISO :"+(String)getAllListMap.get("countryISO"));
+//		System.out.println("countryISO :"+(String)getAllListMap.get("countryISO"));
 		
-		System.out.println("id : "+(String)getAllListMap.get("client_id"));
-		System.out.println("email : "+(String)getAllListMap.get("kaccount_email"));
 		return "main";
 	}
 }
