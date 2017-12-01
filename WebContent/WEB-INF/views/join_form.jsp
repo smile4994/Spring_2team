@@ -143,7 +143,8 @@ function check(){
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
 	var address1 = $('input[name="address1"]').val();
-	var address2 = $('input[name="address2"]').val();
+	//address2(지번 주소)가 없는 경우도 있어서 생략
+// 	var address2 = $('input[name="address2"]').val();
 	//이메일과 주소 합치는 작업
 		email = email + "@" + emailAddress;
 	//아이디 비밀번호 자릿수 검사
@@ -152,7 +153,7 @@ function check(){
 		return false;
 	}
 	//빈 값 확인 작업[프로필은 없을 시 default값]
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == '' || profile == '' || profile ==null){
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || profile == '' || profile ==null){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{

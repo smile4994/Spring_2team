@@ -72,19 +72,36 @@
 			<div class="top_nav_right">
 				<ul>
 				<c:if test="${empty sessionScope.loginId}">
-					<li class="hvr-rectangle-out"><a class="fb" href="#" onclick="window.open('kakaologin.do','window','width=350,height=400,left=0,top=0')"></a></li>
-<!-- 					<a class="naver" target="_blank" href="naver_login.html"> -->
-					<a class="naver" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
-					</a>
-					<li class="hvr-rectangle-out"><a class="goog" href="#" onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
-					<li class="hvr-rectangle-out"><a class="join" href="joinForm.do"></a></li>
-					<li class="hvr-rectangle-out"><a class="login" href="loginForm.do"></a></li>
-					</c:if>
-					<c:if test="${not empty sessionScope.loginId}">
-					<li class="hvr-rectangle-out"><a class="join" href="myPage.do"></a></li>
-					<li class="hvr-rectangle-out"><a class="login" href="logout.do"></a></li>
-					</c:if>
-				</ul>	
+					<li class=" menu__item"><a class="menu__link" href="loginForm.do">로그인</a></li>
+					<li class=" menu__item"><a class="menu__link" href="joinForm.do">회원가입</a></li>
+				</c:if>
+				<c:if test="${not empty sessionScope.loginId}">
+					<li class=" menu__item"><a class="menu__link" href="logout.do">로그아웃</a></li>
+					<li class=" menu__item"><a class="menu__link" href="myPage.do">마이페이지</a></li>
+				</c:if>
+					
+						<!-- 원래 SNS로그인 및 회원가입 아이콘 코드
+						<c:if test="${empty sessionScope.loginId}">
+							<li class="hvr-rectangle-out"><a class="fb" href="#"
+								onclick="window.open('kakaologin.do','window','width=350,height=400,left=0,top=0')"></a></li>
+												<a class="naver" target="_blank" href="naver_login.html">
+							<a class="naver" href="#"
+								onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')">
+							</a>
+							<li class="hvr-rectangle-out"><a class="goog" href="#"
+								onclick="window.open('naverlogin.do','window','width=350,height=400,left=0,top=0')"></a></li>
+							<li class="hvr-rectangle-out"><a class="join"
+								href="joinForm.do"></a></li>
+							<li class="hvr-rectangle-out"><a class="login"
+								href="loginForm.do"></a></li>
+						</c:if>
+						<c:if test="${not empty sessionScope.loginId}">
+							<li class="hvr-rectangle-out"><a class="join"
+								href="myPage.do"></a></li>
+							<li class="hvr-rectangle-out"><a class="login"
+								href="logout.do"></a></li>
+						</c:if> -->
+					</ul>	
 			</div>
 			<div class="clearfix"></div>
 			</div>

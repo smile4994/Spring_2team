@@ -31,8 +31,12 @@ public class MemberService {
 		return dao.selectMember(loginId);
 	}
 	
-	public int updateMember(MemberVO member) {
-		return dao.updateMember(member);
+	public int updateMember(MemberVO member,String loginId) {
+		if(member.getId().equals(loginId)) {
+			dao.updateMember(member);
+			return 1;
+		}
+		return 0;
 	}
 	public int deleteMember(int memberNum,String loginId) {
 		MemberVO member = dao.selectMember(loginId);
