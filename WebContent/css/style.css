@@ -338,8 +338,8 @@ a.menu__link {
 .top_nav_right ul li a{	
     width: 32px;
     height: 32px;
-    display: inline-block;
-    border: 1px solid #fff;
+/*     display: inline-block; */
+/*     border: 1px solid #fff; */
 }
 .top_nav_right ul li a.fb{
     background: url(../images/social2.png) no-repeat -48px -7px;
