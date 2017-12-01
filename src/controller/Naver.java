@@ -50,6 +50,12 @@ public class Naver {
 		return result;
 	}
 	
+	public static String getxml(String tokenType, String accessToken) {
+		String profileDataXml = getHtml("https://apis.naver.com/nidlogin/nid/getUserProfile.xml", tokenType + " " + accessToken);
+		
+		return profileDataXml;
+	}
+	
 	public static String getHtml(String url, String authorization) {
 		HttpURLConnection httpRequest = null;
 		String resultValue = null;

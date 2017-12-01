@@ -2,11 +2,12 @@ package controller;
 
 import java.util.Map;
 
+import org.json.JSONObject;
+import org.json.XML;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class LoginController {
@@ -28,10 +29,22 @@ public class LoginController {
 		System.out.println("naver code : " + code);
 		System.out.println("naver state : " + state);
 
-		String result = Naver.getAccessToken(code, state);
+//		String result = Naver.getAccessToken(code, state);
+		
+		Map<String, String> mapResult=Naver.JSONStringToMap(Naver.getAccessToken(code, state));
+		String result = (String)Naver.getxml((String)mapResult.get("token_type"), (String)mapResult.get("access_token"));
 		System.out.println("result :"+result);
 		
-//		Map<String, String> mapResult=Naver.JSONStringToMap(Naver.getAccessToken(code, state));
+		JSONObject jsonObject = XML.toJSONObject(result);
+		System.out.println("jsonObject :" +jsonObject);
+		
+		JSONObject responseData = jsonObject.getJSONObject("data");
+		System.out.println("responseData :" + responseData);
+		
+		Map<String, String> userMap=Naver.JSONStringToMap(responseData.get("response").toString());
+		System.out.println("id:"+(String)userMap.get("id"));
+		System.out.println("name:"+(String)userMap.get("name"));
+		System.out.println("email:"+(String)userMap.get("email"));
 //		System.out.println("access_token : "+(String)mapResult.get("access_token"));
 //		System.out.println("refresh_token : "+(String)mapResult.get("refresh_token"));
 //		System.out.println("token_type : "+(String)mapResult.get("token_type"));

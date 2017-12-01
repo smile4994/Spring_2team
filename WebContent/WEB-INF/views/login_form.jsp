@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<form action="naverstart.do" method="get">
 				<div class="row">
 					<div class="col-lg-6 in-gp-tb">
-						<input type="image" src="images/kakaologin.png" border="0">
+						<input type="image" src="images/naverlogin.png" border="0">
 					</div>
 				</div>
 			</form>
