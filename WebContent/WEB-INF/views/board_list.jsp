@@ -12,6 +12,7 @@
  
 </head>
 <body>
+<%@include file="top.jsp" %>
 
 <form action="board.do" method="post">
 	<table border="1">

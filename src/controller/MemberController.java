@@ -161,7 +161,8 @@ public class MemberController{
 			try {
 				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
 						"	alert('success');\r\n" + 
-						"parent.location.reload();" +
+						"location.href='main.do';"+
+//						"parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -170,7 +171,8 @@ public class MemberController{
 			try {
 				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
 						"	alert('fail');\r\n" + 
-						"parent.location.reload();" +
+						"location.href='main.do';"+
+//						"parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();

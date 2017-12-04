@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- start-smoth-scrolling -->
 </head>
 <body>
-
+<%@include file="top.jsp" %>
 
 <!-- banner -->
 <!-- typography -->
