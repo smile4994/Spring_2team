@@ -39,14 +39,21 @@ public class Naver {
 	}
 	
 	public static final String getAccessToken(String code, String state) {
-		String getAccessToken = "https://nid.naver.com/oauth2.0/token?cliend_id="+Client_ID;
+		String getAccessToken = "https://nid.naver.com/oauth2.0/token?client_id="+Client_ID;
 		getAccessToken += "&client_secret="+Client_Secret;
 		getAccessToken += "&grant_type=authorization_code";
 		getAccessToken += "&state="+state;
 		getAccessToken += "&code="+code;
 		
 		String result = (String)getHtml(getAccessToken, null);
+		
 		return result;
+	}
+	
+	public static String getxml(String tokenType, String accessToken) {
+		String profileDataXml = getHtml("https://apis.naver.com/nidlogin/nid/getUserProfile.xml", tokenType + " " + accessToken);
+		
+		return profileDataXml;
 	}
 	
 	public static String getHtml(String url, String authorization) {
@@ -54,8 +61,7 @@ public class Naver {
 		String resultValue = null;
 		
 		try {
-			URL u;
-			u = new URL(url);
+			URL u = new URL(url);
 			httpRequest = (HttpURLConnection)u.openConnection();
 			httpRequest.setRequestProperty("Content-type", "text/xml; charset=UTF-8");
 			

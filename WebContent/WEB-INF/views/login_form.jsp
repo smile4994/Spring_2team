@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
 <title>로그인</title>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -53,99 +55,118 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	});
 </script>
 <!-- start-smoth-scrolling -->
+
 </head>
 <body>
-
-	<%@include file="top.jsp"%>
-
-
 	<div class="news-left">
 		<div class="container">
 			<h3 class="title ">로그인</h3>
 			<form method="post" action="login.do">
-			<div class="input-group input-group-lg">
-			
-				<span class="input-group-addon" id="sizing-addon1">ID</span>
-				<input type="text" class="form-control" placeholder="User id"
-					name="id" aria-describedby="sizing-addon1">
-			</div>
+				<div class="input-group input-group-lg">
 
-			<div class="input-group input-group-lg">
-				<span class="input-group-addon" id="sizing-addon1">PW</span>
-				<input type="password" class="form-control" placeholder="User password"
-					name="pw" aria-describedby="sizing-addon1">
-			</div>
-
-			<div class="row">
-				<div class="col-lg-6 in-gp-tb">
-					<div class="input-group">
-						<button class="btn btn-default" type="submit">로그인</button>
-						<a href="javascript:history.back()"><button
-								class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
-					</div>
-					<!-- /input-group -->
+					<span class="input-group-addon" id="sizing-addon1">ID</span> <input
+						type="text" class="form-control" placeholder="User id" name="id"
+						aria-describedby="sizing-addon1">
 				</div>
-				<!-- /.col-lg-6 -->
-			</div>
-			</form>
-			<!-- /.row -->
-		</div>
-	</div>
-	<!-- contact -->
-	<div class="contact-form">
-		<div class="container">
-			<h3 class="title">
-				Contact
-				<span>Us</span>
-			</h3>
 
-			<div class="col-md-6 contact-right ">
-				<form action="#" method="post">
-					<input type="text" name="Name" value="Name"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="email" name="Email" value="Email"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="text" name="Telephone" value="Telephone"
-						onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Telephone';}"
-						required="">
-					<textarea name="Message..." onfocus="this.value = '';"
-						onblur="if (this.value == '') {this.value = 'Message...';}"
-						required="">Message...</textarea>
-					<input type="submit" value="Submit">
-				</form>
-			</div>
-			<div class="col-md-6 contact-left ">
-				<h2>Contact Information</h2>
-				<p>"Lorem Ipsum"is the common name dummy text often used in the
-					design, printing, and type setting industriescommon name dummy text
-					often used in the design, printing, and type setting industries
-					Lorem Ipsum"is the common name dummy text often used in the design,
-					printing, and type setting industries "</p>
-				<ul class="contact-list">
-					<li><span class="glyphicon glyphicon-map-marker"
-							aria-hidden="true"></span>756 global Place, New York.</li>
-					<li><span class="glyphicon glyphicon-envelope"
-							aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
-					<li><span class="glyphicon glyphicon-earphone"
-							aria-hidden="true"></span>+123 2222 222</li>
-				</ul>
-				<ul class="icons-list footer-bottom">
-					<li><a href="#" class="use1"><span>Facebook</span></a></li>
-					<li><a href="#" class="use2"><span>Twitter</span></a></li>
-					<li><a href="#" class="use3"><span>Dribbble</span></a></li>
-					<li><a href="#" class="use4"><span>Pinterest</span></a></li>
-				</ul>
-			</div>
-			<div class="clearfix"></div>
-			<p class="copy-right text-center">
-				&copy; 2016 Pets Love. All rights reserved | Design by <a
-					href="http://w3layouts.com/">W3layouts</a>
-			</p>
+				<div class="input-group input-group-lg">
+					<span class="input-group-addon" id="sizing-addon1">PW</span> <input
+						type="password" class="form-control" placeholder="User password"
+						name="pw" aria-describedby="sizing-addon1">
+				</div>
+
+				<div class="row">
+					<div class="in-gp-tb">
+						<div class="input-group">
+							<button class="btn btn-default" type="submit">로그인</button>
+							<a href="javascript:history.back()"><button
+									class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
+
+						</div>
+						<!-- /input-group -->
+					</div>
+					<!-- /.col-lg-6 -->
+				</div>
+
+
+			</form>
+			<form action="kakaoGetCode.do" method="get">
+				<div class="row">
+					<div class="in-gp-tb">
+						<div class="input-group">
+							<input type="image" src="images/kakaologin.png" border="0">
+						</div>
+					</div>
+				</div>
+			</form>
+
+			<form action="naverstart.do" method="get">
+				<div class="row">
+					<div class="in-gp-tb">
+						<div class="input-group">
+							<input type="image" src="images/naverlogin.png" border="0">
+						</div>
+					</div>
+				</div>
+			</form>
 		</div>
+		<!-- /.row -->
 	</div>
+	</div>
+	<!-- 	<!-- contact -->
+	<!-- 	<div class="contact-form"> -->
+	<!-- 		<div class="container"> -->
+	<!-- 			<h3 class="title"> -->
+	<!-- 				Contact <span>Us</span> -->
+	<!-- 			</h3> -->
+
+	<!-- 			<div class="col-md-6 contact-right "> -->
+	<!-- 				<form action="#" method="post"> -->
+	<!-- 					<input type="text" name="Name" value="Name" -->
+	<!-- 						onfocus="this.value = '';" -->
+	<!-- 						onblur="if (this.value == '') {this.value = 'Name';}" required=""> -->
+	<!-- 					<input type="email" name="Email" value="Email" -->
+	<!-- 						onfocus="this.value = '';" -->
+	<!-- 						onblur="if (this.value == '') {this.value = 'Email';}" required=""> -->
+	<!-- 					<input type="text" name="Telephone" value="Telephone" -->
+	<!-- 						onfocus="this.value = '';" -->
+	<!-- 						onblur="if (this.value == '') {this.value = 'Telephone';}" -->
+	<!-- 						required=""> -->
+	<!-- 					<textarea name="Message..." onfocus="this.value = '';" -->
+	<!-- 						onblur="if (this.value == '') {this.value = 'Message...';}" -->
+	<!-- 						required="">Message...</textarea> -->
+	<!-- 					<input type="submit" value="Submit"> -->
+	<!-- 				</form> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="col-md-6 contact-left "> -->
+	<!-- 				<h2>Contact Information</h2> -->
+	<!-- 				<p>"Lorem Ipsum"is the common name dummy text often used in the -->
+	<!-- 					design, printing, and type setting industriescommon name dummy text -->
+	<!-- 					often used in the design, printing, and type setting industries -->
+	<!-- 					Lorem Ipsum"is the common name dummy text often used in the design, -->
+	<!-- 					printing, and type setting industries "</p> -->
+	<!-- 				<ul class="contact-list"> -->
+	<!-- 					<li><span class="glyphicon glyphicon-map-marker" -->
+	<!-- 						aria-hidden="true"></span>756 global Place, New York.</li> -->
+	<!-- 					<li><span class="glyphicon glyphicon-envelope" -->
+	<!-- 						aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li> -->
+	<!-- 					<li><span class="glyphicon glyphicon-earphone" -->
+	<!-- 						aria-hidden="true"></span>+123 2222 222</li> -->
+	<!-- 				</ul> -->
+	<!-- 				<ul class="icons-list footer-bottom"> -->
+	<!-- 					<li><a href="#" class="use1"><span>Facebook</span></a></li> -->
+	<!-- 					<li><a href="#" class="use2"><span>Twitter</span></a></li> -->
+	<!-- 					<li><a href="#" class="use3"><span>Dribbble</span></a></li> -->
+	<!-- 					<li><a href="#" class="use4"><span>Pinterest</span></a></li> -->
+	<!-- 				</ul> -->
+	<!-- 			</div> -->
+	<!-- 			<div class="clearfix"></div> -->
+	<!-- 			<p class="copy-right text-center"> -->
+	<!-- 				&copy; 2016 Pets Love. All rights reserved | Design by <a -->
+	<!-- 					href="http://w3layouts.com/">W3layouts</a> -->
+	<!-- 			</p> -->
+	<!-- 		</div> -->
+	<!-- 	</div> -->
 
 	<!-- contact -->
 	<!-- smooth scrolling -->
@@ -165,7 +186,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	</script>
 	<a href="#" id="toTop" style="display: block;"> <span
-			id="toTopHover" style="opacity: 1;"> </span></a>
+		id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- //smooth scrolling -->
 
 </body>

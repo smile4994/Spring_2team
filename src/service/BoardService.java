@@ -1,18 +1,13 @@
 package service;
 
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import repository.BoardDao;
+import repository.MemberDao;
 import vo.BoardPageVO;
 import vo.BoardVO;
 import vo.ReplyVO;
@@ -21,6 +16,9 @@ import vo.ReplyVO;
 public class BoardService {
 	@Autowired
 	private BoardDao dao;
+	
+	@Autowired
+	private MemberDao mDao;
 	//////////////////////////////////////////////////////
 	// 한 페이지에 보여질 글의 갯수
 	private static final int COUNT_PER_PAGE = 10;
@@ -28,23 +26,14 @@ public class BoardService {
 	public BoardPageVO makeBoardPage(String searchType,String searchWrite,int currentPage) {
 		// 게시글 총 갯수
 		int totalCount = 0;
-		System.out.println("------------------------");
 		if(searchType.equals("1")) {
 			totalCount = dao.selectTitleCount(searchWrite);
-			System.out.println("타입 1번 타이틀 실행");
-			System.out.println("totalCount : " +totalCount);
 		}else if(searchType.equals("2")) {
 			totalCount = dao.selectWriterCount(searchWrite);
-			System.out.println("타입 2번 작성자 실행");
-			System.out.println("totalCount : " +totalCount);
 		}else if(searchType.equals("3")) {
 			totalCount = dao.selectKategorieCount(searchWrite);
-			System.out.println("타입 3번 카테고리 실행");
-			System.out.println("totalCount : " +totalCount);
 		}else {
 			totalCount = dao.selectCount();
-			System.out.println("타입 0번 전체 실행");
-			System.out.println("totalCount : " +totalCount);
 		}
 
 		// 총 페이지수 계산
@@ -52,18 +41,15 @@ public class BoardService {
 		if (totalCount % COUNT_PER_PAGE != 0) {
 			totalPage++;
 		}
-		System.out.println("총 페이지수 계산 : " +totalPage);
 
 		// 화면 하단의 페이지 링크(시작)
 		int startPage = (currentPage - 1) / 10 * 10 + 1;
-		System.out.println("하단의 페이지 링크(시작) :" +startPage);
 		
 		// 화면 하단의 페이지 링크(끝)
 		int endPage = startPage + 9;
 		if (totalPage < endPage) {
 			endPage = totalPage;
 		}
-		System.out.println("하단의 페이지 링크(끝) :" +endPage);
 
 		// 글 조회 행 시작 번호 계산
 		int startRow = (currentPage - 1) * COUNT_PER_PAGE;
@@ -82,18 +68,7 @@ public class BoardService {
 		// 모든 데이터 BoardPageVO 객체에 담아서 리턴
 		return new BoardPageVO(boardList, currentPage, startPage, endPage, totalPage);
 	}
-	
-	// 파일 업로드 관련
-//	public void write(String originalfileName, String saveFileName, long fileSize) {
-//		HashMap<String, Object> hm = new HashMap<>();
-//	    hm.put("originalfileName", originalfileName);
-//	    hm.put("saveFileName", saveFileName);
-//	    hm.put("fileSize", fileSize);
-//	     
-//	    dao.write(hm);
-//
-//
-//	}
+
 	/////////////////////////////////////////////////////////////////////////////
 
 //	public List<BoardVO> svBoardList(String searchType, String searchWrite) {
@@ -199,11 +174,13 @@ public class BoardService {
 	// (1)리플 전체 리스트
 	public List<ReplyVO> svReplyList(int boardNum) {
 		List<ReplyVO> replyList = dao.selectReplyList(boardNum);
+		
 		return replyList;
 	}
 
 	// (2)리플 삽입
 	public boolean svReplyInsert(int boardNum, ReplyVO reply, String loginId) {
+		reply.setRe_src(mDao.selectMember(loginId).getMemberSrc()); 
 		reply.setRe_date(new Date());
 		reply.setRe_writer(loginId);
 		reply.setRe_ref(boardNum);

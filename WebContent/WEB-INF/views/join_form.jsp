@@ -101,7 +101,6 @@ function onlyNumber(event){
 function check(){
 	//Form Submit을 진행하기 위한 함수
 	//값이 비어있거나, ID나 PW에 특수문자나 공백이 있을때 return false;
-	var emailAddress =$("#emailAddress option:selected").val();
 	var id = $('input[name="id"]').val();
 	var pw = $('input[name="pw"]').val();
 	var pw2 = $('input[name="pw2"]').val();
@@ -138,21 +137,21 @@ function check(){
 	var phone = $('input[name="phone"]').val();
 	var email = $('input[name="email"]').val();
 	var name = $('input[name="name"]').val();
-	var profile = $('input[name="memImg"]').val();
+	//profile빈값은 controller에서 값이 없을때 default.jpg를 넣기때문에 생략
+// 	var profile = $('input[name="memImg"]').val();
 	//address는 컨트롤러로 객체에 담아 넘길때 사용
 	//address1은 우편번호 address2는 지번주소[값 넘길 필요 없어서 빈값 확인만] 
 	var address = $('input[name="address"]').val();
 	var address1 = $('input[name="address1"]').val();
-	var address2 = $('input[name="address2"]').val();
-	//이메일과 주소 합치는 작업
-		email = email + "@" + emailAddress;
+	//address2(지번 주소)가 없는 경우도 있어서 생략
+// 	var address2 = $('input[name="address2"]').val();
 	//아이디 비밀번호 자릿수 검사
 	if(id.length > 12 || pw.length>12 || pw2.length>12){
 		$('input[name="pwChk"]').val('아이디나 패스워드는 12자리 이하');
 		return false;
 	}
 	//빈 값 확인 작업[프로필은 없을 시 default값]
-	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1=='' || address2 == null || address2 == '' || profile == '' || profile ==null){
+	if(phone == null || phone == '' || email == null || email==''|| name==null ||name=='' || address==null || address=='' || address1 == null || address1==''){
 		$('input[name="pwChk"]').val('빈 값을 채우세요');
 		return false;
 	}else{
@@ -213,21 +212,17 @@ function check(){
 					<span class="input-group-addon" id="sizing-addon1">E-MAIL</span>
 					<input type="text" class="form-control" placeholder="User email"
 						name="email" aria-describedby="basic-addon1">
-
-					<span class="input-group-addon" id="basic-addon2">
-						@<select id="emailAddress">
-							<option>naver.com</option>
-							<option>google.com</option>
-							<option>daum.net</option>
-						</select>
-					</span>
 				</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon" id="sizing-addon1">주소</span>
 				<input type="text" id="sample4_postcode" class="form-control"
 					name="address1" placeholder="우편번호">
+					</div>
+				<div class="input-group input-group-lg">
 				<span class="input-group-addon">
 					<input type="button" onclick="sample4_execDaumPostcode()"
-						value="우편번호 찾기">
+						value="주소찾기"></span>
+						
 					<span id="guide" style="color: #999"></span>
 					<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 					<script>
@@ -287,14 +282,11 @@ function check(){
 				}).open();
 	}
 </script>
-
-					<br>
-				</span>
 				<input type="text" id="sample4_roadAddress" class="form-control"
-					name="address" placeholder="도로명주소">
+					name="address" placeholder="도로명주소" value="${memberInfo.address}"><br>
 				<input type="text" id="sample4_jibunAddress"
 					name="address2" class="form-control" placeholder="지번주소">
-				<br>
+</div>
 				<div class="input-group input-group-lg">
 					<span class="input-group-addon" id="sizing-addon1">프로필</span>
 					<input type="file" onchange="fileInfo(this)" class="form-control"
@@ -303,8 +295,8 @@ function check(){
 					<div id="img_box"></div>
 				</div>
 			</form>
-			<div class="row">
-				<div class="col-lg-6 in-gp-tb">
+<!-- 			<div class="row"> -->
+				<div class="in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" id="join" type="button">회원가입</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" id="cancel" type="button">뒤로가기</button></a>
@@ -312,7 +304,7 @@ function check(){
 					<!-- /input-group -->
 				</div>
 				<!-- /.col-lg-6 -->
-			</div>
+<!-- 			</div> -->
 			<!-- /.row -->
 		</div>
 	</div>

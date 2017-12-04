@@ -6,9 +6,19 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Kakao {
 	private static final String RestApiKey = "143f11601de1d062d2049ad4904cbb34";
+	
+	
+	private static final String AdminKey = "c7acf4385ef2354d2cd4a4691644e00a";
 
 	private static final String Redirect_URL = "http://localhost:8888/Spring_2team/kakaologin.do";
 
@@ -70,5 +80,64 @@ public class Kakao {
 		return returnresult;
 	}
 	
+	public static Map<String, String> JsonStringMap(String data){
+		Map<String, String> map = new HashMap<String, String>();
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			map=mapper.readValue(data, new TypeReference<HashMap<String, String>>() {
+			
+			});
+		} catch (JsonParseException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return map;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public static String getAllList(String access_token) {
+		HttpURLConnection urlconn = null;
+		String returnresult = null;
+		
+		URL url;
+		try {
+			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
+			urlconn = (HttpURLConnection) url.openConnection();
+			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+			urlconn.setDoOutput(true);
+			urlconn.connect();
+
+			BufferedReader in = new BufferedReader(new InputStreamReader(urlconn.getInputStream(), "UTF-8"));
+			
+			StringBuffer sb = new StringBuffer();
+			
+			String result = null;
+			while((result = in.readLine()) != null) {
+				sb.append(result);
+				sb.append("\n");
+			}
+			returnresult=sb.toString();
+			
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		return returnresult;
+	}
 	
 }
