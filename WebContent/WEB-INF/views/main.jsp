@@ -223,9 +223,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	/**********IFRAME Å©±â*********/
 	function resizeFrame(frm) {
-		frm.style.height = "auto";
+		frm.style.height = "100%";
+// 		frm.style.height = "auto";
 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-		frm.style.height = contentHeight + 4 + "px";
+		frm.style.height = contentHeight + 100 + "px";
 	}
 	/******************************/
 </script>
@@ -358,7 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<div id="target">	
 		<iframe src="testMain.do" id="the_iframe" width="100%"
 			onload=resizeFrame(this) frameborder=0 framespacing=0 marginheight=0
-			marginwidth=0 scrolling=no vspace=0>
+			marginwidth=0 scrolling=no vspace="0" style="height: auto;">
 		</iframe>
 	</div>
 <form name ="show" style="display:none">
