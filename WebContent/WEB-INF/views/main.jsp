@@ -222,11 +222,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	/******************************/
 
 	/**********IFRAME Å©±â*********/
+
 	function resizeFrame(frm) {
 		frm.style.height = "100%";
-// 		frm.style.height = "auto";
+		// 		frm.style.height = "auto";
 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-		frm.style.height = contentHeight + 100 + "px";
+		frm.style.height = contentHeight;
+		// 		frm.style.height = contentHeight + 20 + "px";
 	}
 	/******************************/
 </script>
