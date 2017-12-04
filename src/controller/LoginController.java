@@ -49,7 +49,7 @@ public class LoginController {
 //		System.out.println("refresh_token : "+(String)mapResult.get("refresh_token"));
 //		System.out.println("token_type : "+(String)mapResult.get("token_type"));
 //		System.out.println("expires_in : "+(String)mapResult.get("expires_in"));
-		return "testMain";
+		return "main";
     }
 	
 	
@@ -95,6 +95,6 @@ public class LoginController {
 		System.out.println("kaccount_email :"+(String)getAllListMap.get("kaccount_mail"));
 		System.out.println("countryISO :"+(String)getAllListMap.get("countryISO"));
 		
-		return "testMain";
+		return "main";
 	}
 }
