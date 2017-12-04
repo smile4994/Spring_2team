@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
@@ -145,9 +146,28 @@ public class MemberController implements HttpSessionListener {
 		return mv;
 	}
 
+//	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
+//	public ModelAndView login(String id, String pw, HttpSession session, HttpServletResponse resp) {
+//		ModelAndView mv = new ModelAndView();
+//		if (service.svlogin(id, pw)) {
+//			session.setAttribute("loginId", id);
+//
+//			clientList.add(id); // 세션 아이디 저장리스트
+//			String sessionId = (String) session.getAttribute("loginId");
+//			System.out.println("----------------------------------------");
+//			System.out.println("등록된아이디 : " + clientList);
+//			System.out.println("*생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
+//			
+//			mv.setViewName("login_success");
+//		} else {
+//			mv.setViewName("login_fail");
+//		}
+//		return mv;
+//	}
+	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-	public ModelAndView login(String id, String pw, HttpSession session) {
-		ModelAndView mv = new ModelAndView();
+	@ResponseBody
+	public void login(String id, String pw, HttpSession session, HttpServletResponse resp) {
 		if (service.svlogin(id, pw)) {
 			session.setAttribute("loginId", id);
 
@@ -157,15 +177,56 @@ public class MemberController implements HttpSessionListener {
 			System.out.println("등록된아이디 : " + clientList);
 			System.out.println("*생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
 
+			try {
+				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
+						"	alert('success');\r\n" + 
+						"parent.location.reload();" +
+						"</script>");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		} else {
-			mv.addObject("message", "로그인 실패");
+//			try {
+//				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
+//						"	alert('fail');\r\n" + 
+//						"parent.location.reload();" +
+//						"</script>");
+//			} catch (IOException e) {
+//				e.printStackTrace();
+//			}
 		}
-		mv.setViewName("main");
-		return mv;
 	}
+	
+	Thread t;
+	
+	@RequestMapping("/candidateLogout.do")
+	public void candidateLogout(HttpSession session) {
+		System.out.println("로그아웃후보:"+session.getAttribute("loginId"));
+		t = new Thread() {
+			@Override
+			public void run() {
+				try {
+					sleep(10*1000);
+					logout(session);
+				} catch (InterruptedException e) {
+					System.out.println("로그아웃 취소");
+					e.printStackTrace();
+				}
+			}
+		};
+		t.start();
+		
+	}
+	
+	@RequestMapping("/candidateCancel.do")
+	public void candidateCancel(HttpSession session) {
+		t.interrupt();
+		System.out.println("로그아웃후보 취소:"+session.getAttribute("loginId"));
+	}	
+	
 
 	@RequestMapping("/logout.do")
-	public String loguot(HttpSession session) {
+	public String logout(HttpSession session) {
 		String sessionId = (String) session.getAttribute("loginId");
 		
 		clientList.remove(session.getAttribute("loginId"));
@@ -234,4 +295,5 @@ public class MemberController implements HttpSessionListener {
 	public void sessionDestroyed(HttpSessionEvent arg0) {
 	}
 	/*********************************************/
+	
 }

@@ -137,64 +137,107 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	})
 	
 	/******	크롬 X 종료 이벤트 처리******/
-	$(window).bind('beforeunload', function(){
-		LogTime();
-	});
+// 	$(window).bind('beforeunload', function() {
+// 		return false;
+		
+// 		LogTime();
+// 	});
+
+	function askServerToDisconnectUserInAFewSeconds(){
+		$.ajax({
+			url : "candidateLogout.do",
+			success : function(){},
+			error:function(){}
+		})
+	}
+	
+	function askServerToCancelDisconnectionRequest(){
+		$.ajax({
+			url : "candidateCancel.do",
+			success : function(){},
+			error:function(){}
+		})
+	}
+	
+	window.onunload = function myUnload(event) {
+	    if (window.localStorage) {
+	        // flag the page as being unloading
+	        window.localStorage['myUnloadEventFlag']=new Date().getTime();
+	    }
+
+	    // notify the server that we want to disconnect the user in a few seconds (I used 5 seconds)
+	    askServerToDisconnectUserInAFewSeconds(); // synchronous AJAX call
+	}
+	
+	window.onload = function myLoad(event) {
+	    if (window.localStorage) {
+	        var t0 = Number(window.localStorage['myUnloadEventFlag']);
+	        if (isNaN(t0)) t0=0;
+	        var t1=new Date().getTime();
+	        var duration=t1-t0;
+	        alert(t0);
+	        if (duration<10*1000) {
+	            // less than 10 seconds since the previous Unload event => it's a browser reload (so cancel the disconnection request)
+	            askServerToCancelDisconnectionRequest(); // asynchronous AJAX call
+	        } else {
+	        	LogTime();
+	        }
+	    }
+	} 
+	
 	
 	function LogTime(){
 		jQuery.ajax({
 		type: "POST",
 		url: "logout.do",
+		data: "",
 		cache: false,
 		success: function(response){
 		}
 		});
 	}
 	/******************************/
-	
+
 	/**********접속자***********/
-	function clientList_func(){
+	function clientList_func() {
 		$.ajax({
- 		 	url : 'clientList.do',
-   			dataType : 'json',
-   			cache: false,
-    		success : function(data){
-    			var html = "";
-    			var count=0;
-    		    $.each(data, function(key, clientList){ 
-					html += clientList +"<br>";
+			url : 'clientList.do',
+			dataType : 'json',
+			cache : false,
+			success : function(data) {
+				var html = "";
+				var count = 0;
+				$.each(data, function(key, clientList) {
+					html += clientList + "<br>";
 					count++;
-    		    });
-    		    $('#clientCount').html("현재 접속자 수는 : "+count);
-    		    $('#showClient').html(html);
-  			  },
-   		 	error : function() {
+				});
+				$('#clientCount').html("현재 접속자 수는 : " + count);
+				$('#showClient').html(html);
+			},
+			error : function() {
 				alert("AJAX_showClient실패");
 			}
 		});
 		setTimeout("clientList_func()", 1000); //1초마다 메소드를 실행하겠다
 	}
 	/******************************/
-	
+
 	/************현재시간************/
-	function printTime() { 
-		var clock = document.getElementById("clock"); 
-		var now = new Date(); 
-		clock.innerHTML = now.getFullYear() + "년 " + 
-		(now.getMonth()+1) + "월 " + 
-		now.getDate() + "일 " + 
-		now.getHours() + "시 " + 
-		now.getMinutes() + "분 " + 
-		now.getSeconds() + "초"; 
+	function printTime() {
+		var clock = document.getElementById("clock");
+		var now = new Date();
+		clock.innerHTML = now.getFullYear() + "년 " + (now.getMonth() + 1)
+				+ "월 " + now.getDate() + "일 " + now.getHours() + "시 "
+				+ now.getMinutes() + "분 " + now.getSeconds() + "초";
 		setTimeout("printTime()", 1000); //1초마다 메소드를 실행하겠다
-	} 
+	}
 	/******************************/
 
-	/**********IFRAME 크기*********/	
+	/**********IFRAME 크기*********/
 	function resizeFrame(frm) {
 		frm.style.height = "auto";
 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-		frm.style.height = contentHeight+4+"px";
+		frm.style.height = contentHeight + 4 + "px";
 	}
 	/******************************/
 </script>
@@ -281,6 +324,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						
 						
 						</c:if>
+						
+						
 						<c:if test="${not empty sessionScope.loginId}">
 						
 						<li id="logout" class=" menu__item">
@@ -328,7 +373,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			marginwidth=0 scrolling=no vspace=0>
 		</iframe>
 	</div>
-
+<form name ="show" style="display:none">
+        <input type="text" name="mouseXField" value="0" size="6">Mouse X Position<br>
+        <input type="text" name="mouseYField" value="0" size="6">Mouse Y Position<br>
+</form>
 </body>
 </html>
 
