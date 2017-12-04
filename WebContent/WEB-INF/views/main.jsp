@@ -175,7 +175,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        if (isNaN(t0)) t0=0;
 	        var t1=new Date().getTime();
 	        var duration=t1-t0;
-	        alert(t0);
 	        if (duration<10*1000) {
 	            // less than 10 seconds since the previous Unload event => it's a browser reload (so cancel the disconnection request)
 	            askServerToCancelDisconnectionRequest(); // asynchronous AJAX call
