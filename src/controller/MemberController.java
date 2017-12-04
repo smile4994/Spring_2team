@@ -24,7 +24,7 @@ import service.MemberService;
 import vo.MemberVO;
 
 @Controller
-public class MemberController implements HttpSessionListener {
+public class MemberController{
 	@Autowired
 	private MemberService service;
 
@@ -146,25 +146,6 @@ public class MemberController implements HttpSessionListener {
 		return mv;
 	}
 
-//	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
-//	public ModelAndView login(String id, String pw, HttpSession session, HttpServletResponse resp) {
-//		ModelAndView mv = new ModelAndView();
-//		if (service.svlogin(id, pw)) {
-//			session.setAttribute("loginId", id);
-//
-//			clientList.add(id); // 세션 아이디 저장리스트
-//			String sessionId = (String) session.getAttribute("loginId");
-//			System.out.println("----------------------------------------");
-//			System.out.println("등록된아이디 : " + clientList);
-//			System.out.println("*생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
-//			
-//			mv.setViewName("login_success");
-//		} else {
-//			mv.setViewName("login_fail");
-//		}
-//		return mv;
-//	}
-	
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	@ResponseBody
 	public void login(String id, String pw, HttpSession session, HttpServletResponse resp) {
@@ -289,15 +270,4 @@ public class MemberController implements HttpSessionListener {
 		return mv;
 	}
 
-	
-	
-	/**************** 세션의 생성과 끝 ****************/
-	@Override
-	public void sessionCreated(HttpSessionEvent arg0) {
-	}
-	@Override
-	public void sessionDestroyed(HttpSessionEvent arg0) {
-	}
-	/*********************************************/
-	
 }

@@ -136,14 +136,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		})
 	})
 	
-	/******	크롬 X 종료 이벤트 처리******/
-// 	$(window).bind('beforeunload', function() {
-// 		return false;
-		
-// 		LogTime();
-// 	});
-
-	function askServerToDisconnectUserInAFewSeconds(){
+	/*************	크롬 X 종료 이벤트 처리 *************/
+	function candidateLogout(){ // 로그아웃 후보자를 지정
 		$.ajax({
 			url : "candidateLogout.do",
 			success : function(){},
@@ -151,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		})
 	}
 	
-	function askServerToCancelDisconnectionRequest(){
+	function candidateCancel(){	//로그아웃 후보자 취소
 		$.ajax({
 			url : "candidateCancel.do",
 			success : function(){},
@@ -161,12 +155,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	window.onunload = function myUnload(event) {
 	    if (window.localStorage) {
-	        // flag the page as being unloading
 	        window.localStorage['myUnloadEventFlag']=new Date().getTime();
 	    }
-
-	    // notify the server that we want to disconnect the user in a few seconds (I used 5 seconds)
-	    askServerToDisconnectUserInAFewSeconds(); // synchronous AJAX call
+	    candidateLogout(); // 페이지 전환시 로그아웃 후보자를 결정
 	}
 	
 	window.onload = function myLoad(event) {
@@ -176,16 +167,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	        var t1=new Date().getTime();
 	        var duration=t1-t0;
 	        if (duration<10*1000) {
-	            // less than 10 seconds since the previous Unload event => it's a browser reload (so cancel the disconnection request)
-	            askServerToCancelDisconnectionRequest(); // asynchronous AJAX call
+	        	candidateCancel(); // 페이지 전환이 확실하면 로그아웃 후보자를 취소한다
 	        } else {
-	        	LogTime();
+	        	LogTime(); //페이지전환이 아닌 정말 창을 닫은거면 세션삭제
 	        }
 	    }
 	} 
 	
-	
-	function LogTime(){
+	function LogTime(){	//세션 삭제 
 		jQuery.ajax({
 		type: "POST",
 		url: "logout.do",
@@ -195,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 		});
 	}
-	/******************************/
+	/***************************************/
 
 	/**********접속자***********/
 	function clientList_func() {
