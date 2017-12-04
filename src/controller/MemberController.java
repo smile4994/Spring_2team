@@ -186,16 +186,18 @@ public class MemberController implements HttpSessionListener {
 				e.printStackTrace();
 			}
 		} else {
-//			try {
-//				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
-//						"	alert('fail');\r\n" + 
-//						"parent.location.reload();" +
-//						"</script>");
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
+			try {
+				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
+						"	alert('fail');\r\n" + 
+						"parent.location.reload();" +
+						"</script>");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
+	
+	/*******************강제 종료시 인터럽트 처리로 로그아웃*******************/
 	
 	Thread t;
 	
@@ -206,7 +208,7 @@ public class MemberController implements HttpSessionListener {
 			@Override
 			public void run() {
 				try {
-					sleep(10*1000);
+					sleep(4*1000);
 					logout(session);
 				} catch (InterruptedException e) {
 					System.out.println("로그아웃 취소");
@@ -223,6 +225,8 @@ public class MemberController implements HttpSessionListener {
 		t.interrupt();
 		System.out.println("로그아웃후보 취소:"+session.getAttribute("loginId"));
 	}	
+	
+	/*************************************************************/
 	
 
 	@RequestMapping("/logout.do")
