@@ -115,6 +115,7 @@ public class Kakao {
 		try {
 			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
 			urlconn = (HttpURLConnection) url.openConnection();
+			urlconn.setRequestMethod("POST");
 			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			urlconn.setDoOutput(true);
 			urlconn.connect();
