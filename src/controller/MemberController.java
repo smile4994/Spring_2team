@@ -273,12 +273,12 @@ public class MemberController {
 	Kakao kakao = new Kakao();
 
 	// 네이버 로그인
-	@RequestMapping(value = "/naverstart.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/naverstart.do", method = RequestMethod.POST)
 	public String naverStart() throws Exception {
 		return "redirect:" + Naver.getCode();
 	}
 
-	@RequestMapping(value = "/naverlogin.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/naverlogin.do", method = RequestMethod.POST)
 	@ResponseBody
 	public void naverLogin(@RequestParam("code") String code, @RequestParam("state") String state,
 			HttpSession session, HttpServletResponse resp) throws Exception {
