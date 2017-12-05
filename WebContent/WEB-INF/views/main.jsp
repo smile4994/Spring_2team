@@ -10,7 +10,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <html>
 <head>
-<title>Pets Love a animals and Pets Category Flat Bootstrap Responsive Website Template | Home :: w3layouts</title>
+<title>PETS LOVE</title>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -91,22 +91,22 @@ window.onload = function(){
 			<ul class="rslides" id="slider3">
 				<li>
 					<div class="ban-info">
-						<h3>A Dog is the only animal that loves you more than yourself</h3>
-						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur</p>
+						<h3>품종 보장 & 평생 책임 보상을 해드립니다.</h3>
+						<p>공장분양을 제한하고 컨넬/브리더/자체번식/가정곱급을 통해<br><br>보다 건강하고 이쁜 아이들을 맞이할 수 있도록 노력하고 있습니다.</p>
 						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
 					</div>		
 				</li>
 				<li>
 					<div class="ban-info">
-						<h3>We really care about your pet's welfare!</h3>
-						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur</p>
+						<h3>전문가가 친절하게 도와드리겠습니다.</h3>
+						<p>고객중심 가맹정중심의 사고를 통해 미래지향적 경영을 선도하며<br><br>신뢰와 믿음을 바탕으로 끊임없는 노력을 하고 있습니다.</p>
 						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
 					</div>		
 				</li>
 				<li>
 					<div class="ban-info">
-						<h3>We love to walk and play with your awesome pets!</h3>
-						<p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur</p>
+						<h3>다양한 이벤트와 혜택을 챙겨가세요</h3>
+						<p>PETS LOVE는 반려동물 분양원과 반려동물용품, 미용, 호텔을 운영하고 있으며,<br><br>펫파크와 강아지 유치원, 반려동물 매칭서비스를 제공하고 있습니다.</p>
 						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
 					</div>		
 				</li>			
@@ -220,9 +220,7 @@ window.onload = function(){
 <div class="content">
 	<div class="container">
 		<h3 class="title wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s" >Welcome To <span>Pets Love</span></h3>
-		<p class="con-para wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-		adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
-		magnam aliquam quaerat voluptatem.</p>
+		<p class="con-para wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">분양, 분실, 매칭, 주변 동물병원 찾기<br>서비스를 제공합니다.</p>
 		<div class="content-grids ">
 			<div class="col-md-3 wel-grid text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
 				<div class="btm-clr4">
@@ -270,69 +268,69 @@ window.onload = function(){
 	<div class="container">
 		<h3 class="title wow flipInX" >Our <span> Services</span></h3>
 		<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic4.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service1.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic5.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service2.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic6.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service3.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic7.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service4.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic8.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service5.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic9.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
+<!-- 					<div class="services-left"> -->
+						<img class="img-responsive" src="images/service6.png" alt=" "/>
+<!-- 					</div> -->
+<!-- 					<div class="services-right"> -->
+<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
+<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
+<!-- 						voluptatem accusantium doloremque  </p> -->
+<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
@@ -351,15 +349,15 @@ window.onload = function(){
 		<div class="col-md-6 treat-right wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0s">
 			<div class="treat-icon">
 			<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-			<h4>Laudantium</h4>
-			<p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+			<h4>매장방문</h4>
+			<p> 방문을 통해서 입양할 유기동물과 만남</p>
 			</div>
 		</div>
 		<div class="col-md-6 treat-right2 text-right wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0.1s">
 			<div class="treat-icon1">
-			<span class="glyphicon glyphicon-leaf" aria-hidden="true"></span>
-			<h4>Laudantium</h4>
-			<p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+			<span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+			<h4>면담 후 입양</h4>
+			<p> 전문 상담가와 1:1면담으로<br> 입양할 아이의 건강 및 기타사항에 대해<br> 상담하고 입양합니다.</p>
 			</div>
 		</div>
 		<div class="col-md-6 treat-left2">
@@ -372,16 +370,16 @@ window.onload = function(){
 		</div>
 		<div class="col-md-6 treat-right wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0.2s">
 			<div class="treat-icon">
-			<span class="glyphicon glyphicon-grain" aria-hidden="true"></span>
-			<h4>Laudantium</h4>
-			<p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+			<span class="glyphicon glyphicon-plane" aria-hidden="true"></span>
+			<h4>보호기간 내 면회 및 외출, 외박</h4>
+			<p> 보호기간 내에는 면회 및 외출, 외박이 가능합니다.</p>
 			</div>
 		</div>
 		<div class="col-md-6 treat-right2 text-right no-bor wow bounceInDown" data-wow-duration="1.5s" data-wow-delay="0.3s">
 			<div class="treat-icon1">
-			<span class="glyphicon glyphicon-scissors" aria-hidden="true"></span>
-			<h4>Laudantium</h4>
-			<p> Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, quisquam est, qui dolorem ipsum quia dolor sit amet</p>
+			<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+			<h4>입양 후 정보 제공</h4>
+			<p> 입양 후에 아이들의 입양처와 주인들에 대한 정보와<br> 잘 지내고 있는지 여부를 제공합니다.</p>
 			</div>
 		</div>
 		<div class="clearfix"></div>
