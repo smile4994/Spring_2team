@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import repository.MemberDao;
+import vo.API_MemberVO;
 import vo.MemberVO;
 
 @Component
@@ -44,6 +45,26 @@ public class MemberService {
 			return dao.deleteMember(member.getMemberNum());
 		}else {
 			return 0;
+		}
+	}
+	
+	//////////////////////////////////////////////////////////////////////////////////////
+	//api
+	public boolean apiJoin(API_MemberVO api_member) {
+		if(dao.insert(api_member)>0)
+		{
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean apiLogin(String id) {
+		if(dao.selectApiLogin(id)==1) {
+			return true;
+		}else
+		{
+			return false;
 		}
 	}
 	

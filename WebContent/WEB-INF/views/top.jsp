@@ -202,26 +202,24 @@
 			</div>
 			<div class="header-middle">
 				<ul>
-					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123
-						456 7890</li>
-					<li><a href="mailto:info@example.com"><span
-							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>010-1234-5678</li>
+					<li>
+					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@multicampus.com</li>
 				</ul>
 			</div>
-			<div class="header-right">
-				<div class="search">
-					<form action="#" method="post">
-						<input type="search" name="Search" value="Search"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Search';}"
-							required=""> <input type="submit" value=" ">
-					</form>
-				</div>
-			</div>
+<!-- 			<div class="header-right"> -->
+<!-- 				<div class="search"> -->
+<!-- 					<form action="#" method="post"> -->
+<!-- 						<input type="search" name="Search" value="Search" -->
+<!-- 							onfocus="this.value = '';" -->
+<!-- 							onblur="if (this.value == '') {this.value = 'Search';}" -->
+<!-- 							required=""> <input type="submit" value=" "> -->
+<!-- 					</form> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
 	</div>
-
 
 	<div class="ban-top">
 		<div class="container">
@@ -263,14 +261,14 @@
 									</li>
 
 
-									<li id="ShortCodes" class=" menu__item">
-										<!-- 						<div class="menu__link">Short Codes</div> --> <a
-										class="menu__link" href="codes.do">Short Codes</a>
-									</li>
+<!-- 									<li id="ShortCodes" class=" menu__item"> -->
+<!-- 																<div class="menu__link">Short Codes</div> <a -->
+<!-- 										class="menu__link" href="codes.do">Short Codes</a> -->
+<!-- 									</li> -->
 
-									<li id="map" class=" menu__item">
+									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a
-										class="menu__link" href="map.do">양태흠</a>
+										class="menu__link" href="map.do">주변 동물병원</a>
 									</li>
 
 
