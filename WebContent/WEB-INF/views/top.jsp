@@ -203,24 +203,23 @@
 			<div class="header-middle">
 				<ul>
 					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>010-1234-5678</li>
-					<li><a href="mailto:info@example.com"><span
-							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@sds.com</a></li>
+					<li>
+					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@multicampus.com</li>
 				</ul>
 			</div>
-			<div class="header-right">
-				<div class="search">
-					<form action="#" method="post">
-						<input type="search" name="Search" value="Search"
-							onfocus="this.value = '';"
-							onblur="if (this.value == '') {this.value = 'Search';}"
-							required=""> <input type="submit" value=" ">
-					</form>
-				</div>
-			</div>
+<!-- 			<div class="header-right"> -->
+<!-- 				<div class="search"> -->
+<!-- 					<form action="#" method="post"> -->
+<!-- 						<input type="search" name="Search" value="Search" -->
+<!-- 							onfocus="this.value = '';" -->
+<!-- 							onblur="if (this.value == '') {this.value = 'Search';}" -->
+<!-- 							required=""> <input type="submit" value=" "> -->
+<!-- 					</form> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 			<div class="clearfix"></div>
 		</div>
 	</div>
-
 
 	<div class="ban-top">
 		<div class="container">
