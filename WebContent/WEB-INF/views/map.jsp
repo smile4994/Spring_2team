@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var find;
 					var markers = [];
 
-					// Geolocation API에 액세스할 수 있는지를 확인
+// 					Geolocation API에 액세스할 수 있는지를 확인
 					if (navigator.geolocation) {
 						//위치 정보를 얻기
 						navigator.geolocation.getCurrentPosition(function(pos) {
