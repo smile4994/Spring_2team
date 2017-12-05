@@ -115,129 +115,6 @@ window.onload = function(){
 		<div class="clearfix"></div>
 	</div>
 </div>
-<!-- content -->
-<div class="content">
-	<div class="container">
-		<h3 class="title wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s" >Welcome To <span>Pets Love</span></h3>
-		<p class="con-para wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
-		adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
-		magnam aliquam quaerat voluptatem.</p>
-		<div class="content-grids ">
-			<div class="col-md-3 wel-grid text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
-				<div class="btm-clr4">
-					<span></span>
-					<figure class="icon">
-						<img src="images/icon1.png" alt=" " />
-					</figure>
-					<h4>Voluptatem</h4>
-				</div>
-			</div>
-			<div class="col-md-3 wel-grid btm-gre text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
-				<div class="btm-clr4 btm-clr1">
-					<span></span>
-					<figure class="icon">
-						<img src="images/icon4.png" alt=" " />
-					</figure>
-					<h4>Consectetur</h4>
-				</div>
-			</div>
-			<div class="col-md-3 wel-grid text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
-				<div class="btm-clr4 btm-clr1">
-					<span></span>
-					<figure class="icon">
-						<img src="images/icon3.png" alt=" " />
-					</figure>
-					<h4>Doloremque </h4>
-				</div>
-			</div>
-			<div class="col-md-3 wel-grid btm-gre text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
-				<div class="btm-clr btm-clr3">
-					<span></span>
-					<figure class="icon">
-						<img src="images/icon2.png" alt=" " />
-					</figure>
-					<h4>Laudantium</h4>
-				</div>
-			</div>
-			<div class="clearfix"></div>
-		</div>
-	</div>
-</div>
-<!-- //content -->
-<!-- content-bottom -->
-<div class="content-bott">
-	<div class="container">
-		<h3 class="title wow flipInX" >Our <span> Services</span></h3>
-		<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic4.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic5.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic6.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic7.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic8.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-					<div class="services-left">
-						<img class="img-responsive" src="images/pic9.jpg" alt=" "/>
-					</div>
-					<div class="services-right">
-						<h4>AT VERO EOS ET ACCUSAMUS</h4>
-						<p>Sed ut perspiciatis unde omnis iste natus error sit 
-						voluptatem accusantium doloremque  </p>
-					</div>
-					<div class="clearfix"></div>
-				</div>
-				<div class="clearfix"></div>
-	</div>
-</div>
-<!-- //content-bottom -->
 <!-- our pets -->
 <div class="our_pets">
 	<div class="container">
@@ -338,6 +215,131 @@ window.onload = function(){
 	</div>
 </div>
 <!-- //our pets -->
+
+<!-- content -->
+<div class="content">
+	<div class="container">
+		<h3 class="title wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s" >Welcome To <span>Pets Love</span></h3>
+		<p class="con-para wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur,
+		adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore
+		magnam aliquam quaerat voluptatem.</p>
+		<div class="content-grids ">
+			<div class="col-md-3 wel-grid text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
+				<div class="btm-clr4">
+					<span></span>
+					<figure class="icon">
+						<img src="images/icon1.png" alt=" " />
+					</figure>
+					<h4>분 양</h4>
+				</div>
+			</div>
+			<div class="col-md-3 wel-grid btm-gre text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
+				<div class="btm-clr4 btm-clr1">
+					<span></span>
+					<figure class="icon">
+						<img src="images/icon2.png" alt=" " />
+					</figure>
+					<h4>분 실</h4>
+				</div>
+			</div>
+			<div class="col-md-3 wel-grid text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
+				<div class="btm-clr4 btm-clr1">
+					<span></span>
+					<figure class="icon">
+						<img src="images/icon4.png" alt=" " />
+					</figure>
+					<h4>매 칭</h4>
+				</div>
+			</div>
+			<div class="col-md-3 wel-grid btm-gre text-center wow flipInY" data-wow-duration="1.5s" data-wow-delay="0.1s">
+				<div class="btm-clr btm-clr3">
+					<span></span>
+					<figure class="icon">
+						<img src="images/icon3.png" alt=" " />
+					</figure>
+					<h4>주변 동물병원</h4>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+</div>
+<!-- //content -->
+<!-- content-bottom -->
+<div class="content-bott">
+	<div class="container">
+		<h3 class="title wow flipInX" >Our <span> Services</span></h3>
+		<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic4.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic5.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic6.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic7.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic8.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
+					<div class="services-left">
+						<img class="img-responsive" src="images/pic9.jpg" alt=" "/>
+					</div>
+					<div class="services-right">
+						<h4>AT VERO EOS ET ACCUSAMUS</h4>
+						<p>Sed ut perspiciatis unde omnis iste natus error sit 
+						voluptatem accusantium doloremque  </p>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+				<div class="clearfix"></div>
+	</div>
+</div>
+<!-- //content-bottom -->
+
 <!-- our works -->
 <div class="treatments">
 	<div class="container">
@@ -386,41 +388,6 @@ window.onload = function(){
 	</div>
 </div>
 <!-- //our works -->
-<!-- contact -->
-<div class="contact-form ">
-		<div class="container">
-			<h3 class="title">Contact <span>Us</span></h3>
-			
-			<div class="col-md-6 contact-right wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">				
-				<form action="#" method="post">
-					<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-					<textarea name="Message..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-					<input type="submit" value="Submit" >
-				</form>
-			</div>
-			<div class="col-md-6 contact-left wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-				<h2>Contact Information</h2>
-				<p>"Lorem Ipsum"is the common name dummy text often used in the design, printing, and type setting industriescommon name dummy text often used in the design, printing, and type setting industries Lorem Ipsum"is the common name dummy text often used in the design, printing, and type setting industries "</p>
-				<ul class="contact-list">
-					<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>756 global Place, New York.</li>
-					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
-					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 2222 222</li>
-				</ul>
-				<ul class="icons-list footer-bottom">
-					<li><a href="#" class="use1"><span>Facebook</span></a></li>
-					<li><a href="#" class="use2"><span>Twitter</span></a></li>
-					<li><a href="#" class="use3"><span>Dribbble</span></a></li>
-					<li><a href="#" class="use4"><span>Pinterest</span></a></li>
-				</ul>
-			</div>						
-			<div class="clearfix"> </div>
-			<p class="copy-right text-center">&copy; 2016 Pets Love. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-		</div>			
-</div>
-
-<!-- contact -->
 	<!-- smooth scrolling -->
 	<script type="text/javascript">
 		$(document).ready(function() {
