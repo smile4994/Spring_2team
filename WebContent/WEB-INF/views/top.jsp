@@ -262,10 +262,10 @@
 									</li>
 
 
-									<li id="ShortCodes" class=" menu__item">
-										<!-- 						<div class="menu__link">Short Codes</div> --> <a
-										class="menu__link" href="codes.do">Short Codes</a>
-									</li>
+<!-- 									<li id="ShortCodes" class=" menu__item"> -->
+<!-- 																<div class="menu__link">Short Codes</div> <a -->
+<!-- 										class="menu__link" href="codes.do">Short Codes</a> -->
+<!-- 									</li> -->
 
 									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a

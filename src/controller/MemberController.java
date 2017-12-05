@@ -63,10 +63,10 @@ public class MemberController {
 		return "gallery";
 	}
 
-	@RequestMapping("/codes.do")
-	public String codes() {
-		return "codes";
-	}
+//	@RequestMapping("/codes.do")
+//	public String codes() {
+//		return "codes";
+//	}
 
 	@RequestMapping("/matching.do")
 	public String matching() {
