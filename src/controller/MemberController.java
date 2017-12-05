@@ -9,8 +9,6 @@ import java.util.Random;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.servlet.http.HttpSessionEvent;
-import javax.servlet.http.HttpSessionListener;
 
 import org.json.JSONObject;
 import org.json.XML;
@@ -68,10 +66,10 @@ public class MemberController {
 		return "gallery";
 	}
 
-//	@RequestMapping("/codes.do")
-//	public String codes() {
-//		return "codes";
-//	}
+	@RequestMapping("/codes.do")
+	public String codes() {
+		return "codes";
+	}
 
 	@RequestMapping("/matching.do")
 	public String matching() {

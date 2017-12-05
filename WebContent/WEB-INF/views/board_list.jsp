@@ -13,8 +13,16 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
+	
+	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
+
+
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -61,42 +69,65 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				Our <span>Board</span>
 			</h3>
 
+
 			<form action="board.do" method="post">
-				<table border="1">
-					<tr>
-						<th>글번호</th>
-						<th>카테고리</th>
-						<th>제목</th>
-						<th>작성자</th>
-						<th>작성일</th>
-						<th>조회수</th>
-					</tr>
 
-					<c:if test="${empty boardPage.boardList}">
-						<tr>
-							<td colspan="6">작성된 게시글이 존재하지 않습니다.</td>
-						</tr>
-					</c:if>
+				<div class="bs-docs-example">
 
-					<c:forEach items="${boardPage.boardList}" var="boardList">
-						<tr>
-							<td>${boardList.boardNum}</td>
-							<td>${boardList.kategorie}</td>
-							<td><a href="read.do?boardNum=${boardList.boardNum}">${boardList.title}</a>
-							</td>
-							<td>${boardList.writer}</td>
-							<td><fmt:formatDate value="${boardList.date}" type="both"
-									dateStyle="short" timeStyle="short" /></td>
-							<td>${boardList.count}</td>
-						</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="6" align="right"><a href="logout.do">[로그아웃]</a>
-							<a href="writeForm.do">[글쓰기]</a></td>
-					</tr>
-				</table>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>글번호</th>
+								<th>카테고리</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>작성일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
 
-				<br>
+						<tbody>
+
+							<c:if test="${empty boardPage.boardList}">
+								<tr>
+									<td colspan="6">작성된 게시글이 존재하지 않습니다.</td>
+								</tr>
+							</c:if>
+
+							<c:forEach items="${boardPage.boardList}" var="boardList">
+								<tr>
+									<td>${boardList.boardNum}</td>
+									<td>${boardList.kategorie}</td>
+									<td><a href="read.do?boardNum=${boardList.boardNum}">${boardList.title}</a>
+									</td>
+									<td>${boardList.writer}</td>
+									<td><fmt:formatDate value="${boardList.date}" type="both"
+											dateStyle="short" timeStyle="short" /></td>
+									<td>${boardList.count}</td>
+								</tr>
+							</c:forEach>
+							<tr>
+								<td colspan="6" align="right"><a href="writeForm.do">[글쓰기]</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div class="col-md-6" align="center">
+					<nav>
+						<ul class="pagination pagination-lg">
+							<!-- 	하단 페이지 링크 부분 -->
+							<c:forEach begin="${boardPage.startPage}"
+								end="${boardPage.endPage}" var="p" step="1">
+
+								<li><a href="board.do?page=${p}">${p} </a></li>
+							</c:forEach>
+						</ul>
+					</nav>
+				</div>
+
+				<br> 
+
 				<div id="search">
 					<select name="searchType">
 						<option value="1" selected="selected">제목</option>
@@ -107,13 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						id="searchType"> <input type="hidden" id="searchWrite">
 				</div>
 
-				<div>
-					<!-- 	하단 페이지 링크 부분 -->
-					<c:forEach begin="${boardPage.startPage}"
-						end="${boardPage.endPage}" var="p" step="1">
-						<a href="board.do?page=${p}">${p} </a>
-					</c:forEach>
-				</div>
+
 			</form>
 		</div>
 	</div>
