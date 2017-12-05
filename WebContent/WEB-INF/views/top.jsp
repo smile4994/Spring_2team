@@ -202,10 +202,9 @@
 			</div>
 			<div class="header-middle">
 				<ul>
-					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>+123
-						456 7890</li>
+					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>010-1234-5678</li>
 					<li><a href="mailto:info@example.com"><span
-							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>info@example.com</a></li>
+							class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@sds.com</a></li>
 				</ul>
 			</div>
 			<div class="header-right">
@@ -268,9 +267,9 @@
 										class="menu__link" href="codes.do">Short Codes</a>
 									</li>
 
-									<li id="map" class=" menu__item">
+									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a
-										class="menu__link" href="map.do">양태흠</a>
+										class="menu__link" href="map.do">주변 동물병원</a>
 									</li>
 
 
