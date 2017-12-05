@@ -179,11 +179,11 @@
 	/******************************/
 
 	/**********IFRAME Å©±â*********/
-	function resizeFrame(frm) {
-		frm.style.height = "100%";
-		contentHeight = frm.contentWindow.document.body.scrollHeight;
-		frm.style.height = contentHeight;
-	}
+// 	function resizeFrame(frm) {
+// 		frm.style.height = "100%";
+// 		contentHeight = frm.contentWindow.document.body.scrollHeight;
+// 		frm.style.height = contentHeight;
+// 	}
 	/******************************/
 </script>
 <title>top</title>
