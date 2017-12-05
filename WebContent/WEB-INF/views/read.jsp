@@ -106,6 +106,7 @@
 </script>
 </head>
 <body>
+<%@include file="top.jsp" %>
 	<form action="repleForm.do" method="post">
 		<input type="hidden" name="ref" value="${board.ref}"> <input
 			type="hidden" name="indent" value="${board.indent}"> <input

@@ -24,7 +24,7 @@ import service.MemberService;
 import vo.MemberVO;
 
 @Controller
-public class MemberController{
+public class MemberController {
 	@Autowired
 	private MemberService service;
 
@@ -63,10 +63,10 @@ public class MemberController{
 		return "gallery";
 	}
 
-	@RequestMapping("/codes.do")
-	public String codes() {
-		return "codes";
-	}
+//	@RequestMapping("/codes.do")
+//	public String codes() {
+//		return "codes";
+//	}
 
 	@RequestMapping("/matching.do")
 	public String matching() {
@@ -159,37 +159,37 @@ public class MemberController{
 			System.out.println("*생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
 
 			try {
-				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
-						"	alert('success');\r\n" + 
-						"parent.location.reload();" +
+				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	alert('success');\r\n"
+						+ "location.href='main.do';" +
+						// "parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		} else {
 			try {
-				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + 
-						"	alert('fail');\r\n" + 
-						"parent.location.reload();" +
-						"</script>");
+				resp.getWriter().println(
+						"<script type=\"text/javascript\">\r\n" + "	alert('fail');\r\n" + "location.href='main.do';" +
+						// "parent.location.reload();" +
+								"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
 	}
-	
-	/*******************강제 종료시 인터럽트 처리로 로그아웃*******************/
-	
+
+	/******************* 강제 종료시 인터럽트 처리로 로그아웃 *******************/
+
 	Thread t;
-	
+
 	@RequestMapping("/candidateLogout.do")
 	public void candidateLogout(HttpSession session) {
-		System.out.println("로그아웃후보:"+session.getAttribute("loginId"));
+		System.out.println("로그아웃후보:" + session.getAttribute("loginId"));
 		t = new Thread() {
 			@Override
 			public void run() {
 				try {
-					sleep(4*1000);
+					sleep(4 * 1000);
 					logout(session);
 				} catch (InterruptedException e) {
 					System.out.println("로그아웃 취소");
@@ -198,22 +198,21 @@ public class MemberController{
 			}
 		};
 		t.start();
-		
+
 	}
-	
+
 	@RequestMapping("/candidateCancel.do")
 	public void candidateCancel(HttpSession session) {
 		t.interrupt();
-		System.out.println("로그아웃후보 취소:"+session.getAttribute("loginId"));
-	}	
-	
+		System.out.println("로그아웃후보 취소:" + session.getAttribute("loginId"));
+	}
+
 	/*************************************************************/
-	
 
 	@RequestMapping("/logout.do")
 	public String logout(HttpSession session) {
 		String sessionId = (String) session.getAttribute("loginId");
-		
+
 		clientList.remove(session.getAttribute("loginId"));
 		System.out.println("----------------------------------------");
 		System.out.println("등록된아이디 : " + clientList);

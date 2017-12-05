@@ -113,8 +113,9 @@ public class Kakao {
 		
 		URL url;
 		try {
-			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
+			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey+"&target_id_type=user_id&target_id=574903692");
 			urlconn = (HttpURLConnection) url.openConnection();
+			urlconn.setRequestMethod("POST");
 			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			urlconn.setDoOutput(true);
 			urlconn.connect();

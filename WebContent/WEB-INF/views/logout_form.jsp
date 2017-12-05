@@ -6,8 +6,8 @@
 <script type="text/javascript">
 	window.onload = function(){
 		alert('로그아웃 되었습니다.');
-		location.href="testMain.do";
-		parent.location.reload();
+		location.href="main.do";
+// 		parent.location.reload();
 	}
 </script>
 </head>

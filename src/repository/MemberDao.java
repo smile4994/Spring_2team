@@ -6,7 +6,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import repository.mapper.API_MemberMapper;
 import repository.mapper.MemberMapper;
+import vo.API_MemberVO;
 import vo.MemberVO;
 import vo.MessageVO;
 
@@ -37,6 +39,19 @@ public class MemberDao {
 		MemberMapper mapper = session.getMapper(MemberMapper.class);
 		return mapper.deleteMember(memberNum);
 		
+	}
+	
+	
+	/////////////////////////////////////////////////////////////////////
+	// api
+	public int insert(API_MemberVO api_member) {
+		API_MemberMapper api_mapper = session.getMapper(API_MemberMapper.class);
+		return api_mapper.insert(api_member);
+	}
+	
+	public int selectApiLogin(String id) {
+		API_MemberMapper api_MemberMapper = session.getMapper(API_MemberMapper.class);
+		return api_MemberMapper.selectLogin(id);
 	}
 	
 }
