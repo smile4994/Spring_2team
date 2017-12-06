@@ -4,9 +4,11 @@
 <html>
 <head>
 <script type="text/javascript">
-	alert('로그인 완료');
+// 	alert('로그인 완료');
 // 	parent.location.reload();
-	location.href="main.do";
+	window.opener.location.href="main.do";
+	window.close();
+// 	location.href="main.do";
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>

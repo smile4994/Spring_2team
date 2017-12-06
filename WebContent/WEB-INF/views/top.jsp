@@ -35,53 +35,69 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
+/*************	크롬 X 종료 이벤트 처리 *************/
+function candidateLogout(){ // 로그아웃 후보자를 지정
+	$.ajax({
+		url : "candidateLogout.do",
+		success : function(){
+			console.log("페이지 내리면서 로그아웃 후보 등록");
+		},
+		error:function(){
+			console.log("페이지 내리면서 로그아웃 후보 등록실패");
+		}
+	})
+}
+
+function candidateCancel(){	//로그아웃 후보자 취소
+	$.ajax({
+		url : "candidateCancel.do",
+		success : function(){
+			console.log("페이지 내리면서 로그아웃 후보 등록 취소");
+		},
+		error:function(){
+			console.log("페이지 내리면서 로그아웃 후보 등록 취소 실패");
+			
+		}
+	})
+}
+
+window.onbeforeunload = function myUnload(event) {
+// 	alert("???????????????????????????????????????????????????????");
+    if (window.localStorage) {
+        window.localStorage['myUnloadEventFlag']=new Date().getTime();
+    }
+    candidateLogout(); // 페이지 전환시 로그아웃 후보자를 결정
+}
+
+window.onload = function myLoad(event) {
+    if (window.localStorage) {
+        var t0 = Number(window.localStorage['myUnloadEventFlag']);
+        if (isNaN(t0)) t0=0;
+        var t1=new Date().getTime();
+        var duration=t1-t0;
+        if (duration<(10*1000)) {
+        	candidateCancel(); // 페이지 전환이 확실하면 로그아웃 후보자를 취소한다
+        } else {
+        	alert('test:'+duration);
+        	LogTime(); //페이지전환이 아닌 정말 창을 닫은거면 세션삭제
+        }
+    }
+} 
+
+function LogTime(){	//세션 삭제 
+	jQuery.ajax({
+	type: "POST",
+	url: "logout.do",
+	data: "",
+	cache: false,
+	success: function(response){
+	}
+	});
+}
+
 	$(function() {
 		printTime();  //현재시간
 		clientList_func();	//클라이언트 확인
-		
-// 		$('#home').click(function() {
-// 			$('#target iframe').attr('src','testMain.do')
-// 		})
-		
-// 		$('#about').click(function() {
-// 			$('#target iframe').attr('src','about.do')
-// 		})
-		
-// 		$('#gallery').click(function() {
-// 			$('#target iframe').attr('src','gallery.do')
-// 		})
-		
-// 		$('#ShortCodes').click(function() {
-// 			$('#target iframe').attr('src','codes.do')
-// 		})
-		
-// 		$('#map').click(function() {
-// 			$('#target iframe').attr('src','map.do')
-// 		})	
-		
-// 		$('#matching').click(function() {
-// 			$('#target iframe').attr('src','matching.do')
-// 		})	
-		
-// 		$('#boardPage').click(function() {
-// 			$('#target iframe').attr('src','board.do')
-// 		})
-		
-// 		$('#login').click(function() {
-// 			$('#target iframe').attr('src','loginForm.do')
-// 		})
-		
-// 		$('#join').click(function() {
-// 			$('#target iframe').attr('src','joinForm.do')
-// 		})
-		
-// 		$('#logout').click(function() {
-// 			$('#target iframe').attr('src','logout.do')
-// 		})
-		
-// 		$('#myPage').click(function() {
-// 			$('#target iframe').attr('src','myPage.do')
-// 		})
 		
 		//////접속자 눌렀을때//////////
 		$('#pop_bt').click(function () {
@@ -93,54 +109,7 @@
 		})
 	})
 	
-	/*************	크롬 X 종료 이벤트 처리 *************/
-	function candidateLogout(){ // 로그아웃 후보자를 지정
-		$.ajax({
-			url : "candidateLogout.do",
-			success : function(){},
-			error:function(){}
-		})
-	}
-	
-	function candidateCancel(){	//로그아웃 후보자 취소
-		$.ajax({
-			url : "candidateCancel.do",
-			success : function(){},
-			error:function(){}
-		})
-	}
-	
-	window.onunload = function myUnload(event) {
-	    if (window.localStorage) {
-	        window.localStorage['myUnloadEventFlag']=new Date().getTime();
-	    }
-	    candidateLogout(); // 페이지 전환시 로그아웃 후보자를 결정
-	}
-	
-	window.onload = function myLoad(event) {
-	    if (window.localStorage) {
-	        var t0 = Number(window.localStorage['myUnloadEventFlag']);
-	        if (isNaN(t0)) t0=0;
-	        var t1=new Date().getTime();
-	        var duration=t1-t0;
-	        if (duration<10*1000) {
-	        	candidateCancel(); // 페이지 전환이 확실하면 로그아웃 후보자를 취소한다
-	        } else {
-	        	LogTime(); //페이지전환이 아닌 정말 창을 닫은거면 세션삭제
-	        }
-	    }
-	} 
-	
-	function LogTime(){	//세션 삭제 
-		jQuery.ajax({
-		type: "POST",
-		url: "logout.do",
-		data: "",
-		cache: false,
-		success: function(response){
-		}
-		});
-	}
+
 	/***************************************/
 
 	/**********접속자***********/
