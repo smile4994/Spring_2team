@@ -380,25 +380,23 @@ public class MemberController {
 		System.out.println("data : " + data);
 
 		Map<String, String> map = kakao.JsonStringMap(data);
+		
 
-		System.out.println("map :" + map);
-		System.out.println("access_token :" + map.get("access_token"));
-		System.out.println("refresh_token :" + map.get("refresh_token"));
-		System.out.println("scope :" + map.get("scope"));
-		System.out.println("token_type :" + map.get("token_type"));
-		System.out.println("expires_in :" + map.get("expires_in"));
+//		System.out.println("map :" + map);
+//		System.out.println("access_token :" + map.get("access_token"));
+//		System.out.println("refresh_token :" + map.get("refresh_token"));
+//		System.out.println("scope :" + map.get("scope"));
+//		System.out.println("token_type :" + map.get("token_type"));
+//		System.out.println("expires_in :" + map.get("expires_in"));
 
 		String list = kakao.getAllList((String) map.get("access_token"));
 		System.out.println("list :" + list);
 
 		Map<String, String> getAllListMap = kakao.JsonStringMap(list);
 		// System.out.println("getAllListMap :"+getAllListMap);
-		System.out.println("nickName :" + (String) getAllListMap.get("nickName"));
-		System.out.println("profileImageURL :" + (String) getAllListMap.get("profileImageURL"));
-		System.out.println("thumbnailURL :" + (String) getAllListMap.get("thumbnailURL"));
 		System.out.println("id :" + (String) getAllListMap.get("id"));
+		System.out.println("nickName :" + (String) getAllListMap.get("nickName"));
 		System.out.println("kaccount_email :" + (String) getAllListMap.get("kaccount_mail"));
-		System.out.println("countryISO :" + (String) getAllListMap.get("countryISO"));
 
 		return "main";
 	}
