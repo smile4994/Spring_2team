@@ -236,8 +236,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="updateForm.do?boardNum=${board.boardNum}"> <span
 							class="label label-success">[수정]</span>
 						</a>
-						<a onclick="del_func()" href="#"> <span
-							class="label label-danger">[삭제]</span></a>
+						<a onclick="del_func()" href="#"> 
+						<span class="label label-danger">[삭제]</span></a>
 					</c:if>
 				</h2>
 			</div>

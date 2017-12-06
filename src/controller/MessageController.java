@@ -1,7 +1,9 @@
 package controller;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,7 @@ public class MessageController {
 		mv.setViewName("message_result");
 		return mv;
 	}
+	
 	@RequestMapping("messageList.do")
 	public ModelAndView list(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
@@ -43,16 +46,19 @@ public class MessageController {
 	}
 	
 	@RequestMapping("messageDel.do")
-	public ModelAndView delete(int messageNum,HttpSession session) {
-		ModelAndView mv = new ModelAndView("message_delete_result");
-
+	public void delete(int messageNum,HttpSession session, HttpServletResponse response) {
+		response.setContentType("text/html;charset=utf-8");
 		String loginId = (String)session.getAttribute("loginId");
-		
-		boolean result = false;
+		String result = "";
 		if(service.delete(messageNum,loginId)==1) {
-			result = true;
+			result = "성공";
+		}else {
+			result = "실패";
 		}
-		mv.addObject("result",result);
-		return mv;
+		try {
+			response.getWriter().write(result);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 }

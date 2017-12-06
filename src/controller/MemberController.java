@@ -217,7 +217,22 @@ public class MemberController {
 		System.out.println("로그아웃 실행");
 		return "logout_form";
 	}
-
+	
+	@RequestMapping("/miniProfile.do")
+	public ModelAndView miniProfile(HttpSession session, String memberId) {
+		String loginId = (String) session.getAttribute("loginId");
+		ModelAndView mv = new ModelAndView();
+		if (loginId != null && loginId.length() > 0) {
+			MemberVO member = service.getMemberInfo(memberId);
+			mv.addObject("memberInfo", member);
+		} else {
+			mv.addObject("message","로그인 정보가 없거나 탈퇴한 회원입니다");
+		}
+		mv.setViewName("mini_profile");
+		return mv;
+	}
+	
+	
 	@RequestMapping("deleteMember.do")
 	public ModelAndView deleteMember(HttpSession session) {
 		ModelAndView mv = new ModelAndView("main");
@@ -233,7 +248,6 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView("main");
 		String loginId = (String) session.getAttribute("loginId");
 		System.out.println("update시 넘어온 member 값");
-		System.out.println(member);
 		if (member.getMemImg().getSize() > 0) {
 			System.out.println("사이즈가 0보다 커서 프로필사진 변경");
 			String uploadPath = request.getServletContext().getRealPath("img");

@@ -122,7 +122,9 @@ function LogTime(){	//세션 삭제
 				var html = "";
 				var count = 0;
 				$.each(data, function(key, clientList) {
-					html += clientList + "<br>";
+					html += "<a onclick='message_func(\""+clientList+"\")'>";
+					html += clientList;
+					html += "</a> <br>"
 					count++;
 				});
 				$('#clientCount').html("현재 접속자 수는 : " + count);
@@ -132,7 +134,7 @@ function LogTime(){	//세션 삭제
 				alert("AJAX_showClient실패");
 			}
 		});
-		setTimeout("clientList_func()", 1000); //1초마다 메소드를 실행하겠다
+		setTimeout("clientList_func()", 1*1000); //1초마다 메소드를 실행하겠다
 	}
 	/******************************/
 
@@ -147,13 +149,17 @@ function LogTime(){	//세션 삭제
 	}
 	/******************************/
 
-	/**********IFRAME 크기*********/
-// 	function resizeFrame(frm) {
-// 		frm.style.height = "100%";
-// 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-// 		frm.style.height = contentHeight;
-// 	}
-	/******************************/
+	
+	/**********쪽지 보내기**********/
+	function message_func(receiver) {
+		alert(receiver);
+		var text = prompt('보낼 메세지');
+		$('[name="content"]').val(text);
+		$('[name="receiver"]').val(receiver);
+		$('#messageForm').submit();
+	}
+	/***************************/
+	
 </script>
 <title>top</title>
 </head>
@@ -229,12 +235,6 @@ function LogTime(){	//세션 삭제
 										class="menu__link" href="gallery.do">Gallery</a>
 									</li>
 
-
-<!-- 									<li id="ShortCodes" class=" menu__item"> -->
-<!-- 																<div class="menu__link">Short Codes</div> <a -->
-<!-- 										class="menu__link" href="codes.do">Short Codes</a> -->
-<!-- 									</li> -->
-
 									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a
 										class="menu__link" href="map.do">주변 동물병원</a>
@@ -256,8 +256,7 @@ function LogTime(){	//세션 삭제
 										<!-- 							<div class="menu__link">Matching</div> --> <a
 										class="menu__link" href="codes.do">codes</a>
 									</li>
-
-
+									
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 
@@ -312,14 +311,10 @@ function LogTime(){	//세션 삭제
 		<div id="close">close</div>
 	</div>
 
-
-	<!--  	아이프레임 사용 -->
-	<!-- 	<div id="target">	 -->
-	<!-- 		<iframe src="testMain.do" id="the_iframe" width="100%" -->
-	<!-- 			onload=resizeFrame(this) frameborder=0 framespacing=0 marginheight=0 -->
-	<!-- 			marginwidth=0 scrolling=no vspace="0" style="height: auto;"> -->
-	<!-- 		</iframe> -->
-	<!-- 	</div> -->
+	<form id="messageForm" action="messageSend.do">
+		<input type="hidden" name="content" value=""> 
+		<input type="hidden" name="receiver" value="">
+	</form>
 
 </body>
 </html>

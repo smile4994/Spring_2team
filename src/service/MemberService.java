@@ -42,6 +42,7 @@ public class MemberService {
 	public int deleteMember(String loginId) {
 		MemberVO member = dao.selectMember(loginId);
 		if(member.getId().equals(loginId)) {
+			//loginId로 된 board, comment, message 삭제
 			return dao.deleteMember(member.getMemberNum());
 		}else {
 			return 0;
