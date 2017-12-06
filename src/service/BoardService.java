@@ -215,4 +215,11 @@ public class BoardService {
 		reply = dao.selectReply(replyNum);
 		return reply;
 	}
+	
+	/******************gallery에서 보여질 리스트******************/
+	public List<BoardVO> svSelectGallery(){
+		List<BoardVO> boardList = dao.selectGallery();
+		return boardList;
+	}
+
 }

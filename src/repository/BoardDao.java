@@ -148,4 +148,11 @@ public class BoardDao {
 		return mapper.deleteAllReply(ref);
 	}
 	
+	
+	//GALLERY
+	public List<BoardVO> selectGallery(){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectGallery();
+	}
+	
 }

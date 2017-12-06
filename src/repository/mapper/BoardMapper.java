@@ -53,4 +53,7 @@ public interface BoardMapper {
 	public int deleteAllReply(int ref);
 	
 	
+	//gallery에서 사용할 select
+	public List<BoardVO> selectGallery();
+	
 }

@@ -61,11 +61,6 @@ public class MemberController {
 		return "about";
 	}
 
-	@RequestMapping("/gallery.do")
-	public String gallery() {
-		return "gallery";
-	}
-
 	@RequestMapping("/codes.do")
 	public String codes() {
 		return "codes";

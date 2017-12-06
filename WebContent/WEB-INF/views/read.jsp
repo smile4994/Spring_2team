@@ -58,7 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			alert("동작한다");
 			var str = $('#re_contents').val();
 			var a = str.charAt(0);
-			if (a == " ") {
+			if (a == " " || str.length < 1) {
 				alert("댓글의 첫글자 공백을 허용하지 않습니다");
 				return false;
 			}

@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,6 +30,14 @@ public class BoardController {
 	private BoardService service;
 	
 	
+	/*****GALLERY에서 보여질 BOARDLIST*******/
+	@RequestMapping("/gallery.do")
+	public ModelAndView gallery() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("boardList", service.svSelectGallery());
+		mv.setViewName("gallery");
+		return mv;
+	}
 
 	@RequestMapping(value = "/board.do")
 	public ModelAndView board(@RequestParam(defaultValue="1")int page,@RequestParam(defaultValue = "0") String searchType,
@@ -49,7 +59,6 @@ public class BoardController {
 		String loginId = (String) session.getAttribute("loginId");
 		String uploadPath = req.getServletContext().getRealPath("img");
 		File dir = new File(uploadPath);
-
 		if (!dir.exists()) {
 			dir.mkdir();
 		}
