@@ -15,7 +15,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/galleryeffect.css" rel="stylesheet" type="text/css" media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom.css?ver=1" rel="stylesheet" type="text/css" media="all" />
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <!-- //js -->
@@ -294,41 +294,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </div>
 <!-- //gallery -->
-<!-- contact -->
-<div class="contact-form">
-		<div class="container">
-			<h3 class="title">Contact <span>Us</span></h3>
-			
-			<div class="col-md-6 contact-right ">				
-				<form action="#" method="post">
-					<input type="text" name="Name" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-					<input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-					<input type="text" name="Telephone" value="Telephone" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Telephone';}" required="">
-					<textarea name="Message..." onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-					<input type="submit" value="Submit" >
-				</form>
-			</div>
-			<div class="col-md-6 contact-left ">
-				<h2>Contact Information</h2>
-				<p>"Lorem Ipsum"is the common name dummy text often used in the design, printing, and type setting industriescommon name dummy text often used in the design, printing, and type setting industries Lorem Ipsum"is the common name dummy text often used in the design, printing, and type setting industries "</p>
-				<ul class="contact-list">
-					<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>756 global Place, New York.</li>
-					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
-					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 2222 222</li>
-				</ul>
-				<ul class="icons-list footer-bottom">
-					<li><a href="#" class="use1"><span>Facebook</span></a></li>
-					<li><a href="#" class="use2"><span>Twitter</span></a></li>
-					<li><a href="#" class="use3"><span>Dribbble</span></a></li>
-					<li><a href="#" class="use4"><span>Pinterest</span></a></li>
-				</ul>
-			</div>						
-			<div class="clearfix"> </div>
-			<p class="copy-right text-center">&copy; 2016 Pets Love. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-		</div>			
-</div>
-
-<!-- contact -->
+<jsp:include page="bottom.jsp"/>
 	<!-- smooth scrolling -->
 	<script type="text/javascript">
 		$(document).ready(function() {
