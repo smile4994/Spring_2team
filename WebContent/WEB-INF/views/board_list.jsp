@@ -12,14 +12,8 @@
 	content="Pets Love Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
@@ -83,6 +77,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$('#messageForm').submit();
 		}
 	}
+	function miniProfile(opponent) {
+		console.log(opponent);
+		window.open("miniProfile.do?memberId="+opponent,'미니프로필','width=500,height=500,location=no,status=no,scrollbars=yes');
+	}
 </script>
 <style type="text/css">
 .menubar {
@@ -137,6 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												aria-controls="dropdown1">쪽지 보내기</a></li>
 											<li><a href="#dropdown2" tabindex="-1" role="tab"
 												id="dropdown2-tab" data-toggle="tab"
+												onclick="miniProfile('${boardList.writer}')"
 												aria-controls="dropdown2">프로필 보기</a></li>
 										</ul>
 									</div></td>

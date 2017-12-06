@@ -13,8 +13,8 @@
 		<tr>
 			<td>쪽지번호</td>
 			<td>보낸사람</td>
-			<td>보낸날짜</td>
 			<td>내용</td>
+			<td>보낸날짜</td>
 		</tr>
 		<c:if test="${empty messageList}">
 			<tr>
