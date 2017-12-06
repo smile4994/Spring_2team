@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import service.MessageService;
@@ -17,11 +18,10 @@ public class MessageController {
 	@Autowired
 	private MessageService service;
 	
-	@RequestMapping("/messageSend.do")
+	@RequestMapping(value="/messageSend.do",method=RequestMethod.POST)
 	public ModelAndView send(String receiver, String content,HttpSession session) {
 		String loginId = (String)session.getAttribute("loginId");
 		ModelAndView mv = new ModelAndView();
-		
 		if(service.send(receiver,content,loginId)>0) {
 			mv.addObject("result",true);
 		}else {

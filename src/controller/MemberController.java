@@ -148,8 +148,8 @@ public class MemberController {
 	@ResponseBody
 	public void login(String id, String pw, HttpSession session, HttpServletResponse resp) {
 		if (service.svlogin(id, pw)) {
+			id=id.toLowerCase();
 			session.setAttribute("loginId", id);
-
 			clientList.add(id); // 세션 아이디 저장리스트
 			String sessionId = (String) session.getAttribute("loginId");
 			System.out.println("----------------------------------------");
