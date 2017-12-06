@@ -268,12 +268,12 @@ public class MemberController {
 	Kakao kakao = new Kakao();
 
 	// 네이버 로그인
-	@RequestMapping(value = "/naverstart.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/naverstart.do", method = RequestMethod.GET)
 	public String naverStart() throws Exception {
 		return "redirect:" + Naver.getCode();
 	}
 
-	@RequestMapping(value = "/naverlogin.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/naverlogin.do", method = RequestMethod.GET)
 	@ResponseBody
 	public void naverLogin(@RequestParam("code") String code, @RequestParam("state") String state,
 			HttpSession session, HttpServletResponse resp) throws Exception {
@@ -363,7 +363,7 @@ public class MemberController {
 
 	}
 
-	// 카카오 로그인
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////	// 카카오 로그인
 	@RequestMapping(value = "/kakaoGetCode.do", method = RequestMethod.GET)
 	public String kakao() throws Exception {
 		Kakao kakao = new Kakao();
@@ -373,32 +373,78 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/kakaologin.do", method = RequestMethod.GET)
-	public String kakaoLogin(@RequestParam("code") String code) throws Exception {
+	public void kakaoLogin(@RequestParam("code") String code, HttpSession session, HttpServletResponse resp) throws Exception {
 		// System.out.println("code : " + code);
 
 		String data = (String) kakao.getHtml((kakao.getAccessToken(code)));
 		System.out.println("data : " + data);
 
 		Map<String, String> map = kakao.JsonStringMap(data);
+
+
+		String[] list = kakao.getAllList((String) map.get("access_token"));
+		System.out.println("list :" + list[0] + list[1] + list[2]); // 0: ID, 1:NIKCNAME, 2:EMAIL
+
 		
 
-//		System.out.println("map :" + map);
-//		System.out.println("access_token :" + map.get("access_token"));
-//		System.out.println("refresh_token :" + map.get("refresh_token"));
-//		System.out.println("scope :" + map.get("scope"));
-//		System.out.println("token_type :" + map.get("token_type"));
-//		System.out.println("expires_in :" + map.get("expires_in"));
+		String api_id = list[0];
+		API_MemberVO api_member;
+		
 
-		String list = kakao.getAllList((String) map.get("access_token"));
-		System.out.println("list :" + list);
+		if (service.apiLogin(api_id)) {
+			session.setAttribute("loginId", api_id);
+//			clientList.add(api_id);
+//			System.out.println("----------------------------------------");
+//			System.out.println("등록된아이디 : " + clientList);
+//			System.out.println("*생성* // 세션 아이디 : " + api_id + " // 세션의 수 : " + clientList.size());
 
-		Map<String, String> getAllListMap = kakao.JsonStringMap(list);
-		// System.out.println("getAllListMap :"+getAllListMap);
-		System.out.println("id :" + (String) getAllListMap.get("id"));
-		System.out.println("nickName :" + (String) getAllListMap.get("nickName"));
-		System.out.println("kaccount_email :" + (String) getAllListMap.get("kaccount_mail"));
+			String sessionId = (String) session.getAttribute("loginId");
 
-		return "main";
+			try {
+				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	alert('success');\r\n"
+						+ "location.href='main.do';" +
+						// "parent.location.reload();" +
+						"</script>");
+				clientList.add(sessionId);
+				System.out.println("----------------------------------------");
+				System.out.println("등록된아이디 : " + clientList);
+				System.out.println("*API 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			
+		} else {
+			api_member = new API_MemberVO();
+			api_member.setId(list[0]);
+			api_member.setName("Kakao");
+			api_member.setEmail(list[2]);
+			api_member.setNickname(list[1]);
+			System.out.println(api_member);
+			service.apiJoin(api_member);
+			session.setAttribute("loginId", api_id);
+			String sessionId = (String) session.getAttribute("loginId");
+
+			try {
+				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	alert('success');\r\n"
+						+ "location.href='main.do';" +
+						// "parent.location.reload();" +
+						"</script>");
+//				clientList.add(sessionId);
+//				System.out.println("----------------------------------------");
+//				System.out.println("등록된아이디 : " + clientList);
+//				System.out.println("*API KAKAO 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			clientList.add(sessionId);
+			System.out.println("----------------------------------------");
+			System.out.println("등록된아이디 : " + clientList);
+			System.out.println("*API KAKAO 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
+			
+			
+		}
 	}
 
 }

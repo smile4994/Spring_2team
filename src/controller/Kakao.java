@@ -9,10 +9,13 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.JsonParser;
 
 public class Kakao {
 	private static final String RestApiKey = "143f11601de1d062d2049ad4904cbb34";
@@ -101,10 +104,11 @@ public class Kakao {
 		return map;
 	}
 	
-	public static String getAllList(String access_token) {
+	
+	public static String[] getAllList(String access_token) {
 		HttpURLConnection urlconn = null;
 		String returnresult = null;
-		
+		String[] resultData = new String[3];
 		URL url;
 		try {
 			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
@@ -129,6 +133,23 @@ public class Kakao {
 			}
 			returnresult=sb.toString();
 			
+			JsonParser ps= new JsonParser();
+			JsonObject jo = (JsonObject) ps.parse(returnresult);
+			System.out.println(jo + "¿©±â??");
+		
+			
+			String kakaoID = jo.get("id").getAsString();
+			String kakaoEMAIL = jo.get("kaccount_email").getAsString();
+			
+			JsonObject joProperty = (JsonObject)ps.parse(jo.get("properties").toString());
+			
+			String kakaoNick = joProperty.get("nickname").getAsString();
+			
+			resultData[0] = kakaoID;
+			resultData[1] = kakaoNick;
+			resultData[2] = kakaoEMAIL;
+			
+			
 			
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
@@ -136,7 +157,7 @@ public class Kakao {
 			e.printStackTrace();
 		}
 		
-		return returnresult;
+		return resultData;
 	}
 	
 	
