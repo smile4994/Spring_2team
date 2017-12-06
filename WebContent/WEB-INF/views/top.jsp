@@ -191,24 +191,6 @@
 	}
 	/***************************/
 	
-	function test_func(test){
-		var str = test;
-		test2_func(str);
-	}
-	
-	function test2_func(test2) {
-		alert("test2 : "+test2);
-		
-	}
-	
-	
-	/**********IFRAME 크기*********/
-	// 	function resizeFrame(frm) {
-	// 		frm.style.height = "100%";
-	// 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-	// 		frm.style.height = contentHeight;
-	// 	}
-	/******************************/
 </script>
 <title>top</title>
 </head>
@@ -306,10 +288,6 @@
 										class="menu__link" href="codes.do">codes</a>
 									</li>
 									
-									<li id="matching" class=" menu__item">
-										<a class="menu__link" onclick="test_func('testtest')">test</a>
-									</li>
-
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 
@@ -368,15 +346,6 @@
 		<input type="hidden" name="content" value=""> 
 		<input type="hidden" name="receiver" value="">
 	</form>
-
-
-	<!--  	아이프레임 사용 -->
-	<!-- 	<div id="target">	 -->
-	<!-- 		<iframe src="testMain.do" id="the_iframe" width="100%" -->
-	<!-- 			onload=resizeFrame(this) frameborder=0 framespacing=0 marginheight=0 -->
-	<!-- 			marginwidth=0 scrolling=no vspace="0" style="height: auto;"> -->
-	<!-- 		</iframe> -->
-	<!-- 	</div> -->
 
 </body>
 </html>

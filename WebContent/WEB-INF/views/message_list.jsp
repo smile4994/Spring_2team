@@ -26,8 +26,8 @@
 				<tr>
 				<td>${message.messageNum}</td>
 				<td>${message.sender }</td>
-				<td>${message.writeDate }</td>
 				<td>${message.content }</td>
+				<td>${message.writeDate }</td>
 				</tr>
 			</c:forEach>
 		</c:if>
