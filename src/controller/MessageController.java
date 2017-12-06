@@ -30,6 +30,7 @@ public class MessageController {
 		mv.setViewName("message_result");
 		return mv;
 	}
+	
 	@RequestMapping("messageList.do")
 	public ModelAndView list(HttpSession session) {
 		ModelAndView mv = new ModelAndView();
