@@ -375,7 +375,7 @@ public class MemberController {
 		// System.out.println("kakao.getCode() : " + kakao.getCode());
 
 		return "redirect:" + kakao.getCode();
-	} 
+	}
 
 	@RequestMapping(value = "/kakaologin.do", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam("code") String code) throws Exception {
