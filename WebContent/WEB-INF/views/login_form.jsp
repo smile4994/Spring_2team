@@ -65,12 +65,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		})
 		
 		$('.third-kakao').submit(function(){
-			var child = window.open('kakaoGetCode.do');
+			var option = 'width=400, height=500, scrollbars=yes, resizable=no, top=250, left=400';
+			var child = window.open('kakaoGetCode.do', '카카오 로그인', option);
 			return false;
 		})
 		
 		$('.third-naver').submit(function(){
-			var child = window.open('naverstart.do');
+			var option = 'width=400, height=500, scrollbars=yes, resizable=no, top=250, left=400';
+			var child = window.open('naverstart.do','네이버 로그인', option);
 			return false;
 		})
 	});
