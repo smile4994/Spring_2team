@@ -24,7 +24,15 @@
 	type='text/css'>
 <!-- //fonts -->
 <script type="text/javascript">
-
+window.onload = function(){
+	var message = '${message}';
+	if(message == null && message == ''){
+		alert(message);
+	}else{
+		return false;
+	}
+	location.href="board.do";
+}
 
 	function closeProfile(){
 		window.close();

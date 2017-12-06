@@ -175,7 +175,9 @@ function deleteMember(){
 	return false;
 	
 }
-
+function showmsgList() {
+	window.open('messageList.do','쪽지보관함','width=520,height=500,location=no,status=no,scrollbars=yes');
+}
 </script>
 <!-- start-smoth-scrolling -->
 </head>
@@ -319,7 +321,7 @@ function deleteMember(){
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
 						<a href="javascript:history.back()"><button class="btn btn-default" type="button">뒤로가기</button></a>
-						<a href="messageList.do"><button class="btn btn-default" type="button">쪽지함</button></a>
+						<button class="btn btn-default" type="button" onclick="showmsgList();">쪽지함</button>
 						<button class="btn btn-default" ONCLICK="deleteMember();"type="button">회퇴원탈</button>
 					</div>
 					<!-- /input-group -->

@@ -224,11 +224,10 @@ public class MemberController {
 		if (loginId != null && loginId.length() > 0) {
 			MemberVO member = service.getMemberInfo(memberId);
 			mv.addObject("memberInfo", member);
-			mv.setViewName("mini_profile");
 		} else {
 			mv.addObject("message","로그인 정보가 없거나 탈퇴한 회원입니다");
-			mv.setViewName("board");
 		}
+		mv.setViewName("mini_profile");
 		return mv;
 	}
 	
