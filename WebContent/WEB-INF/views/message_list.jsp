@@ -41,9 +41,11 @@
 			url : 'messageDel.do',
 			type : 'get',
 			data : 'messageNum=' + messageNum,
+			cache : false,
 			success : function(data) {
 				if (data == "성공") {
 					alert('삭제 완료');
+					location.href="messageList.do";
 				} else {
 					alert('삭제 실패');
 				}
