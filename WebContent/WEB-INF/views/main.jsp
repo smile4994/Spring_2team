@@ -60,6 +60,7 @@ window.onload = function(){
 	}
 }
 </script>
+
 </head>
 <body>
 <%@include file="top.jsp" %>
