@@ -56,9 +56,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<figcaption></figcaption>
 									</figure>
 							</a>
-							
 							<div class="lb-overlay" id="${boardList.boardImg}">
+								
+								<a href="read.do?boardNum=${boardList.boardNum}">
 								<img src="${boardList.boardImg}" alt="image7" />
+								</a>
+								
 								<div class="gal-info">
 									<h3>${boardList.title}</h3>
 									<p>${boardList.contents}</p>
