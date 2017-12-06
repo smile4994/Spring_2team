@@ -14,14 +14,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="application/x-javascript">
 	
 	
-	
-	
-	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
-
-
-
 
 
 </script>
@@ -69,12 +63,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				Our <span>Board</span>
 			</h3>
 
-
 			<form action="board.do" method="post">
-
-				<div class="bs-docs-example">
-
-					<table class="table">
+					<table class="table table-striped">
 						<thead>
 							<tr>
 								<th>글번호</th>
@@ -107,13 +97,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</tr>
 							</c:forEach>
 							<tr>
-								<td colspan="6" align="right"><a href="writeForm.do">[글쓰기]</a></td>
+
+								<td colspan="6" align="right">
+									<h1 class="t-button">
+										<a href="writeForm.do"> <span class="label label-success">[글쓰기]</span>
+										</a>
+									</h1>
+								</td>
+
 							</tr>
 						</tbody>
 					</table>
-				</div>
 
-				<div class="col-md-6" align="center">
+
+				<div id="search" class="col-lg-6 in-gp-tl">
 					<nav>
 						<ul class="pagination pagination-lg">
 							<!-- 	하단 페이지 링크 부분 -->
@@ -124,20 +121,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</c:forEach>
 						</ul>
 					</nav>
+
+					<div class="input-group">
+						<div class="input-group-btn">
+							<select name="searchType" class="btn btn-default dropdown-toggle">
+								<option value="1" selected="selected">제목</option>
+								<option value="2">작성자</option>
+								<option value="3">카테고리</option>
+							</select>
+						</div>
+						<input type="text" class="form-control" name="searchWrite"
+							size="40"> <span class="input-group-btn"> <input
+							type="submit" class="btn btn-default" value="검색">
+						</span> <input type="hidden" id="searchType"> <input
+							type="hidden" id="searchWrite">
+					</div>
 				</div>
-
-				<br> 
-
-				<div id="search">
-					<select name="searchType">
-						<option value="1" selected="selected">제목</option>
-						<option value="2">작성자</option>
-						<option value="3">카테고리</option>
-					</select> <input type="text" name="searchWrite" size="40"> <input
-						type="submit" value="검색"> <input type="hidden"
-						id="searchType"> <input type="hidden" id="searchWrite">
-				</div>
-
 
 			</form>
 		</div>
