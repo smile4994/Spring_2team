@@ -153,7 +153,9 @@
 				var html = "";
 				var count = 0;
 				$.each(data, function(key, clientList) {
-					html += clientList + "<br>";
+					html += "<a onclick='message_func(\""+clientList+"\")'>";
+					html += clientList;
+					html += "</a> <br>"
 					count++;
 				});
 				$('#clientCount').html("현재 접속자 수는 : " + count);
@@ -163,7 +165,7 @@
 				alert("AJAX_showClient실패");
 			}
 		});
-		setTimeout("clientList_func()", 1000); //1초마다 메소드를 실행하겠다
+		setTimeout("clientList_func()", 1*1000); //1초마다 메소드를 실행하겠다
 	}
 	/******************************/
 
@@ -178,12 +180,34 @@
 	}
 	/******************************/
 
+	
+	/**********쪽지 보내기**********/
+	function message_func(receiver) {
+		alert(receiver);
+		var text = prompt('보낼 메세지');
+		$('[name="content"]').val(text);
+		$('[name="receiver"]').val(receiver);
+		$('#messageForm').submit();
+	}
+	/***************************/
+	
+	function test_func(test){
+		var str = test;
+		test2_func(str);
+	}
+	
+	function test2_func(test2) {
+		alert("test2 : "+test2);
+		
+	}
+	
+	
 	/**********IFRAME 크기*********/
-// 	function resizeFrame(frm) {
-// 		frm.style.height = "100%";
-// 		contentHeight = frm.contentWindow.document.body.scrollHeight;
-// 		frm.style.height = contentHeight;
-// 	}
+	// 	function resizeFrame(frm) {
+	// 		frm.style.height = "100%";
+	// 		contentHeight = frm.contentWindow.document.body.scrollHeight;
+	// 		frm.style.height = contentHeight;
+	// 	}
 	/******************************/
 </script>
 <title>top</title>
@@ -260,12 +284,6 @@
 										class="menu__link" href="gallery.do">Gallery</a>
 									</li>
 
-
-<!-- 									<li id="ShortCodes" class=" menu__item"> -->
-<!-- 																<div class="menu__link">Short Codes</div> <a -->
-<!-- 										class="menu__link" href="codes.do">Short Codes</a> -->
-<!-- 									</li> -->
-
 									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a
 										class="menu__link" href="map.do">주변 동물병원</a>
@@ -287,7 +305,10 @@
 										<!-- 							<div class="menu__link">Matching</div> --> <a
 										class="menu__link" href="codes.do">codes</a>
 									</li>
-
+									
+									<li id="matching" class=" menu__item">
+										<a class="menu__link" onclick="test_func('testtest')">test</a>
+									</li>
 
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 									<li class=" menu__item">&nbsp;&nbsp;</li>
@@ -342,6 +363,11 @@
 		<div id="showClient"></div>
 		<div id="close">close</div>
 	</div>
+
+	<form id="messageForm" action="messageSend.do">
+		<input type="hidden" name="content" value=""> 
+		<input type="hidden" name="receiver" value="">
+	</form>
 
 
 	<!--  	아이프레임 사용 -->
