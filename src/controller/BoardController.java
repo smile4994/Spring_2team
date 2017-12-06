@@ -165,7 +165,6 @@ public class BoardController {
 		String loginId = (String) session.getAttribute("loginId");
 		ReplyVO reply = new ReplyVO();
 		
-		
 		reply.setRe_contents(re_contents);
 		try {
 			response.getWriter().write(0);
