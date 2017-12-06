@@ -173,7 +173,9 @@ function deleteMember(){
 		}
 	}
 	return false;
+	
 }
+
 </script>
 <!-- start-smoth-scrolling -->
 </head>

@@ -80,7 +80,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<c:if test="${empty boardPage.boardList}">
 								<tr>
-									<td colspan="6">작성된 게시글이 존재하지 않습니다.</td>
+									<td colspan="6">작성된 게시글이 존재하지 않습니다.gg</td>
 								</tr>
 							</c:if>
 
