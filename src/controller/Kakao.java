@@ -53,7 +53,9 @@ public class Kakao {
 				urlconn = (HttpURLConnection) url.openConnection();
 				
 				urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
-				
+				urlconn.setRequestProperty("admin_key", AdminKey);
+				urlconn.setRequestProperty("target_id_type", "user_id");			
+				urlconn.setRequestProperty("target_id", "574903692");
 				urlconn.setRequestMethod("POST");
 				
 				urlconn.setDoOutput(true);
@@ -99,24 +101,20 @@ public class Kakao {
 		return map;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 	public static String getAllList(String access_token) {
 		HttpURLConnection urlconn = null;
 		String returnresult = null;
 		
 		URL url;
 		try {
-			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey+"&target_id_type=user_id&target_id=574903692");
+			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
 			urlconn = (HttpURLConnection) url.openConnection();
-			urlconn.setRequestMethod("POST");
 			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//			urlconn.setRequestProperty("admin_key", AdminKey);
+//			urlconn.setRequestProperty("target_id_type", "user_id");			
+//			urlconn.setRequestProperty("target_id", "574903692");
+//			urlconn.setRequestProperty("propertyKeys", "[{\"id\",\"kaccount_email\"}]");
+			urlconn.setRequestMethod("POST");
 			urlconn.setDoOutput(true);
 			urlconn.connect();
 
@@ -140,5 +138,6 @@ public class Kakao {
 		
 		return returnresult;
 	}
+	
 	
 }

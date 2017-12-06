@@ -106,7 +106,7 @@ window.onload = function(){
 				<li>
 					<div class="ban-info">
 						<h3>다양한 이벤트와 혜택을 챙겨가세요</h3>
-						<p>PETS LOVE는 반려동물 분양원과 반려동물용품, 미용, 호텔을 운영하고 있으며,<br><br>펫파크와 강아지 유치원, 반려동물 매칭서비스를 제공하고 있습니다.</p>
+						<p>PETS LOVE 반려동물 분양 및 분실신고, 반려동물 매칭서비스를 제공하고 있습니다.</p>
 						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
 					</div>		
 				</li>			
