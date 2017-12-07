@@ -120,7 +120,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 // 					} else {
 // 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 // 					}
-
 					////////////////////
 					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 					function myMap() {
