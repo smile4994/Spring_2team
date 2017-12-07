@@ -354,6 +354,7 @@ public class MemberController {
 		Kakao kakao = new Kakao();
 
 		return "redirect:" + kakao.getCode();
+//		return "redirect:" + "https://kauth.kakao.com/oauth/token?grant_type=refresh_token&client_id=143f11601de1d062d2049ad4904cbb34&refresh_token=Oxmf7XJM6VwRhskbwMFxMa9Uuqaub4a8DTKLFwo8BhkAAAFgL-OCkg";
 	}
 
 	@RequestMapping(value = "/kakaologin.do", method = RequestMethod.GET)

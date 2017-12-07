@@ -18,10 +18,10 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 
 public class Kakao {
-	private static final String RestApiKey = "143f11601de1d062d2049ad4904cbb34";
+	private static final String RestApiKey = "c89df2df7dbca794c5b94246fe606d34";
 	
 	
-	private static final String AdminKey = "c7acf4385ef2354d2cd4a4691644e00a";
+	private static final String AdminKey = "b7ccc36b61c6066f3288c7f6b17079c1";
 
 	private static final String Redirect_URL = "http://70.12.115.53:8888/Spring_2team/kakaologin.do";
 
@@ -113,9 +113,12 @@ public class Kakao {
 		try {
 			url = new URL("https://kapi.kakao.com/v1/user/me?access_token="+access_token+"&admin_key="+AdminKey);
 			urlconn = (HttpURLConnection) url.openConnection();
-			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
+//			urlconn.setRequestProperty("Content-Type", "application/json;charset=UTF-8");
 			//
-			urlconn.setRequestProperty("Authorization", "bearer[ACCESS_TOKEN]");
+//			urlconn.setRequestProperty("Authorization", "bearer[ACCESS_TOKEN]");
+//			urlconn.setRequestProperty("admin_key", AdminKey);
+//			urlconn.setRequestProperty("target_id_type", "user_id");			
+//			urlconn.setRequestProperty("target_id", "574903692");
 			//
 			urlconn.setRequestMethod("POST");
 			urlconn.setDoOutput(true);
