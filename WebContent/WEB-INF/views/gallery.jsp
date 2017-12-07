@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- gallery -->
 <div class="gallery">
 	<div class="container">
-		<h3 class="title">Our <span>Gallery</span></h3>
+		<h3 class="title">Lost <span>Pet</span></h3>
 			<section>
 				<ul class="lb-album ">
 
