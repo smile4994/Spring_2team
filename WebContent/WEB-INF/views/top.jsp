@@ -72,7 +72,6 @@ function candidateCancel(){	//로그아웃 후보자 취소
 }
 
 window.onbeforeunload = function myUnload(event) {
-// 	alert("???????????????????????????????????????????????????????");
     if (window.localStorage) {
         window.localStorage['myUnloadEventFlag']=new Date().getTime();
     }
@@ -88,7 +87,6 @@ window.onload = function myLoad(event) {
         if (duration<(10*1000)) {
         	candidateCancel(); // 페이지 전환이 확실하면 로그아웃 후보자를 취소한다
         } else {
-        	alert('test:'+duration);
         	LogTime(); //페이지전환이 아닌 정말 창을 닫은거면 세션삭제
         }
     }
@@ -141,7 +139,6 @@ function LogTime(){	//세션 삭제
 				$('#showClient').html(html);
 			},
 			error : function() {
-				alert("AJAX_showClient실패");
 			}
 		});
 		setTimeout("clientList_func()", 1*1000); //1초마다 메소드를 실행하겠다

@@ -12,20 +12,12 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
-	
-	
-	
-	
 	addEventListener("load", function() {
 		setTimeout(hideURLbar, 0);
 	}, false);
 	function hideURLbar() {
 		window.scrollTo(0, 1);
 	}
-
-
-
-
 
 </script>
 <!-- //for-mobile-apps -->
@@ -81,9 +73,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 	<!-- 맵 -->
-
-	<!-- 	위도:	<span id="latitude"></span>  -->
-	<!-- 	경도:	<span id="longitude"></span> -->
 	<!-- banner -->
 	<div class="map">
 		<div class="container">
@@ -91,10 +80,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				View <span>On Map</span>
 			</h3>
 			<!-- 다음지도 -->
-			<!-- 					<div class="hAddr"> -->
-			<!-- 						<span class="title">주소정보</span><br> -->
-			<!-- 						<span id="centerAddr"></span> -->
-			<!-- 					</div> -->
 
 
 			<div id="map" style="width: 100%; height: 600;" class="contact-grids">
@@ -215,16 +200,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 							// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
-// 							var markerImage = new daum.maps.MarkerImage(
-// 									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
-// 									myCLat, myCLong); // 마커가 표시될 위치입니다
-
+							// 							var markerImage = new daum.maps.MarkerImage(
+							// 									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
+							// 									myCLat, myCLong); // 마커가 표시될 위치입니다
 
 							var markerImage = new daum.maps.MarkerImage(
 									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
-											37.5013068,
-											127.03965970000002); // 마커가 표시될 위치입니다
-
+									37.5013068, 127.03965970000002); // 마커가 표시될 위치입니다
 
 							// 마커를 생성합니다
 							var nowMarker = new daum.maps.Marker({
@@ -286,7 +268,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								for (var i = 0; i < result.length; i++) {
 									// 행정동의 region_type 값은 'H' 이므로
 									if (result[i].region_type === 'H') {
-										// 										infoDiv.innerHTML = result[i].address_name;
 										addr = result[i].address_name;
 										break;
 									}

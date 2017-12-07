@@ -15,10 +15,6 @@ public class BoardDao {
 	@Autowired
 	private SqlSessionTemplate session;
 	
-//	public List<BoardVO> selectList(){
-//		BoardMapper mapper = session.getMapper(BoardMapper.class);
-//		return mapper.selectList();
-//	}
 	
 	//페이징 처리 
 	public List<BoardVO> selectList(int startRow, int count){

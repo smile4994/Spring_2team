@@ -114,62 +114,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="clearfix"> </div>
 	</div>
 </div>
-<!-- <div class="team-gds">	 -->
-<!-- 	<div class="container"> -->
-<!-- 		<h3 class="title" >Our <span> Team</span></h3> -->
-<!-- 			<div class="team-bot"> -->
-<!-- 				<div class="col-md-4 bottom-gds "> -->
-<!-- 					<div class="bott-img"> -->
-<!-- 								<div class="icon-holder"> -->
-<!-- 									<span><img  src="images/team1.jpg" alt=""></span> -->
-<!-- 								</div> -->
-<!-- 								<h4 class="mission">Victoria</h4> -->
-<!-- 								<div class="description"> -->
-<!-- 									<ul> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
-<!-- 									</ul> -->
-<!-- 								</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="col-md-4 bottom-gds "> -->
-<!-- 					<div class="bott-img"> -->
-<!-- 								<div class="icon-holder"> -->
-<!-- 									<span><img  src="images/team2.jpg" alt=""></span> -->
-<!-- 								</div> -->
-<!-- 								<h4 class="mission">Thompson</h4> -->
-<!-- 								<div class="description"> -->
-<!-- 									<ul> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
-<!-- 									</ul> -->
-<!-- 								</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="col-md-4 bottom-gds "> -->
-<!-- 					<div class="bott-img"> -->
-<!-- 								<div class="icon-holder"> -->
-<!-- 									<span><img  src="images/team3.jpg" alt=""></span> -->
-<!-- 								</div> -->
-<!-- 								<h4 class="mission">Federica</h4> -->
-<!-- 								<div class="description"> -->
-<!-- 									<ul> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
-<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
-<!-- 									</ul> -->
-<!-- 								</div> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 				<div class="clearfix"></div> -->
-<!-- 			</div> -->
-<!-- 	</div> -->
-<!-- </div> -->
 <!-- contact -->
 <jsp:include page="bottom.jsp"/>
 

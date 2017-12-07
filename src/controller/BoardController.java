@@ -78,11 +78,6 @@ public class BoardController {
 
 		try {
 			board.getImg().transferTo(savedFile);
-			// System.out.println("---------------");
-			// System.out.println("업로드 완료");
-			// System.out.println("저장된 경로:" + savedFile.getAbsolutePath());
-			System.out.println("이걸 따라써야한다 : img/" + savedName);
-			// System.out.println("---------------");
 			savedName = "img/" + savedName;
 			System.out.println("write.do에서 파일 오리지널 이름 : " + board.getImg().getOriginalFilename());
 			if (board.getImg().getOriginalFilename().length() < 3) {
@@ -234,17 +229,5 @@ public class BoardController {
 		}
 	}
 	
-	/************이거언제쓰지? 지워도 될듯 ?**************/
-	@RequestMapping("ajaxRead.do")
-	public void ajaxRead(int boardNum, HttpServletResponse respons) {
-		respons.setContentType("text/html;charset=utf-8");
-		Gson gson = new Gson();
-		try {
-			respons.getWriter().write(gson.toJson(service.svReplyList(boardNum)));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-	/*********************************************/	
 
 }
