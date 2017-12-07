@@ -221,5 +221,10 @@ public class BoardService {
 		List<BoardVO> boardList = dao.selectGallery();
 		return boardList;
 	}
+	/******************main에서 보여질 리스트******************/
+	public List<BoardVO> svSelectMain(){
+		List<BoardVO> boardList = dao.selectMain();
+		return boardList;
+	}
 
 }

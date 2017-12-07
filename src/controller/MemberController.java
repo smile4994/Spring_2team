@@ -51,10 +51,10 @@ public class MemberController {
 		return "testMain";
 	}
 
-	@RequestMapping("/main.do")
-	public String main() {
-		return "main";
-	}
+//	@RequestMapping("/main.do")
+//	public String main() {
+//		return "main";
+//	}
 
 	@RequestMapping("/about.do")
 	public String about() {

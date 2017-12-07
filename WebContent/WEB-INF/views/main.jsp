@@ -122,69 +122,30 @@ window.onload = function(){
 		<h3 class="title wow fadeInUp animated" data-wow-delay=".5s" >Our <span> Pets</span></h3>
 		<div class="flex-slider wow fadeInDown animated" data-wow-delay=".5s">
 
-			<ul id="flexiselDemo1">			
-				<li>
-					<div class="laptop">
-						<div class="pets-effect ver_line zoom">
-							<div class="img-box"><img class="img-responsive zoom-img" src="images/pic10.jpg" alt=" " /></div>
-							<div class="pets-info">
-								<div class="pets-info-slid">
-									<h4>Pets Love</h4>
-									<span class="strip_line"></span>
-									<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-									<span class="strip_line"></span>
+				<ul id="flexiselDemo1">
+					<c:forEach items="${boardList}" var="boardList">
+						<li>
+						<a href="read.do?boardNum=${boardList.boardNum}">
+								<div class="laptop">
+									<div class="pets-effect ver_line zoom">
+										<div class="img-box">
+											<img class="img-responsive zoom-img" src="${boardList.boardImg}" alt=" " />
+										</div>
+										<div class="pets-info">
+											<div class="pets-info-slid">
+												<h4>${boardList.title}</h4>
+												<span class="strip_line"></span>
+												<p>${boardList.contents}</p>
+												<span class="strip_line"></span>
+											</div>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="laptop">
-						<div class="pets-effect ver_line zoom">
-							<div class="img-box"><img class="img-responsive zoom-img" src="images/pic11.jpg" alt=" " /></div>
-							<div class="pets-info">
-								<div class="pets-info-slid">
-									<h4>Pets Love</h4>
-									<span class="strip_line"></span>
-									<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-									<span class="strip_line"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="laptop">
-						<div class="pets-effect ver_line zoom">
-							<div class="img-box"><img class="img-responsive zoom-img" src="images/pic12.jpg" alt=" " /></div>
-							<div class="pets-info">
-								<div class="pets-info-slid">
-									<h4>Pets Love</h4>
-									<span class="strip_line"></span>
-									<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-									<span class="strip_line"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="laptop">
-						<div class="pets-effect ver_line zoom">
-							<div class="img-box"><img class="img-responsive zoom-img" src="images/pic13.jpg" alt=" " /></div>
-							<div class="pets-info">
-								<div class="pets-info-slid">
-									<h4>Pets Love</h4>
-									<span class="strip_line"></span>
-									<p>Sit accusamus, vel blanditiis iure minima ipsa molestias minus laborum velit, nulla nisi hic quasi enim.</p>
-									<span class="strip_line"></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-			</ul>
-			<script type="text/javascript">
+						</a>
+						</li>
+					</c:forEach>
+				</ul>
+				<script type="text/javascript">
 							$(window).load(function() {
 								$("#flexiselDemo1").flexisel({
 									visibleItems: 3,

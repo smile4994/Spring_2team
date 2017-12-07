@@ -154,5 +154,9 @@ public class BoardDao {
 		BoardMapper mapper = session.getMapper(BoardMapper.class);
 		return mapper.selectGallery();
 	}
-	
+	//MAIN
+	public List<BoardVO> selectMain(){
+		BoardMapper mapper = session.getMapper(BoardMapper.class);
+		return mapper.selectMain();
+	}
 }
