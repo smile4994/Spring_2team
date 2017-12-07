@@ -8,7 +8,11 @@
 		<property name="driverClassName" 
 				value="com.mysql.jdbc.Driver"/>
 		<property name="url" 
+<<<<<<< HEAD
 				value="jdbc:mysql://localhost/spring"/>
+=======
+				value="jdbc:mysql://70.12.115.60/spring"/>
+>>>>>>> ab9e697a2d625be26777c22733d1d613d8f81d83
 		<property name="username" value="root"/>
 		<property name="password" value="sds1501"/>			
 	</bean>

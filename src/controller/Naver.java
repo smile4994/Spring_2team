@@ -19,8 +19,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class Naver {
 	private static final String Client_ID = "ACACABHDqtMy92PCqNLb";
 	private static final String Client_Secret = "lXjOTqRVyT";
-	private static final String SURVICE_URL = "http://localhost:8888/Spring_2team/naverstart.do";
-	private static final String Redirect_URL = "http://localhost:8888/Spring_2team/naverlogin.do";
+	private static final String SURVICE_URL = "http://70.12.115.53:8888/Spring_2team/naverstart.do";
+	private static final String Redirect_URL = "http://70.12.115.53:8888/Spring_2team/naverlogin.do";
 	
 	
 	

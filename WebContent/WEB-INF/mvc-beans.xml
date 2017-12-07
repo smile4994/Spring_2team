@@ -16,19 +16,29 @@
 		<mvc:jsp prefix="/WEB-INF/views/" />
 	</mvc:view-resolvers>
 
-<!-- 	<mvc:interceptors> -->
-<!-- 		<mvc:interceptor> -->
-<!-- 			<mvc:mapping path="/*.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/loginForm.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/login.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/naverlogin.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/loginCheck.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/joinForm.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/join.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/callback.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/board.do" /> -->
-<!-- 			<mvc:exclude-mapping path="/main.do" /> -->
-<!-- 			<bean class="interceptor.LoginCheckInterceptor" /> -->
-<!-- 		</mvc:interceptor> -->
-<!-- 	</mvc:interceptors> -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/*.do" />
+			<mvc:exclude-mapping path="/main.do" />
+			<mvc:exclude-mapping path="/board.do" />
+			<mvc:exclude-mapping path="/read.do" />
+			<mvc:exclude-mapping path="/login.do" />
+			<mvc:exclude-mapping path="/loginForm.do" />
+			<mvc:exclude-mapping path="/loginCheck.do" />
+			<mvc:exclude-mapping path="/joinForm.do" />
+			<mvc:exclude-mapping path="/join.do" />
+			<mvc:exclude-mapping path="/naverlogin.do" />
+			<mvc:exclude-mapping path="/callback.do" />
+			<mvc:exclude-mapping path="/clientList.do" />
+			<mvc:exclude-mapping path="/about.do" />
+			<mvc:exclude-mapping path="/map.do" />
+			<mvc:exclude-mapping path="/gallery.do" />
+			<mvc:exclude-mapping path="/candidateLogout.do" />
+			<mvc:exclude-mapping path="/candidateCancel.do" />
+			<mvc:exclude-mapping path="/naverstart.do" />
+			<mvc:exclude-mapping path="/naverlogin.do" />
+			<mvc:exclude-mapping path="/kakaoGetCode.do" />
+			<bean class="interceptor.LoginCheckInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
