@@ -19,15 +19,25 @@
 /*    } */
  
    #pop{
-    width:250px; height:300px; background:#000000; color:#FFF; 
+    width:250px; height:300px; background:#FFFFFF; color:#FF; 
     position:absolute;  
 	top:10px; left:500px;  
     text-align:center; 
-    border:2px solid gray;
+/*     border:2px solid gray; */
    }
  
    #close{
-    width:100px; margin:auto; margin-bottom:10; cursor:pointer; font-weight:bold;
+   position:relative;
+   bottom : 0;
+   z-index : 100;
+   font-weight:bold;
+   margin-left:auto;
+   margin-right:auto;
+   width:250px;
+   background-color: #228B22;
+   color: white;
+   padding: 10px;
+/*    width:100px; margin:auto; margin-bottom:10; cursor:pointer; font-weight:bold; */
    }
  </style>
 
