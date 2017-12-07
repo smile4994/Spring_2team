@@ -51,8 +51,9 @@ public interface BoardMapper {
 	public int insertReply(ReplyVO reply);
 	public int deleteReply(int replyNum);
 	public int deleteAllReply(int ref);
-	
-	
+	//회원탈퇴시 필요한 작업
+	public int deleteReplyLoginId(String loginId);
+	public int deleteBoardLoginId(String loginId);
 	//gallery에서 사용할 select
 	public List<BoardVO> selectGallery();
 	//main에서 사용할 select

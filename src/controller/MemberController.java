@@ -229,6 +229,7 @@ public class MemberController {
 		if (service.deleteMember(loginId) == 1) {
 			mv.addObject("message", "È¸¿ø Å»Åð ¿Ï·á");
 		}
+		session.invalidate();
 		return mv;
 	}
 

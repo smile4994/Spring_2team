@@ -3,7 +3,9 @@ package service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import repository.BoardDao;
 import repository.MemberDao;
+import repository.MessageDao;
 import vo.API_MemberVO;
 import vo.MemberVO;
 
@@ -11,6 +13,10 @@ import vo.MemberVO;
 public class MemberService {
 	@Autowired
 	private MemberDao dao;
+	@Autowired
+	private BoardDao bDao;
+	@Autowired
+	private MessageDao mDao;
 	
 	//1. 회원가입
 	public boolean svJoin(MemberVO member) {
@@ -43,6 +49,9 @@ public class MemberService {
 		MemberVO member = dao.selectMember(loginId);
 		if(member.getId().equals(loginId)) {
 			//loginId로 된 board, comment, message 삭제
+			bDao.deleteBoardLoginId(loginId);
+			bDao.deleteReplyLoginId(loginId);
+			mDao.deleteMessageLoginId(loginId);
 			return dao.deleteMember(member.getMemberNum());
 		}else {
 			return 0;

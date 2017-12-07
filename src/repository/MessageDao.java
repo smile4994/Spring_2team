@@ -33,4 +33,8 @@ public class MessageDao {
 		MessageMapper mapper = session.getMapper(MessageMapper.class);
 		return mapper.selectOnlyMessage(messageNum, loginId);
 	}
+	public int deleteMessageLoginId(String loginId) {
+		MessageMapper mapper = session.getMapper(MessageMapper.class);
+		return mapper.deleteMessageLoginId(loginId);
+	}
 }

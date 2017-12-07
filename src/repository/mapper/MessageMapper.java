@@ -11,4 +11,5 @@ public interface MessageMapper {
 	public List<MessageVO> selectMessage(String loginId);
 	public MessageVO selectOnlyMessage(@Param("messageNum")int messageNum,@Param("loginId")String loginId);
 	public int deleteMessage(int messageNum);
+	public int deleteMessageLoginId(String loginId);
 }
