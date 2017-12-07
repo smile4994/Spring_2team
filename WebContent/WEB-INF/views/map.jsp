@@ -107,7 +107,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var markers = [];
 
 // 					Geolocation API에 액세스할 수 있는지를 확인
-<<<<<<< HEAD
 // 					if (navigator.geolocation) {
 // 						//위치 정보를 얻기
 // 						navigator.geolocation.getCurrentPosition(function(pos) {
@@ -120,7 +119,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 // 					} else {
 // 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 // 					}
-=======
 					if (navigator.geolocation) {
 						//위치 정보를 얻기
 						navigator.geolocation.getCurrentPosition(function(pos) {
@@ -134,7 +132,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 					}
 
->>>>>>> b9b2271b29fb2cb481505385545a16bfe17c2f02
 					////////////////////
 					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
 					function myMap() {
