@@ -30,6 +30,17 @@ public class BoardController {
 	private BoardService service;
 	
 	
+	/****Main 에서 보여질 BoardList*******/
+	@RequestMapping("/main.do")
+	public ModelAndView main() {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("boardList", service.svSelectMain());
+		mv.setViewName("main");
+		System.out.println("main.do에서 : " +service.svSelectMain());
+		return mv;
+	}
+	
+	
 	/*****GALLERY에서 보여질 BOARDLIST*******/
 	@RequestMapping("/gallery.do")
 	public ModelAndView gallery() {

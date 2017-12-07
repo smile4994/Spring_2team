@@ -55,5 +55,7 @@ public interface BoardMapper {
 	
 	//gallery에서 사용할 select
 	public List<BoardVO> selectGallery();
+	//main에서 사용할 select
+	public List<BoardVO> selectMain();
 	
 }

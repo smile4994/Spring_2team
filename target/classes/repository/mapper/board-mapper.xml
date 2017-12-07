@@ -81,16 +81,18 @@
 		select max(STEP)+1 from PBOARD
 		where REF = #{ref}
 	</select>
-	
-	
-	
-<!-- 	여기서 겔러리 SELECT 문 사용 할꺼 -->
+
+	<!-- 여기서 겔러리 SELECT 문 사용 할꺼 -->
 	<select id="selectGallery" resultMap="boardResultMap">
-		SELECT * FROM PBOARD WHERE kategorie = "분양" AND
+		SELECT * FROM PBOARD WHERE kategorie = "분실" AND
 		boardImg NOT LIKE "noImg" ORDER BY COUNT DESC LIMIT 0,11;
 	</select>
-
-
+	<!-- 여기서 Main Select문 사용 -->
+	<select id="selectMain" resultMap="boardResultMap">
+		SELECT * FROM PBOARD WHERE
+		kategorie = "분양" AND
+		boardImg NOT LIKE "noImg" ORDER BY COUNT DESC LIMIT 0,7;
+	</select>
 
 
 	<insert id="insert" parameterType="BoardVO" useGeneratedKeys="true"
