@@ -129,7 +129,7 @@ window.onload = function(){
 								<div class="laptop">
 									<div class="pets-effect ver_line zoom">
 										<div class="img-box">
-											<img class="img-responsive zoom-img" src="${boardList.boardImg}" alt=" " />
+											<img class="img-responsive zoom-img" style="width: 350px; height: 250px;" src="${boardList.boardImg}" alt=" " />
 										</div>
 										<div class="pets-info">
 											<div class="pets-info-slid">
