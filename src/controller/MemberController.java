@@ -313,11 +313,13 @@ public class MemberController {
 		System.out.println("nickname: " + (String) userMap.get("nickname"));
 		System.out.println("email:" + (String) userMap.get("email"));
 		String api_id = userMap.get("id");
+		String api_id_email = userMap.get("email");
 		API_MemberVO api_member;
 		
 
 		if (service.apiLogin(api_id)) {
-			session.setAttribute("loginId", api_id);
+//			session.setAttribute("loginId", api_id);
+			session.setAttribute("loginId", api_id_email);
 //			clientList.add(api_id);
 //			System.out.println("----------------------------------------");
 //			System.out.println("등록된아이디 : " + clientList);
@@ -348,7 +350,7 @@ public class MemberController {
 			api_member.setNickname((String) userMap.get("nickname"));
 			System.out.println(api_member);
 			service.apiJoin(api_member);
-			session.setAttribute("loginId", api_id);
+			session.setAttribute("loginId", api_id_email);
 			String sessionId = (String) session.getAttribute("loginId");
 
 //			try {
@@ -402,11 +404,12 @@ public class MemberController {
 		
 
 		String api_id = list[0];
+		String api_id_email = list[2];
 		API_MemberVO api_member;
 		
 
 		if (service.apiLogin(api_id)) {
-			session.setAttribute("loginId", api_id);
+			session.setAttribute("loginId", api_id_email);
 //			clientList.add(api_id);
 //			System.out.println("----------------------------------------");
 //			System.out.println("등록된아이디 : " + clientList);
@@ -437,7 +440,7 @@ public class MemberController {
 			api_member.setNickname(list[1]);
 			System.out.println(api_member);
 			service.apiJoin(api_member);
-			session.setAttribute("loginId", api_id);
+			session.setAttribute("loginId", api_id_email);
 			String sessionId = (String) session.getAttribute("loginId");
 
 //			try {

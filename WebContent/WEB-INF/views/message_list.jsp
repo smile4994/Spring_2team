@@ -67,8 +67,8 @@ function deleteMsg(msgNum){
 	<div class="gallery">
 		<div class="container">
 			<h3 class="title">
-				Our
-				<span>Board</span>
+				쪽지
+				<span>보관함</span>
 			</h3>
 			<table class="table table-striped">
 				<thead>

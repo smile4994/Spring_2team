@@ -196,7 +196,7 @@ function LogTime(){	//세션 삭제
 			</div>
 			<div class="header-middle">
 				<ul>
-					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>010-1234-5678</li>
+					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>1588-3357</li>
 					<li>
 					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@multicampus.com</li>
 				</ul>
