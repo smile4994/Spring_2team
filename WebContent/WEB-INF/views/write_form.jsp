@@ -116,8 +116,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td>카테고리</td>
 						<td>
 						<select name="kategorie" class="btn btn-default dropdown-toggle">
-								<option value="문의" selected="selected">문의</option>
-								<option value="분양">분양</option>
+								<option value="문의">문의</option>
+								<option value="분양" selected="selected">분양</option>
 								<option value="분실">분실</option>
 						</select></td>
 					</tr>

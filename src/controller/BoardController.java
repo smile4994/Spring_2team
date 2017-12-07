@@ -36,7 +36,6 @@ public class BoardController {
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("boardList", service.svSelectMain());
 		mv.setViewName("main");
-		System.out.println("main.do¿¡¼­ : " +service.svSelectMain());
 		return mv;
 	}
 	

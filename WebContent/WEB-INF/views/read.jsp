@@ -55,7 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	$(function() {
 		replyRead_func();
 		$('#replyOk').click(function() {
-			alert("동작한다");
 			var str = $('#re_contents').val();
 			var a = str.charAt(0);
 			if (a == " " || str.length < 1) {
@@ -138,7 +137,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$('#replyRead').html(replyHtml);
 					},
 					error : function() {
-						alert("AJAX_listReply실패");
 					}
 				});
 	}
