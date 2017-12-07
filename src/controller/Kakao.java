@@ -23,7 +23,7 @@ public class Kakao {
 	
 	private static final String AdminKey = "c7acf4385ef2354d2cd4a4691644e00a";
 
-	private static final String Redirect_URL = "http://localhost:8888/Spring_2team/kakaologin.do";
+	private static final String Redirect_URL = "http://70.12.115.53:8888/Spring_2team/kakaologin.do";
 
 	private static final String keyHost = "https://kauth.kakao.com";
 
