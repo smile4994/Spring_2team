@@ -38,6 +38,7 @@
 			<mvc:exclude-mapping path="/naverstart.do" />
 			<mvc:exclude-mapping path="/naverlogin.do" />
 			<mvc:exclude-mapping path="/kakaoGetCode.do" />
+			<mvc:exclude-mapping path="/kakaologin.do" />
 			<bean class="interceptor.LoginCheckInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
