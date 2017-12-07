@@ -122,7 +122,7 @@ function LogTime(){	//技记 昏力
 				var html = "";
 				var count = 0;
 				$.each(data, function(key, clientList) {
-					html += "<a onclick='message_func(\""+clientList+"\")'>";
+					html += "<a onclick='message_func(\""+clientList+"\")' style='cursor: pointer;'>";
 					html += clientList;
 					html += "</a> <br>"
 					count++;
@@ -196,7 +196,7 @@ function LogTime(){	//技记 昏力
 			</div>
 			<div class="header-middle">
 				<ul>
-					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>010-1234-5678</li>
+					<li><span class="glyphicon glyphicon-phone" aria-hidden="true"></span>1588-3357</li>
 					<li>
 					<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@multicampus.com</li>
 				</ul>

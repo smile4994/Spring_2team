@@ -14,9 +14,9 @@
 			<div class="contact-left">
 				<h2 class="title">Contact Information</h2>
 				<ul class="contact-list">
-					<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>756 global Place, New York.</li>
-					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span><a href="mailto:example@mail.com">mail@example.com</a></li>
-					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>+123 2222 222</li>
+					<li><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>서울특별시 강남구 역삼2동 테헤란로 212</li>
+					<li><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>SDS1501@multicampus.com</li>
+					<li><span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>1588-3357</li>
 				</ul>
 			</div>						
 			<div class="clearfix"> </div>
