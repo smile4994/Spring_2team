@@ -61,10 +61,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	}
 	function sendMessage(receiver) {
-		var text = prompt('보낼 메세지');
 		if("${loginId}"==receiver){
 			alert('자신에게 보낼 수 없음');
 			return false;
+		}else{
+			var text = prompt('보낼 메세지');
 		}
 		if (text == '' || text == null) {
 			alert('메세지 전송 취소 or 값을 입력해주세요');
