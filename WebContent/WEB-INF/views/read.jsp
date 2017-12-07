@@ -243,7 +243,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<br>
 
-			<!-- 	리플이 달리는부분 -->
+			<!-- 	리플이 달리는부분ㅎㅎ -->
 			<div id="replyRead" align="center"></div>
 
 			<div id="replyWrite" align="center">

@@ -264,19 +264,6 @@ function LogTime(){	//세션 삭제
 										class="menu__link" href="map.do">Pet Clinic</a>
 									</li>
 
-
-
-
-<!-- 									<li id="matching" class=" menu__item"> -->
-<!-- 																	<div class="menu__link">Matching</div> <a -->
-<!-- 										class="menu__link" href="matching.do">Matching</a> -->
-<!-- 									</li> -->
-									
-<!-- 									<li id="matching" class=" menu__item"> -->
-<!-- 																	<div class="menu__link">Matching</div> <a -->
-<!-- 										class="menu__link" href="codes.do">codes</a> -->
-<!-- 									</li> -->
-									
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 
