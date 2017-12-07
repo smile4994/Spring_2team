@@ -152,11 +152,30 @@ function LogTime(){	//세션 삭제
 	
 	/**********쪽지 보내기**********/
 	function message_func(receiver) {
-		alert(receiver);
 		var text = prompt('보낼 메세지');
-		$('[name="content"]').val(text);
-		$('[name="receiver"]').val(receiver);
-		$('#messageForm').submit();
+		if("${loginId}"==receiver){
+			alert('자신에게 보낼 수 없음');
+			return false;
+		}
+		if (text == '' || text == null) {
+			alert('메세지 전송 취소 or 값을 입력해주세요');
+			return false;
+		} else {
+			$.ajax({
+				url : 'messageSend.do',
+				type : 'POST',
+				data : ({'content':text,'receiver':receiver}),
+				dataType : 'text',
+				cache : false,
+				success : function(data) {
+					console.log('ajax 메세지 전송 성공');
+					location.href="main.do";
+				},
+				error : function() {
+					console.log('ajax 메세지 전송 실패');
+				}
+			});
+		}
 	}
 	/***************************/
 	
