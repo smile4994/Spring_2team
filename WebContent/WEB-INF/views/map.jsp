@@ -106,19 +106,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var find;
 					var markers = [];
 
+					myMap();
 // 					Geolocation API에 액세스할 수 있는지를 확인
-					if (navigator.geolocation) {
-						//위치 정보를 얻기
-						navigator.geolocation.getCurrentPosition(function(pos) {
-							myCLat = pos.coords.latitude;
-							myCLong = pos.coords.longitude;
-							// 							$('#latitude').html(pos.coords.latitude); // 위도
-							// 							$('#longitude').html(pos.coords.longitude); // 경도
-							myMap();
-						});
-					} else {
-						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-					}
+// 					if (navigator.geolocation) {
+// 						//위치 정보를 얻기
+// 						navigator.geolocation.getCurrentPosition(function(pos) {
+// 							myCLat = pos.coords.latitude;
+// 							myCLong = pos.coords.longitude;
+// 							// 							$('#latitude').html(pos.coords.latitude); // 위도
+// 							// 							$('#longitude').html(pos.coords.longitude); // 경도
+// 							myMap();
+// 						});
+// 					} else {
+// 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+// 					}
 
 					////////////////////
 					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
@@ -129,7 +130,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
-							center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
+// 							center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
+							center : new daum.maps.LatLng(37.501919, 127.041455), // 지도의 중심좌표
 							level : 2
 						// 지도의 확대 레벨
 						};
