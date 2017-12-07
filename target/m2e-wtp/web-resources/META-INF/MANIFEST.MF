@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
 Built-By: student
-<<<<<<< HEAD
-Build-Jdk: 1.8.0_144
-=======
-Build-Jdk: 1.8.0_111
->>>>>>> 273d7c0052507550e9f3d3044aee259723f67288
+Build-Jdk: 1.8.0_151
 Created-By: Maven Integration for Eclipse
 
