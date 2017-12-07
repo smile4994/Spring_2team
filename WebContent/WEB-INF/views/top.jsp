@@ -331,10 +331,5 @@ function LogTime(){	//세션 삭제
 		<div id="close">close</div>
 	</div>
 
-	<form id="messageForm" action="messageSend.do" method="post">
-		<input type="hidden" name="content" value=""> 
-		<input type="hidden" name="receiver" value="">
-	</form>
-
-</body>
+/body>
 </html>
