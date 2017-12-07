@@ -68,7 +68,7 @@ function deleteMsg(msgNum){
 		<div class="container">
 			<h3 class="title">
 				Our
-				<span>Board</span>
+				<span>Message</span>
 			</h3>
 			<table class="table table-striped">
 				<thead>
