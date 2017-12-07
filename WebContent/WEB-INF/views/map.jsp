@@ -15,6 +15,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	
 	
 	
+	
 	addEventListener("load", function() {
 		setTimeout(hideURLbar, 0);
 	}, false);
@@ -25,12 +26,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 
+
 </script>
 <!-- //for-mobile-apps -->
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css"
 	media="all" />
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<link href="css/custom.css?ver=1" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom.css?ver=1" rel="stylesheet" type="text/css"
+	media="all" />
 <!-- js -->
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script>
@@ -74,7 +77,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 <body>
-<%@include file="top.jsp" %>
+	<%@include file="top.jsp"%>
 
 
 	<!-- 맵 -->
@@ -106,23 +109,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					var find;
 					var markers = [];
 
-// 					Geolocation API에 액세스할 수 있는지를 확인
+					// 					Geolocation API에 액세스할 수 있는지를 확인
 
-					if (navigator.geolocation) {
-						//위치 정보를 얻기
-						navigator.geolocation.getCurrentPosition(function(pos) {
-							myCLat = pos.coords.latitude;
-							myCLong = pos.coords.longitude;
-							// 							$('#latitude').html(pos.coords.latitude); // 위도
-							// 							$('#longitude').html(pos.coords.longitude); // 경도
-							myMap();
-						});
-					} else {
-						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
-					}
+					// 					if (navigator.geolocation) {
+					// 						//위치 정보를 얻기
+					// 						navigator.geolocation.getCurrentPosition(function(pos) {
+					// 							myCLat = pos.coords.latitude;
+					// 							myCLong = pos.coords.longitude;
+					// 							// 							$('#latitude').html(pos.coords.latitude); // 위도
+					// 							// 							$('#longitude').html(pos.coords.longitude); // 경도
+					// 							myMap();
+					// 						});
+					// 					} else {
+					// 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
+					// 					}
 
 					////////////////////
 					// 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+					myMap();
 					function myMap() {
 						var infowindow = new daum.maps.InfoWindow({
 							zIndex : 1
@@ -130,7 +134,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 						mapOption = {
-							center : new daum.maps.LatLng(myCLat, myCLong), // 지도의 중심좌표
+							center : new daum.maps.LatLng(37.5013068,
+									127.03965970000002), // 지도의 중심좌표
 							level : 2
 						// 지도의 확대 레벨
 						};
@@ -210,9 +215,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
 
 							// 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+// 							var markerImage = new daum.maps.MarkerImage(
+// 									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
+// 									myCLat, myCLong); // 마커가 표시될 위치입니다
+
+
 							var markerImage = new daum.maps.MarkerImage(
 									imageSrc, imageSize, imageOption), markerPosition = new daum.maps.LatLng(
-									myCLat, myCLong); // 마커가 표시될 위치입니다
+											37.5013068,
+											127.03965970000002); // 마커가 표시될 위치입니다
+
 
 							// 마커를 생성합니다
 							var nowMarker = new daum.maps.Marker({
@@ -291,6 +303,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		</div>
 	</div>
-<jsp:include page="bottom.jsp"/>
+	<jsp:include page="bottom.jsp" />
 </body>
 </html>
