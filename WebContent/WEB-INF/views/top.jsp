@@ -122,7 +122,7 @@ function LogTime(){	//세션 삭제
 				var html = "";
 				var count = 0;
 				$.each(data, function(key, clientList) {
-					html += "<a onclick='message_func(\""+clientList+"\")'>";
+					html += "<a onclick='message_func(\""+clientList+"\")' style='cursor: pointer;'>";
 					html += clientList;
 					html += "</a> <br>"
 					count++;
