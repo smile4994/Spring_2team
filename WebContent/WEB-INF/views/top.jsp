@@ -99,14 +99,15 @@ function LogTime(){	//세션 삭제
 	$(function() {
 		printTime();  //현재시간
 		clientList_func();	//클라이언트 확인
-		
+		var num = 0;
 		//////접속자 눌렀을때//////////
 		$('#pop_bt').click(function () {
-			$('#pop').show();
-		})
-		
-		$('#close').click(function() {
-			$('#pop').hide();
+			if(num%2==0){
+				$('#pop').show();
+			}else{
+				$('#pop').hide();
+			}
+			num++;
 		})
 	})
 	
@@ -315,7 +316,6 @@ function LogTime(){	//세션 삭제
 		<div id="clock"></div>
 		<div id="clientCount"></div>
 		<div id="showClient"></div>
-		<div id="close">close</div>
 	</div>
 
 </body>
