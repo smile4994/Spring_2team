@@ -61,15 +61,15 @@ public class MemberController {
 		return "about";
 	}
 
-//	@RequestMapping("/codes.do")
-//	public String codes() {
-//		return "codes";
-//	}
+	@RequestMapping("/codes.do")
+	public String codes() {
+		return "codes";
+	}
 
-//	@RequestMapping("/matching.do")
-//	public String matching() {
-//		return "matching";
-//	}
+	@RequestMapping("/matching.do")
+	public String matching() {
+		return "matching";
+	}
 
 	@RequestMapping("/map.do")
 	public String map() {
@@ -162,7 +162,7 @@ public class MemberController {
 						// "parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace();//
 			}
 		} else {
 			try {

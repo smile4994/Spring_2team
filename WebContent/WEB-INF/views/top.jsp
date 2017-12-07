@@ -311,7 +311,7 @@ function LogTime(){	//技记 昏力
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 
 									<li id="pop_bt" class=" menu__item">
-										<a class="menu__link">On User</a>
+										<a class="menu__link">On user</a>
 									</li>
 
 								</ul>
@@ -330,11 +330,6 @@ function LogTime(){	//技记 昏力
 		<div id="showClient"></div>
 		<div id="close">close</div>
 	</div>
-
-<!-- 	<form id="messageForm" action="messageSend.do" method="post"> -->
-<!-- 		<input type="hidden" name="content" value="">  -->
-<!-- 		<input type="hidden" name="receiver" value=""> -->
-<!-- 	</form> -->
 
 </body>
 </html>
