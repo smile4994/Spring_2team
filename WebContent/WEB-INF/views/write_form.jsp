@@ -55,6 +55,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	function fileInfo(f) {
 		var file = f.files;
 		if (file[0].type.indexOf('image') < 0) { // 선택한 파일이 이미지인지 확인
+			$('input[name="img"]').val('');
 			alert('이미지 파일만 선택하세요');
 			return false;
 		}
