@@ -50,91 +50,126 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<img class="img-responsive" src="images/g1.jpg" alt="">
 						<div class="month-in">
 							<span><img src="images/icon1.png" alt=" "></span>
-							<p>Consectetuer adipiscing</p>
+							<p>안락사 없는 요양 보호시설</p>
 						</div>
 					</div>
 					<div class="col-bottom">
-						<h4>Consectetuer Adipiscing</h4>
-						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem  </p>	
+						<h4>안락사 없는 요양 보호시설</h4>
+						<p>갈 곳 없는 아이들이 새로운 가족을 만날 수 있을 때까지 안락사 없이 살아갈 수 있는 공간이 마련 되어있습니다.</p>	
 					</div>
 				</div>	
 						
 			</div>
 			<div class="col-md-6 col-news ">
 						<div class="col-bottom two">
-							<h4>Consectetuer Adipiscing </h4>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem  </p>
+							<h4>반려동물 미용시설 </h4>
+							<p>기본 미용은 물론 반려동물에게 잘 어울리는 미용을 해줄 수 있는 애견 미용 전문가가 당신의 반려동물을 관리해 드립니다.</p>
 							
 						</div>
 						<div class="col-news-top">
 							<div class="date-in">
-								<img class="img-responsive" src="images/g2.jpg" alt="">
+								<img class="img-responsive" src="images/shopp.png" alt="">
 								<div class="month-in">
 									<span><img src="images/icon2.png" alt=" "></span>
-									<p>Consectetuer adipiscing</p>									
+									<p>반려동물 미용시설</p>									
 								</div>
 							</div>
 						</div>		
 			</div>
+			
+			
+			<div class="col-md-6 col-news-right ">
+				<div class="col-news-top">
+					<div class="date-in">
+						<img class="img-responsive" src="images/petpark.png" alt="">
+						<div class="month-in">
+							<span><img src="images/icon1.png" alt=" "></span>
+							<p>펫파크</p>
+						</div>
+					</div>
+					<div class="col-bottom">
+						<h4>펫파크</h4>
+						<p>반려동물과 반려인이 교감하며 즐길 수 있는 시설물로 준비되어 있습니다.</p>	
+					</div>
+				</div>	
+						
+			</div>
+			<div class="col-md-6 col-news ">
+						<div class="col-bottom two">
+							<h4>반려동물 호텔</h4>
+							<p>넓고 쾌적한 시설과 함께 전문가에게 아이들을 믿고 맡길 수 있는 안전한 호텔입니다.</p>
+							
+						</div>
+						<div class="col-news-top">
+							<div class="date-in">
+								<img class="img-responsive" src="images/hotel.png" alt="">
+								<div class="month-in">
+									<span><img src="images/icon2.png" alt=" "></span>
+									<p>반려동물 호텔</p>									
+								</div>
+							</div>
+						</div>		
+			</div>
+			
 			<div class="clearfix"> </div>
 	</div>
 </div>
-<div class="team-gds">	
-	<div class="container">
-		<h3 class="title" >Our <span> Team</span></h3>
-			<div class="team-bot">
-				<div class="col-md-4 bottom-gds ">
-					<div class="bott-img">
-								<div class="icon-holder">
-									<span><img  src="images/team1.jpg" alt=""></span>
-								</div>
-								<h4 class="mission">Victoria</h4>
-								<div class="description">
-									<ul>
-										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-									</ul>
-								</div>
-					</div>
-				</div>
-				<div class="col-md-4 bottom-gds ">
-					<div class="bott-img">
-								<div class="icon-holder">
-									<span><img  src="images/team2.jpg" alt=""></span>
-								</div>
-								<h4 class="mission">Thompson</h4>
-								<div class="description">
-									<ul>
-										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-									</ul>
-								</div>
-					</div>
-				</div>
-				<div class="col-md-4 bottom-gds ">
-					<div class="bott-img">
-								<div class="icon-holder">
-									<span><img  src="images/team3.jpg" alt=""></span>
-								</div>
-								<h4 class="mission">Federica</h4>
-								<div class="description">
-									<ul>
-										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li>
-										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li>
-									</ul>
-								</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-	</div>
-</div>
+<!-- <div class="team-gds">	 -->
+<!-- 	<div class="container"> -->
+<!-- 		<h3 class="title" >Our <span> Team</span></h3> -->
+<!-- 			<div class="team-bot"> -->
+<!-- 				<div class="col-md-4 bottom-gds "> -->
+<!-- 					<div class="bott-img"> -->
+<!-- 								<div class="icon-holder"> -->
+<!-- 									<span><img  src="images/team1.jpg" alt=""></span> -->
+<!-- 								</div> -->
+<!-- 								<h4 class="mission">Victoria</h4> -->
+<!-- 								<div class="description"> -->
+<!-- 									<ul> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
+<!-- 									</ul> -->
+<!-- 								</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-4 bottom-gds "> -->
+<!-- 					<div class="bott-img"> -->
+<!-- 								<div class="icon-holder"> -->
+<!-- 									<span><img  src="images/team2.jpg" alt=""></span> -->
+<!-- 								</div> -->
+<!-- 								<h4 class="mission">Thompson</h4> -->
+<!-- 								<div class="description"> -->
+<!-- 									<ul> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
+<!-- 									</ul> -->
+<!-- 								</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="col-md-4 bottom-gds "> -->
+<!-- 					<div class="bott-img"> -->
+<!-- 								<div class="icon-holder"> -->
+<!-- 									<span><img  src="images/team3.jpg" alt=""></span> -->
+<!-- 								</div> -->
+<!-- 								<h4 class="mission">Federica</h4> -->
+<!-- 								<div class="description"> -->
+<!-- 									<ul> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="fb" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="twit" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="goog" href="#"></a></li> -->
+<!-- 										<li class="hvr-rectangle-out"><a class="pin" href="#"></a></li> -->
+<!-- 									</ul> -->
+<!-- 								</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 				<div class="clearfix"></div> -->
+<!-- 			</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 <!-- contact -->
 <jsp:include page="bottom.jsp"/>
 

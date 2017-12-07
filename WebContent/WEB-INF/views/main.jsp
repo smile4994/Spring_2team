@@ -94,21 +94,21 @@ window.onload = function(){
 					<div class="ban-info">
 						<h3>품종 보장 & 평생 책임 보상을 해드립니다.</h3>
 						<p>공장분양을 제한하고 컨넬/브리더/자체번식/가정곱급을 통해<br><br>보다 건강하고 이쁜 아이들을 맞이할 수 있도록 노력하고 있습니다.</p>
-						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
+						<a class="hvr-rectangle-out" href="about.do">See More About Us</a>
 					</div>		
 				</li>
 				<li>
 					<div class="ban-info">
 						<h3>전문가가 친절하게 도와드리겠습니다.</h3>
 						<p>고객중심 가맹정중심의 사고를 통해 미래지향적 경영을 선도하며<br><br>신뢰와 믿음을 바탕으로 끊임없는 노력을 하고 있습니다.</p>
-						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
+						<a class="hvr-rectangle-out" href="about.do">See More About Us</a>
 					</div>		
 				</li>
 				<li>
 					<div class="ban-info">
 						<h3>다양한 이벤트와 혜택을 챙겨가세요</h3>
 						<p>PETS LOVE 반려동물 분양 및 분실신고, 반려동물 매칭서비스를 제공하고 있습니다.</p>
-						<a class="hvr-rectangle-out" href="about.jsp">See More About Us</a>
+						<a class="hvr-rectangle-out" href="about.do">See More About Us</a>
 					</div>		
 				</li>			
 			</ul>
