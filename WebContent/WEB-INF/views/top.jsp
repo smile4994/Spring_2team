@@ -159,6 +159,14 @@ function LogTime(){	//세션 삭제
 		}else{
 			var text = prompt('보낼 메세지');
 		}
+		
+		var special_pattern = /[`~!@#$%^&*<>|\\\'\";:\/?]/gi;
+
+		if(special_pattern.test(text) == true){
+			alert('특수문자는 사용할 수 없습니다.');
+		    return false;
+		}
+		
 		if (text == '' || text == null) {
 			alert('메세지 전송 취소 or 값을 입력해주세요');
 			return false;
