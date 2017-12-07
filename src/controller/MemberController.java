@@ -162,7 +162,7 @@ public class MemberController {
 						// "parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
-				e.printStackTrace();
+				e.printStackTrace();//
 			}
 		} else {
 			try {
