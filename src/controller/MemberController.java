@@ -46,15 +46,6 @@ public class MemberController {
 		}
 	}
 
-	@RequestMapping("/testMain.do")
-	public String testMain() {
-		return "testMain";
-	}
-
-//	@RequestMapping("/main.do")
-//	public String main() {
-//		return "main";
-//	}
 
 	@RequestMapping("/about.do")
 	public String about() {
@@ -159,7 +150,6 @@ public class MemberController {
 			try {
 				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	alert('success');\r\n"
 						+ "location.href='main.do';" +
-						// "parent.location.reload();" +
 						"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();//
@@ -168,7 +158,6 @@ public class MemberController {
 			try {
 				resp.getWriter().println(
 						"<script type=\"text/javascript\">\r\n" + "	alert('fail');\r\n" + "location.href='main.do';" +
-						// "parent.location.reload();" +
 								"</script>");
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -294,7 +283,6 @@ public class MemberController {
 		System.out.println("naver code : " + code);
 		System.out.println("naver state : " + state);
 
-		// String result = Naver.getAccessToken(code, state);
 
 		Map<String, String> mapResult = Naver.JSONStringToMap(Naver.getAccessToken(code, state));
 		String result = (String) Naver.getxml((String) mapResult.get("token_type"),
@@ -318,19 +306,13 @@ public class MemberController {
 		
 
 		if (service.apiLogin(api_id)) {
-//			session.setAttribute("loginId", api_id);
 			session.setAttribute("loginId", api_id_email);
-//			clientList.add(api_id);
-//			System.out.println("----------------------------------------");
-//			System.out.println("등록된아이디 : " + clientList);
-//			System.out.println("*생성* // 세션 아이디 : " + api_id + " // 세션의 수 : " + clientList.size());
 
 			String sessionId = (String) session.getAttribute("loginId");
 
 			try {
 				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	\r\n"
 						+ "location.href='main.do';" +
-						// "parent.location.reload();" +
 						"</script>");
 				clientList.add(sessionId);
 				System.out.println("----------------------------------------");
@@ -353,29 +335,15 @@ public class MemberController {
 			session.setAttribute("loginId", api_id_email);
 			String sessionId = (String) session.getAttribute("loginId");
 
-//			try {
-//				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	alert('success');\r\n"
-//						+ "location.href='main.do';" +
-//						// "parent.location.reload();" +
-//						"</script>");
 				clientList.add(sessionId);
 				System.out.println("----------------------------------------");
 				System.out.println("등록된아이디 : " + clientList);
 				System.out.println("*API 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
 			
 		}
 		return "login_success";
 
 
-	// System.out.println("access_token : "+(String)mapResult.get("access_token"));
-	// System.out.println("refresh_token :
-	// "+(String)mapResult.get("refresh_token"));
-	// System.out.println("token_type : "+(String)mapResult.get("token_type"));
-	// System.out.println("expires_in : "+(String)mapResult.get("expires_in"));
-//	return"main";
 
 	}
 
@@ -383,14 +351,12 @@ public class MemberController {
 	@RequestMapping(value = "/kakaoGetCode.do", method = RequestMethod.GET)
 	public String kakao() throws Exception {
 		Kakao kakao = new Kakao();
-		// System.out.println("kakao.getCode() : " + kakao.getCode());
 
 		return "redirect:" + kakao.getCode();
 	}
 
 	@RequestMapping(value = "/kakaologin.do", method = RequestMethod.GET)
 	public String kakaoLogin(@RequestParam("code") String code, HttpSession session, HttpServletResponse resp) throws Exception {
-		// System.out.println("code : " + code);
 
 		String data = (String) kakao.getHtml((kakao.getAccessToken(code)));
 		System.out.println("data : " + data);
@@ -410,26 +376,14 @@ public class MemberController {
 
 		if (service.apiLogin(api_id)) {
 			session.setAttribute("loginId", api_id_email);
-//			clientList.add(api_id);
-//			System.out.println("----------------------------------------");
-//			System.out.println("등록된아이디 : " + clientList);
-//			System.out.println("*생성* // 세션 아이디 : " + api_id + " // 세션의 수 : " + clientList.size());
 
 			String sessionId = (String) session.getAttribute("loginId");
 
-//			try {
-//				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	\r\n"
-//						+ "location.href='main.do';" +
-						// "parent.location.reload();" +
-//						"</script>");
 				clientList.add(sessionId);
 				System.out.println("----------------------------------------");
 				System.out.println("등록된아이디 : " + clientList);
 				System.out.println("*API 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
 
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
 			
 			
 		} else {
@@ -443,18 +397,6 @@ public class MemberController {
 			session.setAttribute("loginId", api_id_email);
 			String sessionId = (String) session.getAttribute("loginId");
 
-//			try {
-//				resp.getWriter().println("<script type=\"text/javascript\">\r\n" + "	\r\n"
-//						+ "location.href='main.do';" +
-						// "parent.location.reload();" +
-//						"</script>");
-//				clientList.add(sessionId);
-//				System.out.println("----------------------------------------");
-//				System.out.println("등록된아이디 : " + clientList);
-////				System.out.println("*API KAKAO 아이디생성* // 세션 아이디 : " + sessionId + " // 세션의 수 : " + clientList.size());
-//			} catch (IOException e) {
-//				e.printStackTrace();
-//			}
 			clientList.add(sessionId);
 			System.out.println("----------------------------------------");
 			System.out.println("등록된아이디 : " + clientList);

@@ -230,69 +230,27 @@ window.onload = function(){
 	<div class="container">
 		<h3 class="title wow flipInX" >Our <span> Services</span></h3>
 		<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service1.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service2.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service3.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service4.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service5.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="col-md-4 services-grid wow zoomIn" data-wow-duration="2s" data-wow-delay="0.5s">
-<!-- 					<div class="services-left"> -->
 						<img class="img-responsive" src="images/service6.png" alt=" "/>
-<!-- 					</div> -->
-<!-- 					<div class="services-right"> -->
-<!-- 						<h4>AT VERO EOS ET ACCUSAMUS</h4> -->
-<!-- 						<p>Sed ut perspiciatis unde omnis iste natus error sit  -->
-<!-- 						voluptatem accusantium doloremque  </p> -->
-<!-- 					</div> -->
 					<div class="clearfix"></div>
 				</div>
 				<div class="clearfix"></div>
