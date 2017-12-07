@@ -61,20 +61,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 	}
 	function sendMessage(receiver) {
-		console.log("${loginId}");
-		console.log(receiver);
+		var text = prompt('보낼 메세지');
 		if("${loginId}"==receiver){
 			alert('자신에게 보낼 수 없음');
 			return false;
 		}
-		var text = prompt('보낼 메세지');
 		if (text == '' || text == null) {
 			alert('메세지 전송 취소 or 값을 입력해주세요');
 			return false;
 		} else {
-			$('[name="content"]').val(text);
-			$('[name="receiver"]').val(receiver);
-			$('#messageForm').submit();
+			$.ajax({
+				url : 'messageSend.do',
+				type : 'POST',
+				data : ({'content':text,'receiver':receiver}),
+				dataType : 'text',
+				cache : false,
+				success : function(data) {
+					console.log('ajax 메세지 전송 성공');
+					location.href="board.do";
+				},
+				error : function() {
+					console.log('ajax 메세지 전송 실패');
+				}
+			});
 		}
 	}
 	function miniProfile(opponent) {
@@ -192,10 +201,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</form>
 		</div>
 	</div>
-	<form id="messageForm" action="messageSend.do" method="post">
-		<input type="hidden" name="content" value=""> <input
-			type="hidden" name="receiver" value="">
-	</form>
 	<jsp:include page="bottom.jsp" />
 </body>
 </html>
