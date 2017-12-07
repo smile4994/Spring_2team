@@ -249,33 +249,33 @@ function LogTime(){	//세션 삭제
 										class="menu__link" href="about.do">About</a>
 									</li>
 
-									<li id="boardPage" class=" menu__item">
-										<!-- 						<div class="menu__link" >게시판</div> --> <a
-										class="menu__link" href="board.do">Make Family</a>
-									</li>
 
 									<li id="gallery" class=" menu__item">
 										<!-- 						<div class="menu__link">Gallery</div> --> <a
-										class="menu__link" href="gallery.do">Find Family</a>
+										class="menu__link" href="gallery.do">Gallery</a>
 									</li>
 
 									<li id="mapView" class=" menu__item">
 										<!-- 							<div class="menu__link">Map</div> --> <a
-										class="menu__link" href="map.do">Pet Clinic</a>
+										class="menu__link" href="map.do">주변 동물병원</a>
 									</li>
 
 
+									<li id="boardPage" class=" menu__item">
+										<!-- 						<div class="menu__link" >게시판</div> --> <a
+										class="menu__link" href="board.do">게시판</a>
+									</li>
 
 
-<!-- 									<li id="matching" class=" menu__item"> -->
-<!-- 																	<div class="menu__link">Matching</div> <a -->
-<!-- 										class="menu__link" href="matching.do">Matching</a> -->
-<!-- 									</li> -->
+									<li id="matching" class=" menu__item">
+										<!-- 							<div class="menu__link">Matching</div> --> <a
+										class="menu__link" href="matching.do">Matching</a>
+									</li>
 									
-<!-- 									<li id="matching" class=" menu__item"> -->
-<!-- 																	<div class="menu__link">Matching</div> <a -->
-<!-- 										class="menu__link" href="codes.do">codes</a> -->
-<!-- 									</li> -->
+									<li id="matching" class=" menu__item">
+										<!-- 							<div class="menu__link">Matching</div> --> <a
+										class="menu__link" href="codes.do">codes</a>
+									</li>
 									
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 									<li class=" menu__item">&nbsp;&nbsp;</li>
@@ -285,24 +285,24 @@ function LogTime(){	//세션 삭제
 
 										<li id="login" class=" menu__item">
 											<!-- 								<div class="menu__link">Login</div> --> <a
-											class="menu__link" href="loginForm.do">Login</a>
+											class="menu__link" href="loginForm.do">로그인</a>
 										</li>
 
 										<li id="join" class=" menu__item">
 											<!-- 								<div class="menu__link">Join</div> --> <a
-											class="menu__link" href="joinForm.do">Join</a>
+											class="menu__link" href="joinForm.do">회원가입</a>
 										</li>
 									</c:if>
 									<c:if test="${not empty sessionScope.loginId}">
 										<li id="logout" class=" menu__item">
 											<!-- 							<div class="menu__link">Logout</div> --> <a
-											class="menu__link" href="logout.do">Logout</a>
+											class="menu__link" href="logout.do">로그아웃</a>
 										</li>
 
 
 										<li id="mypage" class=" menu__item">
 											<!-- 						<div class="menu__link">MyPage</div> --> <a
-											class="menu__link" href="myPage.do">My Page</a>
+											class="menu__link" href="myPage.do">마이페이지</a>
 										</li>
 
 									</c:if>
@@ -311,7 +311,7 @@ function LogTime(){	//세션 삭제
 									<li class=" menu__item">&nbsp;&nbsp;</li>
 
 									<li id="pop_bt" class=" menu__item">
-										<a class="menu__link">On User</a>
+										<div class="menu__link">접속자</div>
 									</li>
 
 								</ul>
@@ -331,10 +331,10 @@ function LogTime(){	//세션 삭제
 		<div id="close">close</div>
 	</div>
 
-<!-- 	<form id="messageForm" action="messageSend.do" method="post"> -->
-<!-- 		<input type="hidden" name="content" value="">  -->
-<!-- 		<input type="hidden" name="receiver" value=""> -->
-<!-- 	</form> -->
+	<form id="messageForm" action="messageSend.do" method="post">
+		<input type="hidden" name="content" value=""> 
+		<input type="hidden" name="receiver" value="">
+	</form>
 
 </body>
 </html>
