@@ -6,10 +6,10 @@
 <script type="text/javascript">
 	window.onload = function(){
 		var result = '${result}';
-		if(result > 0){
-			alert('삭제 완료!');
-		}else{
+		if(result == 0){
 			alert('삭제 실패!');
+		}else{
+			alert('삭제 완료!');
 		}
 		location.href="board.do";
 	}
