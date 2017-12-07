@@ -19,11 +19,11 @@
 /*    } */
  
    #pop{
-    width:250px; height:300px; background:#FFC4EB; color:#ff; 
+    width:250px; height:300px; background:#000000; color:#FFF; 
     position:absolute;  
 	top:10px; left:500px;  
     text-align:center; 
-    border:2px solid #000;
+    border:2px solid gray;
    }
  
    #close{
