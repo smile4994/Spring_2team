@@ -27,17 +27,10 @@
    }
  
    #close{
-   position:relative;
-   bottom : 0;
-   z-index : 100;
-   font-weight:bold;
-   margin-left:auto;
-   margin-right:auto;
-   width:250px;
-   background-color: #228B22;
+   background-color: black;
    color: white;
    padding: 10px;
-/*    width:100px; margin:auto; margin-bottom:10; cursor:pointer; font-weight:bold; */
+width:100px; margin:auto; margin-bottom:10; cursor:pointer; font-weight:bold;
    }
  </style>
 
