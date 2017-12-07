@@ -45,6 +45,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
 <script type="text/javascript">
+
 	jQuery(document).ready(function($) {
 		$(".scroll").click(function(event) {
 			event.preventDefault();
@@ -52,9 +53,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				scrollTop : $(this.hash).offset().top
 			}, 1000);
 		});
+		
+		$('.third-login').submit(function(){
+			window.setInterval( function (){
+				 if (window.localStorage) {
+				        window.localStorage['myUnloadEventFlag']=new Date().getTime();
+				        console.log("makeNewTime");
+				    }
+			}, 1000);
+			return false;
+		})
+		
+		$('.third-kakao').submit(function(){
+			var option = 'width=400, height=500, scrollbars=yes, resizable=no, top=250, left=400';
+			var child = window.open('kakaoGetCode.do', '카카오 로그인', option);
+			return false;
+		})
+		
+		$('.third-naver').submit(function(){
+			var option = 'width=400, height=500, scrollbars=yes, resizable=no, top=250, left=400';
+			var child = window.open('naverstart.do','네이버 로그인', option);
+			return false;
+		})
 	});
+	
 </script>
 <!-- start-smoth-scrolling -->
+
+
 
 </head>
 <body>
@@ -91,7 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 			</form>
-			<form action="kakaoGetCode.do" method="get">
+			<form action="kakaoGetCode.do" method="get" class="third-login third-kakao">
 				<div class="row">
 					<div class="in-gp-tb">
 						<div class="input-group">
@@ -101,7 +127,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</form>
 
-			<form action="naverstart.do" method="get">
+			<form action="naverstart.do" method="get" class="third-login third-naver">
 				<div class="row">
 					<div class="in-gp-tb">
 						<div class="input-group">
