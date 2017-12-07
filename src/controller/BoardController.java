@@ -143,38 +143,45 @@ public class BoardController {
 
 	@RequestMapping("/updateForm.do")
 	public ModelAndView update(int boardNum) {
-		ModelAndView mv = new ModelAndView();
 		BoardVO board = service.svSelect(boardNum);
+		ModelAndView mv = new ModelAndView();
 		mv.addObject("board", board);
 		mv.setViewName("update_form");
 		return mv;
 	}
 
 	@RequestMapping("/updateWrite.do")
-	public ModelAndView updateWrite(BoardVO board) {
+	public ModelAndView updateWrite(BoardVO board, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("boardNum", board.getBoardNum());
-		if (service.svUpdate(board)) {
-			mv.setViewName("update_success");
-			return mv;
-		} else {
+		String loginId= (String)session.getAttribute("loginId");
+		//board2는 글 작성자 뽑아오기 위한 것
+		BoardVO board2 = service.svSelect(board.getBoardNum());
+		if(board2.getWriter().equals(loginId)) {
+			if (service.svUpdate(board)) {
+				mv.setViewName("update_success");
+			}
+		}else {
 			mv.setViewName("update_fail");
-			return mv;
 		}
+		mv.addObject("boardNum", board.getBoardNum());
+		return mv;
 	}
 
 	@RequestMapping("/delete.do")
-	public ModelAndView delete(int boardNum) {
+	public ModelAndView delete(int boardNum, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		BoardVO board = service.svSelect(boardNum);
-		
-		//원글이 지워지면 댓글들 전체 삭제 
-		System.out.println("delete.do에 들어오는 boardnum : " +boardNum);
-		service.svReplyAllDelete(boardNum);
-		int result = service.svDelete(board);
-
-		mv.addObject("result", result);
+		String loginId = (String)session.getAttribute("loginId");
+		int result = 0;
+		//만약 세션 ID와 작성자 ID가 같다면 삭제 진행
+		if(board.getWriter().equals(loginId)) {
+			//원글이 지워지면 댓글들 전체 삭제 
+			System.out.println("delete.do에 들어오는 boardnum : " +boardNum);
+			service.svReplyAllDelete(boardNum);
+			result = service.svDelete(board);
+		}
 		mv.setViewName("delete_result");
+		mv.addObject("result",result);
 		return mv;
 	}
 	
