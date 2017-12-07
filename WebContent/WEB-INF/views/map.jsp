@@ -108,6 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 // 					Geolocation API에 액세스할 수 있는지를 확인
 <<<<<<< HEAD
+<<<<<<< HEAD
 // 					if (navigator.geolocation) {
 // 						//위치 정보를 얻기
 // 						navigator.geolocation.getCurrentPosition(function(pos) {
@@ -120,6 +121,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 // 					} else {
 // 						alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")
 // 					}
+=======
+>>>>>>> parent of 5210545... upup
 =======
 >>>>>>> parent of 5210545... upup
 					if (navigator.geolocation) {

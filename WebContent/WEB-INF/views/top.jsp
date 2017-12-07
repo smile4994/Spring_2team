@@ -332,8 +332,11 @@ function LogTime(){	//세션 삭제
 	</div>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /body>
 =======
+=======
+>>>>>>> parent of 5210545... upup
 	<form id="messageForm" action="messageSend.do" method="post">
 		<input type="hidden" name="content" value=""> 
 		<input type="hidden" name="receiver" value="">
