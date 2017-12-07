@@ -116,10 +116,10 @@ public class MemberController {
 		return "login_form";
 	}
 
-	// @RequestMapping("/loginCheck.do")
-	// public String loginCheck() {
-	// return "login_check";
-	// }
+	 @RequestMapping("/loginCheck.do")
+	 public String loginCheck() {
+	 return "login_check";
+	 }
 
 	@RequestMapping("/myPage.do")
 	public ModelAndView myPage(HttpSession session) {
@@ -229,6 +229,7 @@ public class MemberController {
 		if (service.deleteMember(loginId) == 1) {
 			mv.addObject("message", "È¸¿ø Å»Åð ¿Ï·á");
 		}
+		session.invalidate();
 		return mv;
 	}
 

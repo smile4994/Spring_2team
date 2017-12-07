@@ -320,7 +320,7 @@ function showmsgList() {
 				<div class="in-gp-tb">
 					<div class="input-group">
 						<button class="btn btn-default" onclick="check();" type="button">수정하기</button>
-						<a href="javascript:history.back()"><button class="btn btn-default" type="button">뒤로가기</button></a>
+						<a href="main.do"><button class="btn btn-default" type="button">메인으로</button></a>
 						<button class="btn btn-default" type="button" onclick="showmsgList();">쪽지함</button>
 						<button class="btn btn-default" ONCLICK="deleteMember();"type="button">회퇴원탈</button>
 					</div>

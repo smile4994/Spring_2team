@@ -23,6 +23,11 @@
 		WHERE MESSAGE_NUM=#{messageNum}
 	</delete>
 	
+	<delete id="deleteMessageLoginId">
+		DELETE FROM MESSAGE
+		WHERE RECEIVER=#{loginId}
+	</delete>
+	
 	<resultMap type="MessageVO" id="messageResultMap">
 		<result property="messageNum" column="MESSAGE_NUM" />
 		<result property="writeDate" column="WRITE_DATE" />

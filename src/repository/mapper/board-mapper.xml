@@ -134,7 +134,10 @@
 		DELETE FROM PBOARD WHERE
 		REF=#{ref}
 	</delete>
-
+	<delete id="deleteBoardLoginId">
+		DELETE FROM PBOARD WHERE
+		WRITER=#{loginId}
+	</delete>
 	<delete id="deleteReple">
 		DELETE FROM PBOARD WHERE STEP <![CDATA[ < ]]>
 		${minStep} and STEP >= ${step}
@@ -177,6 +180,11 @@
 
 	<delete id="deleteReply" parameterType="int">
 		DELETE FROM REPLY WHERE REPLY_NUM = #{replyNum}
+	</delete>
+	
+	<delete id="deleteReplyLoginId">
+		DELETE FROM REPLY WHERE
+		RE_WRITER=#{loginId}
 	</delete>
 
 	<delete id="deleteAllReply" parameterType="int">
