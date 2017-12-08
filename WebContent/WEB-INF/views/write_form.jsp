@@ -11,8 +11,10 @@
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 <script type="application/x-javascript">
 	
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 		function hideURLbar(){ window.scrollTo(0,1); } 
+
 
 </script>
 <!-- //for-mobile-apps -->
@@ -88,34 +90,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			document.submit.title.focus();
 			return false;
 		}
+
+		var contents = $('input[name="contents"]').val();
+		var objEv = document.submit.title.value;
+		var special_pattern = /[`~!@#$%^&*|\\<>\'\";:\/?]/gi;
+
+		if(special_pattern.test(objEv) == true ||special_pattern.test(contents) == true ){
+			alert('특수문자는 사용할 수 없습니다');
+		    return false;
+		}
 		return true;
 	}
 </script>
 
 <style type="text/css">
 .table {
-  width: 700;
-  max-width: 700;
-  margin-bottom: 20px;
+	width: 700;
+	max-width: 700;
+	margin-bottom: 20px;
 }
 </style>
 </head>
 <body>
 	<%@include file="top.jsp"%>
-	
+
 	<div class="gallery">
 		<div class="container">
 			<h3 class="title">
-				Board <span>Write</span>
+				Board
+				<span>Write</span>
 			</h3>
 
 			<form name="submit" onsubmit="return go_submit()" action="write.do"
 				method="post" enctype="multipart/form-data">
-				<table class="table table-bordered" >
+				<table class="table table-bordered">
 					<tr>
 						<td>카테고리</td>
-						<td>
-						<select name="kategorie" class="btn btn-default dropdown-toggle">
+						<td><select name="kategorie"
+							class="btn btn-default dropdown-toggle">
 								<option value="문의">문의</option>
 								<option value="분양" selected="selected">분양</option>
 								<option value="분실">분실</option>
@@ -123,25 +135,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</tr>
 					<tr>
 						<td>제목</td>
-						<td><input type="text"name="title" size="40"></td>
+						<td><input type="text" name="title" size="40"></td>
 					</tr>
 					<tr>
 						<td>파일첨부</td>
-						<td>
-						<input type="file" class="btn btn-default" onchange="fileInfo(this)" name="img" />
-						</td>
+						<td><input type="file" class="btn btn-default"
+							onchange="fileInfo(this)" name="img" /></td>
 					</tr>
 					<tr>
 						<td colspan="2"><div id="img_box"></div></td>
 					<tr>
 					<tr>
 						<td>내용</td>
-						<td><textarea name="contents"  rows="20" cols="50"></textarea></td>
+						<td><textarea name="contents" rows="20" cols="50"></textarea></td>
 					</tr>
 
 					<tr>
-						<td colspan="2" align="right">
-						<input type="submit" class="btn btn-default" value="작성완료"></td>
+						<td colspan="2" align="right"><input type="submit"
+							class="btn btn-default" value="작성완료"></td>
 					</tr>
 				</table>
 			</form>

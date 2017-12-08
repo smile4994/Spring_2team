@@ -122,7 +122,7 @@ function check(){
 		$('input[name="pwChk"]').val('공백은 사용할 수 없습니다');
 	    return false;
 	}
-	var special_pattern = /[`~!@#$%^&*|\\\'\";:\/?]/gi;
+	var special_pattern = /[`~!@#$%^&*|\\<>\'\";:\/?]/gi;
 
 	if(special_pattern.test(id) == true || special_pattern.test(pw) == true || special_pattern.test(pw2) == true){
 		$('input[name="pwChk"]').css('color','red');

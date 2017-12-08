@@ -50,6 +50,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 	});
 </script>
+<script type="text/javascript">
+function repleForm(){
+	var objEv = $('#con').val();
+	var special_pattern = /[`~!@#$%^&*|\\<>\'\";:\/?]/gi;
+
+	if(special_pattern.test(objEv) == true){
+		alert('특수문자는 사용할 수 없습니다');
+	    return false;
+	}else{
+		$('#repleForm').submit();
+	}
+}
+</script>
 <!-- start-smoth-scrolling -->
 <style type="text/css">
 .table {
@@ -68,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				Board <span>Reply</span>
 			</h3>
 
-			<form action="repleWrite.do" method="post">
+			<form action="repleWrite.do" method="post" id="repleForm">
 				<input type="hidden" name="ref" value="${board.ref}"> <input
 					type="hidden" name="indent" value="${board.indent}"> <input
 					type="hidden" name="step" value="${board.step}"> <input
@@ -92,11 +105,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</tr>
 					<tr>
 						<td>내용 :</td>
-						<td><textarea name="contents" rows="20" cols="50" required></textarea></td>
+						<td><textarea id="con" name="contents" rows="20" cols="50" required></textarea></td>
 					</tr>
 					<tr>
 						<td colspan="2" align="right">
-						<input type="submit" class="btn btn-default" value="작성완료"></td>
+						<input type="button" onclick="repleForm();" class="btn btn-default" value="작성완료"></td>
 					</tr>
 				</table>
 			</form>

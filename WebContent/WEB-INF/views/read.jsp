@@ -95,6 +95,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			"boardNum" : $('input[name=boardNum]').val(),
 			"re_contents" : $('#re_contents').val()
 		};
+		var special_pattern = /[`~!@#$%^&*|\\<>\'\";:\/?]/gi;
+		var reply = $('#re_contents').val();
+		if(special_pattern.test(reply) == true){
+			alert('특수문자는 사용할 수 없습니다');
+		    return false;
+		}
 		$.ajax({
 			type : 'post',
 			url : 'replyWrite.do',

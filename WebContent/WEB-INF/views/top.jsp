@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<META HTTP-EQUIV="Expires" CONTENT="Mon, 06 Jan 1990 00:00:01 GMT"> 
-<META HTTP-EQUIV="Expires" CONTENT="-1"> 
-<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
-<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache">
 <html>
 <head>
 
@@ -163,6 +159,14 @@ function LogTime(){	//세션 삭제
 		}else{
 			var text = prompt('보낼 메세지');
 		}
+		
+		var special_pattern = /[`~!@#$%^&*<>|\\\'\";:\/?]/gi;
+
+		if(special_pattern.test(text) == true){
+			alert('특수문자는 사용할 수 없습니다.');
+		    return false;
+		}
+		
 		if (text == '' || text == null) {
 			alert('메세지 전송 취소 or 값을 입력해주세요');
 			return false;
